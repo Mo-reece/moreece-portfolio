@@ -41,6 +41,10 @@ Then visit `http://localhost:8000`.
 
 ## Deployment
 
+Live deployment:
+
+- GitHub Pages: [https://mo-reece.github.io/moreece-portfolio/](https://mo-reece.github.io/moreece-portfolio/)
+
 Recommended deployment targets:
 
 - GitHub Pages for a simple static portfolio.
