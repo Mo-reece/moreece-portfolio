@@ -59,6 +59,9 @@
             --mono: 'Space Mono', monospace;
             --display: 'Bebas Neue', sans-serif;
             --body: 'Syne', sans-serif;
+            /* spacing scale */
+            --gutter: 10%;
+            --section-y: 88px;
         }
 
         *,
@@ -140,7 +143,7 @@
             top: 0;
             left: 0;
             right: 0;
-            padding: 20px 50px;
+            padding: 20px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -448,7 +451,7 @@
         .manifesto {
             background: var(--ink);
             color: var(--paper);
-            padding: 100px 10%;
+            padding: var(--section-y) var(--gutter);
             display: grid;
             grid-template-columns: auto 1fr;
             gap: 60px;
@@ -522,7 +525,7 @@
 
         /* ── ABOUT ── */
         .about {
-            padding: 120px 10%;
+            padding: var(--section-y) var(--gutter);
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 100px;
@@ -621,14 +624,14 @@
 
         /* ── SKILLS ── */
         .skills {
-            padding: 0 10% 120px;
+            padding: 0 var(--gutter) var(--section-y);
         }
 
         .skills-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2px;
-            margin-top: 60px;
+            margin-top: 40px;
             border: 2px solid var(--ink);
         }
 
@@ -707,11 +710,11 @@
         /* ── PORTFOLIO ── */
         .portfolio {
             background: var(--ink);
-            padding: 120px 0 0;
+            padding: var(--section-y) 0 0;
         }
 
         .portfolio-header {
-            padding: 0 10% 60px;
+            padding: 0 var(--gutter) 48px;
         }
 
         .portfolio-header .section-title {
@@ -824,7 +827,7 @@
         }
 
         .portfolio-cta {
-            padding: 60px 10%;
+            padding: 48px var(--gutter);
             text-align: center;
         }
 
@@ -838,7 +841,7 @@
 
         /* ── CONTACT ── */
         .contact {
-            padding: 120px 10%;
+            padding: var(--section-y) var(--gutter);
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 100px;
@@ -991,7 +994,7 @@
         footer {
             background: var(--ink);
             color: rgba(240, 236, 228, 0.4);
-            padding: 50px 10%;
+            padding: 40px var(--gutter);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1101,6 +1104,8 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
+            :root { --gutter: 7%; --section-y: 64px; }
+
             nav {
                 padding: 20px 24px;
                 background: var(--paper);
@@ -1131,7 +1136,7 @@
             .manifesto {
                 grid-template-columns: 1fr;
                 gap: 30px;
-                padding: 70px 7%;
+                
                 margin: 0 3%;
                 border-radius: 1rem;
             }
@@ -1145,7 +1150,7 @@
             .about {
                 grid-template-columns: 1fr;
                 gap: 40px;
-                padding: 80px 7%;
+                
             }
 
             .about-portrait {
@@ -1164,7 +1169,7 @@
             }
 
             .skills {
-                padding: 0 7% 80px;
+                
             }
 
             .skills-container {
@@ -1183,27 +1188,27 @@
             .contact {
                 grid-template-columns: 1fr;
                 gap: 60px;
-                padding: 80px 7%;
+                
             }
 
             footer {
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
-                padding: 40px 7%;
+                
             }
         }
 
         /* ── TECH STACK ── */
         .techstack {
-            padding: 120px 8%;
+            padding: var(--section-y) var(--gutter);
             background: var(--paper);
             border-top: 1px solid rgba(10, 10, 10, 0.08);
             position: relative;
         }
 
         .techstack-header {
-            margin-bottom: 64px;
+            margin-bottom: 40px;
         }
 
         .techstack-header .section-label {
@@ -1273,7 +1278,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 48px;
+            margin-top: 32px;
             font-family: var(--mono);
             font-size: 0.7rem;
             letter-spacing: 0.12em;
@@ -1294,11 +1299,13 @@
 
         @media (max-width: 768px) {
             .techstack {
-                padding: 80px 7%;
+                
             }
         }
 
         @media (max-width: 480px) {
+            :root { --gutter: 6%; --section-y: 52px; }
+
         }
 
         /* ── MOBILE / TOUCH: disable custom cursor ── */
