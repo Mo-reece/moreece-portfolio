@@ -785,6 +785,11 @@
             line-height: 1.8;
             margin-bottom: 24px;
             max-width: 420px;
+            /* Reserve a uniform 4 lines. This block is opacity:0 until hover
+               but still occupies flow, and .project-overlay is a bottom-
+               anchored flex column - so a 3- vs 4-line description shifted the
+               visible tag and title by one line between cards in the same row. */
+            min-height: 7.2em;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity .4s .1s, transform .4s .1s;
