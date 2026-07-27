@@ -1233,97 +1233,6 @@
             margin-top: 14px;
         }
 
-        .ts-group {
-            margin-bottom: 56px;
-        }
-
-        .ts-group-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            padding: 5px 14px 5px 10px;
-            border-radius: 2px;
-            margin-bottom: 28px;
-            font-weight: 700;
-        }
-
-        .ts-group-label.proficient {
-            background: rgba(192, 57, 43, 0.10);
-            color: var(--rust);
-            border: 1px solid rgba(192, 57, 43, 0.25);
-        }
-
-        .ts-group-label.learning {
-            background: rgba(212, 160, 23, 0.12);
-            color: #a07800;
-            border: 1px solid rgba(212, 160, 23, 0.30);
-        }
-
-        .ts-group-label.other {
-            background: rgba(10, 10, 10, 0.06);
-            color: var(--ink);
-            border: 1px solid rgba(10, 10, 10, 0.15);
-        }
-
-        .ts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            gap: 16px;
-        }
-
-        .ts-card {
-            position: relative;
-            background: #fff;
-            border: 1px solid rgba(10, 10, 10, 0.10);
-            border-radius: 4px;
-            padding: 22px 12px 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            cursor: default;
-            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .ts-card.ts-visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-        }
-
-        .ts-card:hover {
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 10px 32px rgba(10, 10, 10, 0.10);
-            border-color: rgba(10, 10, 10, 0.22);
-        }
-
-        .ts-card.is-learning {
-            border: 1.5px dashed rgba(212, 160, 23, 0.55);
-            background: rgba(255, 253, 245, 0.9);
-        }
-
-        .ts-badge {
-            position: absolute;
-            top: 7px;
-            right: 8px;
-            font-family: var(--mono);
-            font-size: 0.5rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #a07800;
-            background: rgba(212, 160, 23, 0.16);
-            border: 1px solid rgba(212, 160, 23, 0.35);
-            padding: 2px 6px;
-            border-radius: 2px;
-            font-weight: 700;
-        }
-
         .ts-icon {
             width: 48px;
             height: 48px;
@@ -1387,21 +1296,9 @@
             .techstack {
                 padding: 80px 7%;
             }
-
-            .ts-grid {
-                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-                gap: 12px;
-            }
-
-            .ts-card {
-                padding: 18px 8px 14px;
-            }
         }
 
         @media (max-width: 480px) {
-            .ts-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         /* ── MOBILE / TOUCH: disable custom cursor ── */
@@ -1415,7 +1312,63 @@
                 display: none;
             }
         }
-    </style>
+    
+        /* ── TECH STACK MARQUEE ── */
+        .ts-marquee {
+            position: relative;
+            overflow: hidden;
+            padding: 12px 0;
+            -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+        }
+
+        .ts-track {
+            display: flex;
+            align-items: flex-start;
+            width: max-content;
+            animation: tsScroll 55s linear infinite;
+            will-change: transform;
+        }
+
+        /* items carry their own spacing (not `gap`) so the duplicated half
+           is an exact 50% and the loop has no seam */
+        .ts-item {
+            flex: 0 0 auto;
+            width: 96px;
+            margin-right: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: transform .25s ease;
+        }
+
+        .ts-item:hover { transform: translateY(-6px); }
+
+        .ts-marquee:hover .ts-track,
+        .ts-marquee:focus-within .ts-track { animation-play-state: paused; }
+
+        @keyframes tsScroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 640px) {
+            .ts-item { width: 84px; margin-right: 40px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ts-track {
+                animation: none;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+                row-gap: 32px;
+            }
+            .ts-track .ts-dup { display: none; }
+            .ts-marquee { -webkit-mask-image: none; mask-image: none; }
+        }
+</style>
 </head>
 
 <body>
@@ -1547,141 +1500,181 @@
             <h2 class="section-title">TECH<br>STACK</h2>
         </div>
 
-        <!-- PROFICIENT -->
-        <div class="ts-group">
-            <div class="ts-group-label proficient reveal">🔵 &nbsp;Proficient — Daily Drivers</div>
-            <div class="ts-grid" id="ts-proficient">
-
-                <div class="ts-card">
+        <!-- One continuous marquee: 21 technologies, duplicated once for a seamless loop -->
+        <div class="ts-marquee reveal">
+            <div class="ts-track">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-python-plain colored"></i></div>
                     <div class="ts-name">Python</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-tensorflow-original colored"></i></div>
                     <div class="ts-name">TensorFlow</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-keras-plain colored"></i></div>
                     <div class="ts-name">Keras</div>
                 </div>
-
-                <div class="ts-card">
-                    <div class="ts-icon"><i class="devicon-pandas-original colored"></i></div>
+                <div class="ts-item">
+                    <div class="ts-icon"><i class="devicon-pandas-plain colored"></i></div>
                     <div class="ts-name">Pandas</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-numpy-plain colored"></i></div>
                     <div class="ts-name">NumPy</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-scikitlearn-plain colored"></i></div>
                     <div class="ts-name">Scikit-Learn</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-jupyter-plain colored"></i></div>
                     <div class="ts-name">Jupyter</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-git-plain colored"></i></div>
                     <div class="ts-name">Git</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-vscode-plain colored"></i></div>
                     <div class="ts-name">VS Code</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-postgresql-plain colored"></i></div>
                     <div class="ts-name">PostgreSQL</div>
                 </div>
-
-                <div class="ts-card">
-                    <div class="ts-icon">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="48"
+                <div class="ts-item">
+                    <div class="ts-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="48"
                             height="48" alt="Power BI" loading="lazy"
-                            onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0OCcgaGVpZ2h0PSc0OCc+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSdnJyB4MT0nMCUnIHkxPScwJScgeDI9JzEwMCUnIHkyPScxMDAlJz48c3RvcCBvZmZzZXQ9JzAlJyBzdG9wLWNvbG9yPScjMWExYTJlJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjMGYzNDYwJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzQ4JyBoZWlnaHQ9JzQ4JyByeD0nNicgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg=='" />
-                    </div>
+                            onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0OCcgaGVpZ2h0PSc0OCc+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSdnJyB4MT0nMCUnIHkxPScwJScgeDI9JzEwMCUnIHkyPScxMDAlJz48c3RvcCBvZmZzZXQ9JzAlJyBzdG9wLWNvbG9yPScjMWExYTJlJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjMGYzNDYwJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzQ4JyBoZWlnaHQ9JzQ4JyByeD0nNicgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg=='" /></div>
                     <div class="ts-name">Power BI</div>
                 </div>
-
-            </div>
-        </div>
-
-        <!-- LEARNING -->
-        <div class="ts-group">
-            <div class="ts-group-label learning reveal">🟡 &nbsp;Learning — In Progress</div>
-            <div class="ts-grid" id="ts-learning">
-
-                <div class="ts-card is-learning">
-                    <span class="ts-badge">learning</span>
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-react-original colored"></i></div>
                     <div class="ts-name">React</div>
                 </div>
-
-                <div class="ts-card is-learning">
-                    <span class="ts-badge">learning</span>
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-nodejs-plain colored"></i></div>
                     <div class="ts-name">Node.js</div>
                 </div>
-
-                <div class="ts-card is-learning">
-                    <span class="ts-badge">learning</span>
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-mongodb-plain colored"></i></div>
                     <div class="ts-name">MongoDB</div>
                 </div>
-
-                <div class="ts-card is-learning">
-                    <span class="ts-badge">learning</span>
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-docker-plain colored"></i></div>
                     <div class="ts-name">Docker</div>
                 </div>
-
-                <div class="ts-card is-learning">
-                    <span class="ts-badge">learning</span>
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-typescript-plain colored"></i></div>
                     <div class="ts-name">TypeScript</div>
                 </div>
-
-            </div>
-        </div>
-
-        <!-- OTHER -->
-        <div class="ts-group">
-            <div class="ts-group-label other reveal">🔴 &nbsp;Other / Transferable</div>
-            <div class="ts-grid" id="ts-other">
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><i class="devicon-cplusplus-plain colored"></i></div>
                     <div class="ts-name">C++</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><span class="ts-emoji">📈</span></div>
                     <div class="ts-name">MQL5 / MT5</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><span class="ts-emoji">📊</span></div>
                     <div class="ts-name">Pine Script</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><span class="ts-emoji">📖</span></div>
                     <div class="ts-name">Research &amp; Writing</div>
                 </div>
-
-                <div class="ts-card">
+                <div class="ts-item">
                     <div class="ts-icon"><span class="ts-emoji">🌐</span></div>
                     <div class="ts-name">English C1/C2</div>
                 </div>
-
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-python-plain colored"></i></div>
+                    <div class="ts-name">Python</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-tensorflow-original colored"></i></div>
+                    <div class="ts-name">TensorFlow</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-keras-plain colored"></i></div>
+                    <div class="ts-name">Keras</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-pandas-plain colored"></i></div>
+                    <div class="ts-name">Pandas</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-numpy-plain colored"></i></div>
+                    <div class="ts-name">NumPy</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-scikitlearn-plain colored"></i></div>
+                    <div class="ts-name">Scikit-Learn</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-jupyter-plain colored"></i></div>
+                    <div class="ts-name">Jupyter</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-git-plain colored"></i></div>
+                    <div class="ts-name">Git</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-vscode-plain colored"></i></div>
+                    <div class="ts-name">VS Code</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-postgresql-plain colored"></i></div>
+                    <div class="ts-name">PostgreSQL</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="48"
+                            height="48" alt="Power BI" loading="lazy"
+                            onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0OCcgaGVpZ2h0PSc0OCc+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSdnJyB4MT0nMCUnIHkxPScwJScgeDI9JzEwMCUnIHkyPScxMDAlJz48c3RvcCBvZmZzZXQ9JzAlJyBzdG9wLWNvbG9yPScjMWExYTJlJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjMGYzNDYwJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzQ4JyBoZWlnaHQ9JzQ4JyByeD0nNicgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg=='" /></div>
+                    <div class="ts-name">Power BI</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-react-original colored"></i></div>
+                    <div class="ts-name">React</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-nodejs-plain colored"></i></div>
+                    <div class="ts-name">Node.js</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-mongodb-plain colored"></i></div>
+                    <div class="ts-name">MongoDB</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-docker-plain colored"></i></div>
+                    <div class="ts-name">Docker</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-typescript-plain colored"></i></div>
+                    <div class="ts-name">TypeScript</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><i class="devicon-cplusplus-plain colored"></i></div>
+                    <div class="ts-name">C++</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><span class="ts-emoji">📈</span></div>
+                    <div class="ts-name">MQL5 / MT5</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><span class="ts-emoji">📊</span></div>
+                    <div class="ts-name">Pine Script</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><span class="ts-emoji">📖</span></div>
+                    <div class="ts-name">Research &amp; Writing</div>
+                </div>
+                <div class="ts-item ts-dup" aria-hidden="true">
+                    <div class="ts-icon"><span class="ts-emoji">🌐</span></div>
+                    <div class="ts-name">English C1/C2</div>
+                </div>
             </div>
         </div>
 
@@ -2000,19 +1993,6 @@
         }
 
         // ── TECH STACK STAGGER ──
-        const tsGrids = document.querySelectorAll('.ts-grid');
-        const tsObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const cards = entry.target.querySelectorAll('.ts-card');
-                    cards.forEach((card, i) => {
-                        setTimeout(() => card.classList.add('ts-visible'), i * 50);
-                    });
-                    tsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        tsGrids.forEach(grid => tsObserver.observe(grid));
 
         // ── DEVICON CDN FALLBACK ──
         // Checks if devicon icons rendered; if not, injects cdnjs mirror
