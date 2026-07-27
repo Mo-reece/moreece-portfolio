@@ -1,3 +1,7 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# local tooling scratch dirs
+.sites-runtime/
+.visual-qa/
