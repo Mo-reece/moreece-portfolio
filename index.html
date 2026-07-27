@@ -627,86 +627,6 @@
             padding: 0 var(--gutter) var(--section-y);
         }
 
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            margin-top: 40px;
-            border: 2px solid var(--ink);
-        }
-
-        .skill-card {
-            padding: 40px 36px;
-            border-right: 2px solid var(--ink);
-            position: relative;
-            overflow: hidden;
-            transition: background .4s;
-        }
-
-        .skill-card:last-child {
-            border-right: none;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background: var(--ink);
-            transition: height .4s cubic-bezier(.16, 1, .3, 1);
-            z-index: 0;
-        }
-
-        .skill-card:hover::before {
-            height: 100%;
-        }
-
-        .skill-card:hover .skill-content {
-            color: var(--paper);
-        }
-
-        .skill-card:hover .skill-icon {
-            color: var(--gold);
-        }
-
-        .skill-content {
-            position: relative;
-            z-index: 1;
-            transition: color .4s;
-        }
-
-        .skill-icon {
-            font-family: var(--display);
-            font-size: 4rem;
-            color: var(--fog);
-            line-height: 1;
-            margin-bottom: 20px;
-            transition: color .4s;
-        }
-
-        .skill-card h4 {
-            font-family: var(--body);
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .skill-card p {
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            line-height: 1.9;
-            color: #666;
-            transition: color .4s;
-        }
-
-        .skill-card:hover p {
-            color: rgba(240, 236, 228, 0.65);
-        }
-
         /* ── PORTFOLIO ── */
         .portfolio {
             background: var(--ink);
@@ -1083,15 +1003,6 @@
                 
             }
 
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .skill-card {
-                border-right: none;
-                border-bottom: 2px solid var(--ink);
-            }
-
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
@@ -1423,6 +1334,109 @@
             .channel, .channel-arrow, .cf-submit { transition: none; }
             .channel:hover, .cf-submit:hover:not(:disabled) { transform: none; }
         }
+
+        /* ── SOLUTIONS I BUILD ── */
+        .skills { position: relative; }
+
+        .skills-header { position: relative; margin-top: 0; margin-bottom: 44px; }
+
+        .skills-intro {
+            font-family: var(--body); font-size: 1rem; line-height: 1.75;
+            color: #5c564f; margin-top: 22px; max-width: 48ch;
+        }
+
+        /* decorative accents - desktop only so they can never cause overflow */
+        .skills-dot, .skills-ring { display: none; position: absolute; border-radius: 50%; pointer-events: none; }
+
+        @media (min-width: 1100px) {
+            .skills-dot { display: block; width: 13px; height: 13px; background: var(--gold); left: -74px; top: 4px; }
+            .skills-ring { display: block; width: 36px; height: 36px; border: 1.5px solid var(--ink); left: -52px; top: 22px; opacity: .75; }
+        }
+
+        .solutions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch; }
+
+        .solution-card {
+            display: flex; flex-direction: column;
+            background: #fbfaf7;
+            border: 1px solid rgba(10, 10, 10, 0.10);
+            border-radius: 14px;
+            padding: 30px 26px 26px;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 42px rgba(10, 10, 10, 0.10);
+            border-color: rgba(212, 160, 23, 0.5);
+        }
+
+        .solution-badge {
+            width: 74px; height: 74px; border-radius: 50%;
+            background: rgba(10, 10, 10, 0.055);
+            display: grid; place-items: center;
+            font-size: 1.6rem; color: var(--ink);
+            margin-bottom: 26px;
+            transition: background .25s ease, color .25s ease;
+        }
+
+        .solution-card:hover .solution-badge { background: rgba(212, 160, 23, 0.16); color: #a07800; }
+
+        .solution-num {
+            font-family: var(--mono); font-size: 0.8rem; letter-spacing: 3px;
+            color: var(--gold); margin-bottom: 8px;
+        }
+
+        .solution-title {
+            font-family: var(--display); font-size: 1.55rem; letter-spacing: .5px;
+            line-height: 1.05; color: var(--ink); margin: 0 0 12px;
+        }
+
+        .solution-desc {
+            font-family: var(--body); font-size: 0.86rem; line-height: 1.65;
+            color: #6b645c; margin: 0 0 20px;
+            /* absorb the card's spare height here so a 4- vs 5-line description
+               cannot shift the rule and feature list out of line across a row.
+               Self-adapting: at one column there is no spare height to absorb,
+               so no dead space appears. */
+            flex: 1 1 auto;
+        }
+
+        .solution-rule { display: block; width: 46px; height: 2px; background: var(--gold); margin-bottom: 20px; }
+
+        .solution-list { list-style: none; padding: 0; margin: 0 0 26px; display: flex; flex-direction: column; gap: 13px; }
+
+        .solution-list li {
+            display: flex; align-items: center; gap: 12px;
+            font-family: var(--body); font-size: 0.85rem; color: var(--ink);
+        }
+
+        .solution-list i { width: 18px; flex: 0 0 18px; text-align: center; font-size: 0.95rem; color: var(--ink); opacity: .7; }
+
+        /* pin the CTA to the bottom so it lines up across cards of unequal height */
+        .solution-more {
+            margin-top: auto; align-self: flex-start;
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: var(--mono); font-size: 0.68rem; letter-spacing: 3px;
+            text-transform: uppercase; color: #a07800; text-decoration: none;
+        }
+
+        .solution-more i { transition: transform .25s ease; }
+        .solution-more:hover i { transform: translateX(5px); }
+        .solution-more:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+        }
+
+        @media (max-width: 1200px) { .solutions-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 620px)  { .solutions-grid { grid-template-columns: 1fr; } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .solution-card, .solution-more i { transition: none; }
+            .solution-card:hover { transform: none; }
+            .solution-more:hover i { transform: none; }
+        }
 </style>
 </head>
 
@@ -1743,32 +1757,85 @@
 
     <!-- SKILLS -->
     <section id="skills" class="skills">
-        <div class="reveal">
+        <div class="skills-header reveal">
+            <span class="skills-dot" aria-hidden="true"></span>
+            <span class="skills-ring" aria-hidden="true"></span>
             <p class="section-label">Expertise</p>
-            <h2 class="section-title">WHAT<br>I DO</h2>
+            <h2 class="section-title">SOLUTIONS<br>I BUILD</h2>
+            <div class="divider"></div>
+            <p class="skills-intro">I help businesses and organisations turn ideas and data
+                into practical digital solutions that create real impact.</p>
         </div>
-        <div class="skills-container reveal">
-            <div class="skill-card">
-                <div class="skill-content">
-                    <div class="skill-icon">AI</div>
-                    <h4>Data Science & AI</h4>
-                    <p>Python · PyTorch · Pandas<br>Scikit-Learn · Deep Learning<br>Medical Image Analysis · NLP</p>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-content">
-                    <div class="skill-icon">ML</div>
-                    <h4>Machine Learning</h4>
-                    <p>TensorFlow · Keras · XGBoost<br>GARCH · Reinforcement Learning<br>SMOTE · Grad-CAM · CNN/LSTM</p>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-content">
-                    <div class="skill-icon">DB</div>
-                    <h4>Data & Databases</h4>
-                    <p>SQL Server · MySQL<br>Data Modeling · ETL Pipelines<br>Quant Finance · MQL5/MT5</p>
-                </div>
-            </div>
+
+        <div class="solutions-grid reveal">
+            <article class="solution-card">
+                <div class="solution-badge"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+                <p class="solution-num">01</p>
+                <h3 class="solution-title">Data &amp; Business Insights</h3>
+                <p class="solution-desc">I help organisations organise their information, manage records and turn data into clear reports and useful insights.</p>
+                <span class="solution-rule" aria-hidden="true"></span>
+                <ul class="solution-list">
+                        <li><i class="fa-solid fa-database" aria-hidden="true"></i><span>Data Management</span></li>
+                        <li><i class="fa-solid fa-chart-column" aria-hidden="true"></i><span>Reporting &amp; Analytics</span></li>
+                        <li><i class="fa-solid fa-chart-pie" aria-hidden="true"></i><span>Dashboards &amp; Visualisation</span></li>
+                        <li><i class="fa-solid fa-cloud" aria-hidden="true"></i><span>Cloud &amp; Data Solutions</span></li>
+                </ul>
+                <a class="solution-more" href="#contact">
+                    Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    <span class="sr-only">about Data and Business Insights</span>
+                </a>
+            </article>
+            <article class="solution-card">
+                <div class="solution-badge"><i class="fa-solid fa-desktop" aria-hidden="true"></i></div>
+                <p class="solution-num">02</p>
+                <h3 class="solution-title">Web Development</h3>
+                <p class="solution-desc">I build modern, responsive and user-friendly websites, systems and web applications that help your business grow online.</p>
+                <span class="solution-rule" aria-hidden="true"></span>
+                <ul class="solution-list">
+                        <li><i class="fa-solid fa-globe" aria-hidden="true"></i><span>Websites &amp; Landing Pages</span></li>
+                        <li><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i><span>Web Applications</span></li>
+                        <li><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><span>Responsive Design</span></li>
+                        <li><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Secure &amp; Scalable Solutions</span></li>
+                </ul>
+                <a class="solution-more" href="#contact">
+                    Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    <span class="sr-only">about Web Development</span>
+                </a>
+            </article>
+            <article class="solution-card">
+                <div class="solution-badge"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
+                <p class="solution-num">03</p>
+                <h3 class="solution-title">Intelligent Solutions</h3>
+                <p class="solution-desc">I create practical AI-powered solutions that help organisations automate tasks, understand information and make better decisions.</p>
+                <span class="solution-rule" aria-hidden="true"></span>
+                <ul class="solution-list">
+                        <li><i class="fa-solid fa-comment-dots" aria-hidden="true"></i><span>AI Assistants</span></li>
+                        <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>Document Processing</span></li>
+                        <li><i class="fa-solid fa-image" aria-hidden="true"></i><span>Image &amp; Text Analysis</span></li>
+                        <li><i class="fa-solid fa-user-check" aria-hidden="true"></i><span>Smart Decision Support</span></li>
+                </ul>
+                <a class="solution-more" href="#contact">
+                    Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    <span class="sr-only">about Intelligent Solutions</span>
+                </a>
+            </article>
+            <article class="solution-card">
+                <div class="solution-badge"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
+                <p class="solution-num">04</p>
+                <h3 class="solution-title">Smart Automation</h3>
+                <p class="solution-desc">I develop systems that identify patterns, make useful predictions and simplify repetitive business processes.</p>
+                <span class="solution-rule" aria-hidden="true"></span>
+                <ul class="solution-list">
+                        <li><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Process Automation</span></li>
+                        <li><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i><span>Predictions &amp; Forecasting</span></li>
+                        <li><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><span>Workflow Optimisation</span></li>
+                        <li><i class="fa-solid fa-square-check" aria-hidden="true"></i><span>Efficiency &amp; Cost Savings</span></li>
+                </ul>
+                <a class="solution-more" href="#contact">
+                    Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    <span class="sr-only">about Smart Automation</span>
+                </a>
+            </article>
         </div>
     </section>
 
