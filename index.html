@@ -899,102 +899,6 @@
             color: var(--rust);
         }
 
-        /* Form */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .form-row {
-            position: relative;
-            margin-bottom: 36px;
-        }
-
-        .form-row label {
-            position: absolute;
-            top: 12px;
-            left: 0;
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--fog);
-            transition: top .3s, color .3s, font-size .3s;
-            pointer-events: none;
-        }
-
-        .form-row input,
-        .form-row textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid #ccc;
-            padding: 12px 0 8px;
-            font-family: var(--body);
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--ink);
-            outline: none;
-            resize: none;
-            transition: border-color .3s;
-        }
-
-        .form-row input:focus,
-        .form-row textarea:focus {
-            border-bottom-color: var(--gold);
-        }
-
-        .form-row input:focus+label,
-        .form-row input:not(:placeholder-shown)+label,
-        .form-row textarea:focus+label,
-        .form-row textarea:not(:placeholder-shown)+label {
-            top: -14px;
-            font-size: 0.55rem;
-            color: var(--gold);
-        }
-
-        .form-row input,
-        .form-row textarea {
-            direction: ltr;
-        }
-
-        .form-submit {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            background: var(--ink);
-            color: var(--paper);
-            border: none;
-            padding: 18px 50px;
-            cursor: pointer;
-            align-self: flex-start;
-            margin-top: 10px;
-            transition: background .3s, color .3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-submit::after {
-            content: '→';
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: right .3s;
-        }
-
-        .form-submit:hover {
-            background: var(--gold);
-            color: var(--ink);
-            padding-right: 60px;
-        }
-
-        .form-submit:hover::after {
-            right: 20px;
-        }
-
         /* ── FOOTER ── */
         footer {
             background: var(--ink);
@@ -1380,6 +1284,143 @@
             .ts-track .ts-dup { display: none; }
             .ts-marquee { -webkit-mask-image: none; mask-image: none; }
         }
+
+        /* ── CONTACT: DIRECT CHANNELS ── */
+        .channel-list { list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+
+        .channel {
+            display: flex; align-items: center; gap: 16px;
+            padding: 14px 16px; border-radius: 12px;
+            border: 1px solid rgba(10, 10, 10, 0.10);
+            background: rgba(255, 255, 255, 0.55);
+            text-decoration: none; color: var(--ink);
+            transition: border-color .25s, background .25s, transform .25s;
+        }
+
+        .channel:hover { border-color: var(--gold); background: #fff; transform: translateX(4px); }
+        .channel:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+        .channel-icon {
+            flex: 0 0 auto; width: 42px; height: 42px; border-radius: 10px;
+            display: grid; place-items: center; font-size: 1.15rem; color: #fff;
+        }
+
+        .channel-icon.wa { background: #25D366; }
+        .channel-icon.mail { background: var(--gold); }
+        .channel-icon.li { background: #0A66C2; }
+
+        .channel-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+        .channel-label {
+            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--fog);
+        }
+
+        .channel-value {
+            font-family: var(--body); font-size: 0.95rem; font-weight: 700;
+            color: var(--ink); overflow-wrap: anywhere;
+        }
+
+        .channel-arrow { margin-left: auto; color: var(--fog); transition: color .25s, transform .25s; }
+        .channel:hover .channel-arrow { color: var(--gold); transform: translateX(3px); }
+
+        .contact-meta { margin: 36px 0 0; display: flex; flex-wrap: wrap; gap: 28px; }
+        .contact-meta div { display: flex; flex-direction: column; gap: 4px; }
+
+        .contact-meta dt {
+            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--gold);
+        }
+
+        .contact-meta dd {
+            margin: 0; font-family: var(--body); font-size: 0.9rem;
+            font-weight: 700; color: var(--ink);
+        }
+
+        /* ── CONTACT: MESSAGE CARD ── */
+        .contact-card {
+            background: #fff; border-radius: 18px; padding: 36px;
+            border: 1px solid rgba(10, 10, 10, 0.07);
+            box-shadow: 0 18px 50px rgba(10, 10, 10, 0.09);
+            display: flex; flex-direction: column;
+        }
+
+        .cf-title { font-family: var(--display); font-size: 2rem; letter-spacing: 1px; color: var(--ink); margin: 0 0 6px; }
+        .cf-sub { font-family: var(--mono); font-size: 0.72rem; color: #7d7568; margin: 0 0 26px; line-height: 1.7; }
+
+        .cf-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+
+        .cf-field label {
+            font-family: var(--body); font-size: 0.85rem; font-weight: 700;
+            color: var(--ink); letter-spacing: .2px;
+        }
+
+        .cf-field input, .cf-field textarea {
+            width: 100%; font-family: var(--body); font-size: 0.95rem; color: var(--ink);
+            background: #f7f5f1; border: 1px solid rgba(10, 10, 10, 0.12);
+            border-radius: 10px; padding: 14px 16px; outline: none; resize: vertical;
+            transition: border-color .2s, box-shadow .2s, background .2s;
+        }
+
+        .cf-field textarea { min-height: 132px; line-height: 1.6; }
+        .cf-field input::placeholder, .cf-field textarea::placeholder { color: #a89f92; }
+
+        .cf-field input:focus, .cf-field textarea:focus {
+            background: #fff; border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.22);
+        }
+
+        .cf-field input.is-invalid, .cf-field textarea.is-invalid {
+            border-color: var(--rust); box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+        }
+
+        .cf-error {
+            font-family: var(--mono); font-size: 0.62rem; letter-spacing: .5px;
+            color: var(--rust); min-height: 0; }
+        .cf-error:empty { display: none; }
+
+        /* spam trap - off-screen rather than display:none so bots still see it */
+        .cf-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+        .cf-submit {
+            margin-top: 10px; width: 100%; border: none; cursor: pointer;
+            font-family: var(--body); font-size: 0.95rem; font-weight: 700; letter-spacing: .4px;
+            color: var(--ink); padding: 16px 28px; border-radius: 999px;
+            background: linear-gradient(135deg, #e8b93a 0%, var(--gold) 55%, #b8860b 100%);
+            box-shadow: 0 10px 24px rgba(212, 160, 23, 0.32);
+            transition: transform .2s, box-shadow .2s, filter .2s;
+        }
+
+        .cf-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(212, 160, 23, 0.42); }
+        .cf-submit:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+        .cf-submit:disabled { cursor: not-allowed; filter: grayscale(0.45); opacity: .75; box-shadow: none; }
+
+        .cf-status {
+            font-family: var(--mono); font-size: 0.7rem; line-height: 1.7;
+            margin: 16px 0 0; text-align: center; }
+        .cf-status:empty { display: none; }
+        .cf-status.is-ok { color: #1e7a44; }
+        .cf-status.is-err { color: var(--rust); }
+        .cf-status a { color: inherit; }
+
+        @media (max-width: 900px) {
+            .contact-card { padding: 26px; }
+            .contact-meta { gap: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            /* keep the 30-char email on one line instead of breaking mid-word:
+               drop the decorative arrow and tighten the row to buy the width */
+            .channel-value { font-size: 0.78rem; }
+            .channel { padding: 12px 14px; gap: 11px; }
+            .channel-icon { width: 36px; height: 36px; font-size: 0.95rem; }
+            .channel-arrow { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .channel, .channel-arrow, .cf-submit { transition: none; }
+            .channel:hover, .cf-submit:hover:not(:disabled) { transform: none; }
+        }
 </style>
 </head>
 
@@ -1476,10 +1517,10 @@
                 <span class="portrait-role">CS · AI · Builder</span>
             </div>
             <div class="social-icons">
-                <a href="https://github.com/Mo-reece" target="_blank" class="social-icon" aria-label="GitHub">
+                <a href="https://github.com/Mo-reece" target="_blank" class="social-icon" aria-label="GitHub" rel="noopener noreferrer">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/maurice-leonard-okurut" target="_blank" class="social-icon" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/maurice-leonard-okurut-26a048356" target="_blank" class="social-icon" aria-label="LinkedIn" rel="noopener noreferrer">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
                 <a href="mailto:okurutmauriceleonard@gmail.com" class="social-icon" aria-label="Email">
@@ -1753,7 +1794,7 @@
                     <p class="project-desc">Convolutional neural network trained on chest X-ray datasets to classify
                         pneumonia with high diagnostic accuracy. Designed for low-resource clinical settings.</p>
                     <div class="project-links">
-                        <a href="https://github.com/Mo-reece/Pneumonia-detection" target="_blank">GitHub</a>
+                        <a href="https://github.com/Mo-reece/Pneumonia-detection" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1775,7 +1816,7 @@
                         yfinance. Extracts and visualizes stock data to uncover trends and investment signals.</p>
                     <div class="project-links">
                         <a href="https://github.com/Mo-reece/Tesla-and-Game-stop-financial-analysis"
-                            target="_blank">GitHub</a>
+                            target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1796,7 +1837,7 @@
                     <p class="project-desc">Interactive financial data visualization tool for time-series stock market
                         data. Enables acquisition and real-time charting of market instruments.</p>
                     <div class="project-links">
-                        <a href="https://github.com/Mo-reece/stock-market-visualizer" target="_blank">GitHub</a>
+                        <a href="https://github.com/Mo-reece/stock-market-visualizer" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1817,7 +1858,7 @@
                     <p class="project-desc">Exploratory data analysis of medical insurance costs to uncover key cost
                         drivers and demographic patterns shaping healthcare expenditure.</p>
                     <div class="project-links">
-                        <a href="https://github.com/Mo-reece/healthcare-cost-analysis" target="_blank">GitHub</a>
+                        <a href="https://github.com/Mo-reece/healthcare-cost-analysis" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1838,7 +1879,7 @@
                     <p class="project-desc">Predictive ML model for residential real estate pricing using the King
                         County dataset. Applies regression techniques to forecast home values accurately.</p>
                     <div class="project-links">
-                        <a href="https://github.com/Mo-reece/House-Price-Prediction" target="_blank">GitHub</a>
+                        <a href="https://github.com/Mo-reece/House-Price-Prediction" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1859,7 +1900,7 @@
                     <p class="project-desc">Python toolkit for automated data quality profiling — detects missing
                         values, outliers, and inconsistencies to ensure clean, reliable datasets.</p>
                     <div class="project-links">
-                        <a href="https://github.com/Mo-reece/Data-Quality-Assessment-Tool" target="_blank">GitHub</a>
+                        <a href="https://github.com/Mo-reece/Data-Quality-Assessment-Tool" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1880,7 +1921,7 @@
                     <p class="project-desc">ML classification model to predict customer churn, helping businesses
                         proactively identify at-risk customers and improve retention strategies.</p>
                     <div class="project-links">
-                        <a href="https://github.com/Mo-reece/Churn-Prediction" target="_blank">GitHub</a>
+                        <a href="https://github.com/Mo-reece/Churn-Prediction" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1888,7 +1929,7 @@
 
         <div class="portfolio-cta">
             <p>View all projects on <a href="https://github.com/Mo-reece" target="_blank"
-                    style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold);">GitHub
+                    style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold);" rel="noopener noreferrer">GitHub
                     →</a></p>
         </div>
     </section>
@@ -1901,38 +1942,79 @@
             <div class="divider"></div>
             <p class="contact-tagline">Have a problem that needs solving?<br>Let's build something that matters.</p>
 
-            <div class="contact-info">
-                <div class="contact-info-item">
-                    <span>Location</span>
-                    <span>Kampala, Uganda</span>
-                </div>
-                <div class="contact-info-item">
-                    <span>Availability</span>
-                    <span>Open to Opportunities</span>
-                </div>
-            </div>
+            <ul class="channel-list">
+                <li>
+                    <a class="channel" href="https://wa.me/256742392606" target="_blank" rel="noopener noreferrer">
+                        <span class="channel-icon wa"><i class="fa-brands fa-whatsapp"></i></span>
+                        <span class="channel-body">
+                            <span class="channel-label">WhatsApp</span>
+                            <span class="channel-value">+256 742 392 606</span>
+                        </span>
+                        <span class="channel-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="channel" href="mailto:okurutmauriceleonard@gmail.com">
+                        <span class="channel-icon mail"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="channel-body">
+                            <span class="channel-label">Email</span>
+                            <span class="channel-value">okurutmauriceleonard@gmail.com</span>
+                        </span>
+                        <span class="channel-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="channel" href="https://www.linkedin.com/in/maurice-leonard-okurut-26a048356" target="_blank" rel="noopener noreferrer">
+                        <span class="channel-icon li"><i class="fa-brands fa-linkedin"></i></span>
+                        <span class="channel-body">
+                            <span class="channel-label">LinkedIn</span>
+                            <span class="channel-value">Maurice Leonard Okurut</span>
+                        </span>
+                        <span class="channel-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                </li>
+            </ul>
+
+            <dl class="contact-meta">
+                <div><dt>Location</dt><dd>Kampala, Uganda</dd></div>
+                <div><dt>Availability</dt><dd>Open to Opportunities</dd></div>
+                <div><dt>Response time</dt><dd>Usually within 24 hours</dd></div>
+            </dl>
         </div>
 
         <div class="contact-right reveal">
-            <div class="contact-info" style="flex-direction:column; gap: 32px;">
-                <div class="contact-info-item" style="flex-direction:column; gap:8px;">
-                    <i class="fa-brands fa-whatsapp" style="font-size:2rem; color:#25D366;"></i>
-                    <a href="https://wa.me/256742392606" target="_blank"
-                        style="font-family:var(--display); font-size:clamp(1.6rem,3vw,2.4rem); color:var(--ink); text-decoration:none; letter-spacing:1px; border-bottom: 2px solid var(--gold); padding-bottom:4px;">+256
-                        742 392 606</a>
+            <form class="contact-card" id="contactForm" novalidate>
+                <h3 class="cf-title">Send a message</h3>
+                <p class="cf-sub">Fill this in and it lands straight in my inbox.</p>
+
+                <div class="cf-field">
+                    <label for="cf-name">Name</label>
+                    <input id="cf-name" name="name" type="text" placeholder="Your name"
+                           autocomplete="name" required>
+                    <span class="cf-error" id="cf-name-error"></span>
                 </div>
-                <div class="contact-info-item" style="flex-direction:column; gap:8px;">
-                    <i class="fa-solid fa-envelope" style="font-size:2rem; color:var(--gold);"></i>
-                    <a href="mailto:okurutmauriceleonard@gmail.com"
-                        style="font-family:var(--mono); font-size:clamp(0.85rem,1.5vw,1.1rem); color:var(--ink); text-decoration:none; letter-spacing:1px; border-bottom: 2px solid var(--gold); padding-bottom:4px; text-transform:none;">okurut.mauriceleonard@gmail.com</a>
+
+                <div class="cf-field">
+                    <label for="cf-email">Email</label>
+                    <input id="cf-email" name="email" type="email" placeholder="you@example.com"
+                           autocomplete="email" required>
+                    <span class="cf-error" id="cf-email-error"></span>
                 </div>
-                <div class="contact-info-item" style="flex-direction:column; gap:8px;">
-                    <i class="fa-brands fa-linkedin" style="font-size:2rem; color:#0A66C2;"></i>
-                    <a href="https://www.linkedin.com/in/maurice-leonard-okurut" target="_blank"
-                        style="font-family:var(--mono); font-size:clamp(0.85rem,1.5vw,1.1rem); color:var(--ink); text-decoration:none; letter-spacing:1px; border-bottom: 2px solid var(--gold); padding-bottom:4px; text-transform:none;">Maurice
-                        Leonard Okurut</a>
+
+                <div class="cf-field">
+                    <label for="cf-message">Message</label>
+                    <textarea id="cf-message" name="message" rows="5"
+                              placeholder="Tell me about your project or role..." required></textarea>
+                    <span class="cf-error" id="cf-message-error"></span>
                 </div>
-            </div>
+
+                <!-- spam trap: real people never fill this in -->
+                <input type="text" name="_honey" class="cf-honey" tabindex="-1"
+                       autocomplete="off" aria-hidden="true">
+
+                <button type="submit" class="cf-submit">Send Message</button>
+                <p class="cf-status" role="status" aria-live="polite"></p>
+            </form>
         </div>
     </section>
 
@@ -1989,19 +2071,103 @@
             });
         });
 
-        // ── FORM SUBMIT ──
-        function handleSubmit(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('.form-submit');
-            btn.textContent = 'Message Sent ✓';
-            btn.style.background = '#2ecc71';
-            btn.style.color = '#fff';
-            setTimeout(() => {
-                btn.textContent = 'Send Message';
-                btn.style.background = '';
-                btn.style.color = '';
-                e.target.reset();
-            }, 3000);
+        // ── CONTACT FORM ──
+        // GitHub Pages is static and cannot send mail, so the form POSTs to a
+        // form-relay service. Swap CONTACT_ENDPOINT for any provider that
+        // accepts a FormData POST and returns JSON.
+        const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/okurutmauriceleonard@gmail.com';
+        const CONTACT_MAILTO = 'mailto:okurutmauriceleonard@gmail.com';
+
+        const cForm = document.getElementById('contactForm');
+        if (cForm) {
+            const btn = cForm.querySelector('.cf-submit');
+            const statusEl = cForm.querySelector('.cf-status');
+            const fields = {
+                name: cForm.elements['name'],
+                email: cForm.elements['email'],
+                message: cForm.elements['message'],
+            };
+
+            const setError = (key, msg) => {
+                const el = fields[key];
+                const err = document.getElementById(el.id + '-error');
+                if (err) err.textContent = msg || '';
+                el.classList.toggle('is-invalid', Boolean(msg));
+                el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+                if (msg) el.setAttribute('aria-describedby', el.id + '-error');
+                else el.removeAttribute('aria-describedby');
+            };
+
+            const validate = () => {
+                let firstBad = null;
+                const name = fields.name.value.trim();
+                const email = fields.email.value.trim();
+                const message = fields.message.value.trim();
+
+                setError('name', name.length < 2 ? 'Please enter your name.' : '');
+                setError('email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
+                    ? '' : 'Please enter a valid email address.');
+                setError('message', message.length < 10
+                    ? 'A little more detail, please (10 characters minimum).' : '');
+
+                for (const k of ['name', 'email', 'message']) {
+                    if (fields[k].classList.contains('is-invalid')) { firstBad = fields[k]; break; }
+                }
+                return firstBad;
+            };
+
+            // clear a field's error as soon as the user corrects it
+            for (const k of Object.keys(fields)) {
+                fields[k].addEventListener('input', () => {
+                    if (fields[k].classList.contains('is-invalid')) setError(k, '');
+                });
+            }
+
+            const say = (msg, kind) => {
+                statusEl.textContent = '';
+                statusEl.className = 'cf-status' + (kind ? ' is-' + kind : '');
+                statusEl.insertAdjacentHTML('beforeend', msg);
+            };
+
+            cForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const bad = validate();
+                if (bad) { say('', ''); bad.focus(); return; }
+
+                btn.disabled = true;
+                const original = btn.textContent;
+                btn.textContent = 'Sending...';
+                say('', '');
+
+                const data = new FormData(cForm);
+                data.append('_subject', 'Portfolio enquiry from ' + fields.name.value.trim());
+                data.append('_template', 'table');
+                data.append('_captcha', 'false');
+
+                try {
+                    const res = await fetch(CONTACT_ENDPOINT, {
+                        method: 'POST',
+                        body: data,
+                        headers: { Accept: 'application/json' },
+                    });
+                    const out = await res.json().catch(() => ({}));
+
+                    if (res.ok && String(out.success) === 'true') {
+                        say('Thanks - your message is on its way. I usually reply within 24 hours.', 'ok');
+                        cForm.reset();
+                    } else {
+                        throw new Error(out.message || ('HTTP ' + res.status));
+                    }
+                } catch (err) {
+                    say('Could not send that - please email me directly at ' +
+                        '<a href="' + CONTACT_MAILTO + '">' + CONTACT_MAILTO.replace('mailto:', '') +
+                        '</a>.', 'err');
+                    console.error('[contact form]', err);
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = original;
+                }
+            });
         }
 
         // ── TECH STACK STAGGER ──
@@ -2047,7 +2213,8 @@
       "@type": "Person",
       "name": "Okurut Maurice Leonard",
       "url": "https://mo-reece.github.io/moreece-portfolio/",
-      "image": "https://mo-reece.github.io/moreece-portfolio/assets/profile.jpg",
+      "image": "https://mo-reece.github.io/moreece-portfolio/assets/portrait.webp",
+      "email": "mailto:okurutmauriceleonard@gmail.com",
       "jobTitle": "Data Scientist & Machine Learning Engineer",
       "worksFor": {
         "@type": "Organization",
@@ -2060,7 +2227,7 @@
       },
       "sameAs": [
         "https://github.com/Mo-reece",
-        "https://www.linkedin.com/in/maurice-leonard-okurut"
+        "https://www.linkedin.com/in/maurice-leonard-okurut-26a048356"
       ],
       "knowsAbout": [
         "Machine Learning", "Python", "Data Science",
