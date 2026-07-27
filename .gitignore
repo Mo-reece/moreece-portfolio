@@ -5,3 +5,4 @@ Thumbs.db
 # local tooling scratch dirs
 .sites-runtime/
 .visual-qa/
+.vercel

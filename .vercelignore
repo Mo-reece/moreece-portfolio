@@ -1,0 +1,17 @@
+# Vercel uploads from the filesystem, not from git - .gitignore does NOT
+# apply here. Without this file the local tooling directories (including a
+# full browser profile with a cookie store) get published to the CDN.
+.git
+.gitignore
+.vercel
+
+# local tooling scratch dirs
+.sites-runtime
+.visual-qa
+
+# misc
+node_modules
+*.log
+.DS_Store
+Thumbs.db
+.htmlvalidate.json
