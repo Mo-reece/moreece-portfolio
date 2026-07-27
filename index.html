@@ -757,7 +757,9 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            background: linear-gradient(to top, rgba(10, 10, 10, .9) 0%, transparent 60%);
+            /* The tag sits ~68% up the card, so a stop at 60% left it over bare
+               photo with no scrim at all. Extend the fade to 90%. */
+            background: linear-gradient(to top, rgba(10, 10, 10, .9) 0%, transparent 90%);
         }
 
         .project-tag {
