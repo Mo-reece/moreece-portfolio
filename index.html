@@ -197,12 +197,16 @@
         }
 
         .nav-logo {
-            font-family: var(--display);
-            font-size: 1.6rem;
-            letter-spacing: 3px;
-            color: var(--ink);
+            display: block;
             opacity: 0;
             animation: fadeSlideDown .8s .3s forwards;
+        }
+
+        .nav-logo img {
+            display: block;
+            width: auto;
+            height: 32px;
+            object-fit: contain;
         }
 
         nav ul {
@@ -1505,7 +1509,9 @@
 
     <!-- NAV -->
     <nav aria-label="Primary navigation">
-        <a class="nav-logo" href="./" aria-label="Okurut Maurice Leonard portfolio home">OML</a>
+        <a class="nav-logo" href="./" aria-label="Okurut Maurice Leonard portfolio home">
+            <img src="assets/oml-logo.jpg" width="432" height="235" alt="">
+        </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"
             aria-label="Open navigation menu">&#9776;</button>
         <ul id="primary-menu">
