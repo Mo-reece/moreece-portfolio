@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mo-reece.github.io/moreece-portfolio/sitemap.xml
+Sitemap: https://maurice-dev.com/sitemap.xml

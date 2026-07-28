@@ -75,9 +75,10 @@ Set `CHROME_PATH` when Chrome is installed outside the default Windows location.
 
 Live deployment:
 
-- GitHub Pages: [https://mo-reece.github.io/moreece-portfolio/](https://mo-reece.github.io/moreece-portfolio/)
+- Production: [https://maurice-dev.com/](https://maurice-dev.com/)
+- Mirror: [https://mo-reece.github.io/moreece-portfolio/](https://mo-reece.github.io/moreece-portfolio/)
 
-GitHub Pages deploys the root of `main`. Vercel is also configured with HTTP security headers for a hardened production deployment. Merge through a reviewed pull request after the `Site quality` workflow passes.
+Vercel deploys the production domain from `main`. GitHub Pages provides a secondary mirror. Merge through a reviewed pull request after the `Site quality` workflow passes.
 
 ## Recruiter Notes
 

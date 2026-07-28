@@ -1,14 +1,17 @@
 import { spawn } from "node:child_process";
-import { mkdir, readFile, rm } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const chromePath = process.env.CHROME_PATH
-  ?? "C:\Program Files\Google\Chrome\Application\chrome.exe";
+  ?? "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const externalPort = Number(process.env.CHROME_DEBUG_PORT ?? 0);
 const profile = resolve("..", ".portfolio-browser-audit");
 const targetUrl = process.argv[2]
   ?? pathToFileURL(resolve("index.html")).href;
+const screenshotDirectory = process.env.AUDIT_SCREENSHOT_DIR
+  ? resolve(process.env.AUDIT_SCREENSHOT_DIR)
+  : undefined;
 
 let chrome;
 if (!externalPort) {
@@ -30,6 +33,7 @@ const sleep = (ms) => new Promise((resolvePromise) => setTimeout(resolvePromise,
 let websocket;
 
 try {
+  if (screenshotDirectory) await mkdir(screenshotDirectory, { recursive: true });
   let pages;
   let port = externalPort || undefined;
   for (let attempt = 0; attempt < 150; attempt += 1) {
@@ -40,7 +44,13 @@ try {
       }
       const response = await fetch(`http://127.0.0.1:${port}/json/list`);
       pages = await response.json();
-      if (pages[0]?.webSocketDebuggerUrl) break;
+      const page = pages.find((target) =>
+        target.type === "page" && !target.url.startsWith("chrome-extension://")
+      );
+      if (page?.webSocketDebuggerUrl) {
+        pages = [page];
+        break;
+      }
     } catch {
       // Chrome is still starting.
     }
@@ -99,7 +109,7 @@ try {
       width: viewport.width,
       height: viewport.height,
       deviceScaleFactor: 1,
-      mobile: viewport.width < 900,
+      mobile: false,
     });
     await send("Page.navigate", { url: targetUrl });
     await sleep(2200);
@@ -108,6 +118,10 @@ try {
       expression: `(() => {
         const viewportWidth = window.innerWidth;
         const offenders = [...document.querySelectorAll("body *")]
+          .filter((element) =>
+            !element.closest(".honeypot")
+            && !element.closest(".nav-links:not(.is-open)")
+          )
           .map((element) => {
             const rect = element.getBoundingClientRect();
             return {
@@ -121,30 +135,67 @@ try {
           })
           .filter((item) => item.width > 0 && (item.left < -1 || item.right > viewportWidth + 1))
           .slice(0, 12);
-        const projectLink = document.querySelector(".project-links");
+        const projectActions = document.querySelector(".project-actions");
         const navToggle = document.querySelector(".nav-toggle");
+        const brokenImages = [...document.images]
+          .filter((image) => image.complete && image.naturalWidth === 0)
+          .map((image) => image.currentSrc || image.src);
         return {
+          title: document.title,
+          currentUrl: location.href,
           viewport: viewportWidth,
           documentWidth: document.documentElement.scrollWidth,
+          mobileMediaMatches: window.matchMedia("(max-width: 760px)").matches,
           hasHorizontalOverflow: document.documentElement.scrollWidth > viewportWidth,
           offenders,
-          projectLinksVisible: projectLink ? getComputedStyle(projectLink).opacity === "1" : false,
+          projectActionCount: document.querySelectorAll(".project-actions").length,
+          projectActionsVisible: projectActions
+            ? getComputedStyle(projectActions).display !== "none"
+              && getComputedStyle(projectActions).visibility !== "hidden"
+              && projectActions.getBoundingClientRect().width > 0
+            : false,
+          navToggleExists: Boolean(navToggle),
           mobileToggleVisible: navToggle ? getComputedStyle(navToggle).display !== "none" : false,
+          brokenImages,
         };
       })()`,
     });
     results.push(evaluation.result.value);
+    if (screenshotDirectory) {
+      const screenshot = await send("Page.captureScreenshot", {
+        format: "png",
+        fromSurface: true,
+        captureBeyondViewport: false,
+      });
+      await writeFile(
+        join(screenshotDirectory, String(viewport.width) + ".png"),
+        Buffer.from(screenshot.data, "base64"),
+      );
+    }
   }
 
   console.log(JSON.stringify({ targetUrl, results, browserErrors }, null, 2));
-  if (results.some((result) => result.hasHorizontalOverflow) || browserErrors.length) {
+  const hasResponsiveFailure = results.some((result) =>
+    result.hasHorizontalOverflow
+    || result.brokenImages.length > 0
+    || !result.projectActionsVisible
+    || result.mobileToggleVisible !== (result.viewport <= 760)
+  );
+  if (hasResponsiveFailure || browserErrors.length) {
     process.exitCode = 1;
   }
   await send("Browser.close");
+  if (chrome) {
+    await Promise.race([
+      new Promise((resolveExit) => chrome.once("exit", resolveExit)),
+      sleep(2000),
+    ]);
+  }
 } finally {
   if (websocket?.readyState === WebSocket.OPEN) websocket.close();
   if (chrome) {
-    chrome.kill();
-    await rm(profile, { recursive: true, force: true });
+    if (chrome.exitCode === null) chrome.kill();
+    await sleep(500);
+    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 300 });
   }
 }
