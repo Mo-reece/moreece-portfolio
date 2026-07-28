@@ -364,35 +364,6 @@
             filter: grayscale(0%) contrast(1.05);
         }
 
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            bottom: 40px;
-            left: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            opacity: 1;
-            z-index: 100;
-        }
-
-        .scroll-indicator span {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--ink);
-            writing-mode: vertical-rl;
-        }
-
-        .scroll-line {
-            width: 2px;
-            height: 60px;
-            background: linear-gradient(to bottom, var(--ink), transparent);
-            animation: scrollPulse 2s infinite;
-        }
-
         /* ── MANIFESTO ── */
         .manifesto {
             background: var(--ink);
@@ -870,18 +841,6 @@
         @keyframes fadeIn {
             to {
                 opacity: 1;
-            }
-        }
-
-        @keyframes scrollPulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.3;
             }
         }
 
@@ -1554,7 +1513,6 @@
             /* must be re-declared here: this block is appended after the
                original @media rule, so the base .hero above would otherwise win */
             .hero { grid-template-columns: minmax(0, 1fr); width: 100%; min-width: 0; overflow: hidden; }
-            .scroll-indicator { display: none; }
             .hero-text-panel { width: 100%; min-width: 0; padding: 120px 24px 60px; }
             .hero-visual-panel { border-radius: 0; min-height: 560px; padding: 0 20px 28px; }
         }
@@ -1660,10 +1618,6 @@
             </div>
         </div>
 
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <span>Scroll</span>
-        </div>
     </header>
 
     <!-- MANIFESTO -->
@@ -2166,7 +2120,6 @@
     <!-- CONTACT -->
     <section id="contact" class="contact">
         <div class="contact-left reveal">
-            <p class="section-label">Let's Connect</p>
             <h2 class="section-title">GET IN<br>TOUCH</h2>
             <div class="divider"></div>
             <p class="contact-tagline">Have a problem that needs solving?<br>Let's build something that matters.</p>
