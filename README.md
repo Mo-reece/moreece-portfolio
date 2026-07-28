@@ -32,6 +32,7 @@ This repository contains the source for my recruiter-facing portfolio. It is des
 ├── robots.txt
 ├── sitemap.xml
 ├── site.webmanifest
+├── vercel.json
 ├── assets/
 │   ├── favicon.svg
 │   ├── og-image.jpg
@@ -76,7 +77,7 @@ Live deployment:
 
 - GitHub Pages: [https://mo-reece.github.io/moreece-portfolio/](https://mo-reece.github.io/moreece-portfolio/)
 
-GitHub Pages deploys the root of `main`. Merge through a reviewed pull request after the `Site quality` workflow passes.
+GitHub Pages deploys the root of `main`. Vercel is also configured with HTTP security headers for a hardened production deployment. Merge through a reviewed pull request after the `Site quality` workflow passes.
 
 ## Recruiter Notes
 

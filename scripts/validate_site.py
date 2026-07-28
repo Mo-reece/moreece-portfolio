@@ -17,6 +17,7 @@ REQUIRED_FILES = [
     ROOT / "robots.txt",
     ROOT / "sitemap.xml",
     ROOT / "site.webmanifest",
+    ROOT / "vercel.json",
     ROOT / "assets" / "favicon.svg",
     ROOT / "assets" / "og-image.jpg",
 ]
@@ -113,6 +114,11 @@ def main() -> int:
         json.loads((ROOT / "site.webmanifest").read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         errors.append(f"invalid site.webmanifest: {exc}")
+
+    try:
+        json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"invalid vercel.json: {exc}")
 
     try:
         ET.parse(ROOT / "sitemap.xml")
