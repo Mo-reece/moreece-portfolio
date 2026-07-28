@@ -1,0 +1,15 @@
+{
+  "name": "Okurut Maurice Leonard Portfolio",
+  "short_name": "OML Portfolio",
+  "start_url": "/moreece-portfolio/",
+  "display": "standalone",
+  "background_color": "#f0ece4",
+  "theme_color": "#f0ece4",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

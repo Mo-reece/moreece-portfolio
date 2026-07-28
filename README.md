@@ -1,6 +1,6 @@
 # Maurice Leonard Okurut Portfolio Website
 
-Responsive personal portfolio website for presenting data science, machine learning, and software projects to recruiters and collaborators.
+Responsive personal portfolio website for presenting software, data, machine-learning, and automation projects to recruiters, clients, and collaborators.
 
 ## Purpose
 
@@ -8,10 +8,12 @@ This repository contains the source for my recruiter-facing portfolio. It is des
 
 ## Key Features
 
-- Project gallery linking to selected GitHub repositories.
+- Project gallery linking to selected repositories and available live demos.
 - Responsive single-page layout with sections for skills, projects, and contact.
 - SEO and Open Graph metadata for clearer sharing on LinkedIn and search engines.
 - Structured data for recruiter and search-engine discoverability.
+- Accessible mobile navigation, keyboard interactions, reduced-motion support, and touch-safe project actions.
+- Privacy notice, crawler files, custom 404 page, security policy, and automated repository validation.
 
 ## Tech Stack
 
@@ -25,7 +27,21 @@ This repository contains the source for my recruiter-facing portfolio. It is des
 ```text
 .
 ├── index.html
-├── .gitignore
+├── privacy.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+├── site.webmanifest
+├── vercel.json
+├── assets/
+│   ├── favicon.svg
+│   ├── og-image.jpg
+│   └── portrait*.webp
+├── scripts/
+│   ├── validate_site.py
+│   └── browser_audit.mjs
+├── .github/workflows/quality.yml
+├── SECURITY.md
 └── README.md
 ```
 
@@ -39,27 +55,37 @@ python -m http.server 8000
 
 Then visit `http://localhost:8000`.
 
+## Validation
+
+Run the dependency-free source checks before committing:
+
+```bash
+python scripts/validate_site.py
+```
+
+With Chrome installed, run responsive browser checks at 320, 390, 768, and 1440 pixels:
+
+```bash
+node scripts/browser_audit.mjs http://localhost:8000/index.html
+```
+
+Set `CHROME_PATH` when Chrome is installed outside the default Windows location. GitHub Actions runs the static validator on every push and pull request.
+
 ## Deployment
 
 Live deployment:
 
 - GitHub Pages: [https://mo-reece.github.io/moreece-portfolio/](https://mo-reece.github.io/moreece-portfolio/)
 
-Recommended deployment targets:
-
-- GitHub Pages for a simple static portfolio.
-- Vercel or Netlify if custom domains, preview deployments, or form handling are needed.
+GitHub Pages deploys the root of `main`. Vercel is also configured with HTTP security headers for a hardened production deployment. Merge through a reviewed pull request after the `Site quality` workflow passes.
 
 ## Recruiter Notes
 
 This site should stay synchronized with the GitHub pinned repositories. When a project is improved, update the portfolio card with the stronger README, screenshots, live demo, and measurable results.
 
-## Future Improvements
+## Content Maintenance
 
-- Move embedded image assets into an `assets/` directory.
-- Add a real Open Graph image file instead of relying only on metadata.
-- Add project screenshots and live demo links for each featured repository.
-- Add accessibility and Lighthouse checks before deployment.
+Keep project claims synchronized with their repositories. Prefer actual screenshots, live demos, measurable results, and concise problem/process/outcome summaries over generic descriptions.
 
 ## Author
 
