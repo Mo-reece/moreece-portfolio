@@ -369,23 +369,9 @@
             background: var(--ink);
             color: var(--paper);
             padding: var(--section-y) var(--gutter);
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 60px;
-            align-items: center;
             border-radius: 1.5rem;
             margin: 0 4%;
             box-shadow: 0 8px 32px rgba(10, 10, 10, 0.18);
-        }
-
-        .manifesto-tag {
-            font-family: var(--display);
-            font-size: 6rem;
-            color: var(--gold);
-            line-height: 1;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            letter-spacing: 4px;
         }
 
         .manifesto-body h2 {
@@ -416,15 +402,6 @@
         }
 
         /* ── SECTION FRAMEWORK ── */
-        .section-label {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--bronze);
-            margin-bottom: 16px;
-        }
-
         .section-title {
             font-family: var(--display);
             font-size: clamp(3.5rem, 6vw, 6rem);
@@ -556,10 +533,6 @@
 
         .portfolio-header .section-title {
             color: var(--paper);
-        }
-
-        .portfolio-header .section-label {
-            color: var(--gold);
         }
 
         .portfolio-grid {
@@ -890,17 +863,8 @@
             }
 
             .manifesto {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                
                 margin: 0 3%;
                 border-radius: 1rem;
-            }
-
-            .manifesto-tag {
-                writing-mode: horizontal-tb;
-                transform: none;
-                font-size: 3rem;
             }
 
             .about {
@@ -962,15 +926,6 @@
 
         .techstack-header {
             margin-bottom: 40px;
-        }
-
-        .techstack-header .section-label {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--rust);
-            margin-bottom: 12px;
         }
 
         .techstack-header .section-title {
@@ -1622,7 +1577,6 @@
 
     <!-- MANIFESTO -->
     <section class="manifesto">
-        <div class="manifesto-tag">WHY</div>
         <div class="manifesto-body">
             <h2>The Philosophy</h2>
             <p>
@@ -1636,7 +1590,6 @@
     <!-- ABOUT -->
     <section id="about" class="about">
         <div class="about-left reveal">
-            <p class="section-label">About</p>
             <h2 class="section-title">BUILT<br>DIFFER<br>ENTLY</h2>
             <div class="divider"></div>
             <div class="about-portrait">
@@ -1677,7 +1630,6 @@
     <!-- TECH STACK -->
     <section id="techstack" class="techstack">
         <div class="techstack-header reveal">
-            <p class="section-label">Arsenal</p>
             <h2 class="section-title">TECH<br>STACK</h2>
         </div>
 
@@ -1872,7 +1824,6 @@
         <div class="skills-header reveal">
             <span class="skills-dot" aria-hidden="true"></span>
             <span class="skills-ring" aria-hidden="true"></span>
-            <p class="section-label">Expertise</p>
             <h2 class="section-title">SOLUTIONS<br>I BUILD</h2>
             <div class="divider"></div>
             <p class="skills-intro">I help businesses and organisations turn ideas and data
@@ -1954,7 +1905,6 @@
     <!-- PORTFOLIO -->
     <section id="portfolio" class="portfolio">
         <div class="portfolio-header reveal">
-            <p class="section-label">Selected Work</p>
             <h2 class="section-title">THE<br>WORK</h2>
         </div>
 
