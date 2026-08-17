@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mo-reece.github.io/moreece-portfolio/</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://mo-reece.github.io/moreece-portfolio/privacy.html</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/about.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/experience.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/services.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/services/data-engineering.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/services/analytics-reporting.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/services/automation-ai-data.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/projects.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/contact.html</loc><lastmod>2026-08-17</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mo-reece.github.io/moreece-portfolio/privacy.html</loc><lastmod>2026-08-17</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>

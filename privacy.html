@@ -1,48 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="index, follow">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; base-uri 'self'; object-src 'none'; style-src 'unsafe-inline'; img-src 'self';">
-    <link rel="canonical" href="https://mo-reece.github.io/moreece-portfolio/privacy.html">
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <title>Privacy Notice | Okurut Maurice Leonard</title>
-    <style>
-        :root { color-scheme: light; --ink:#0a0a0a; --paper:#f0ece4; --bronze:#8a6318; }
-        * { box-sizing: border-box; }
-        body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.75 system-ui, sans-serif; }
-        main { width: min(720px, 88%); margin: 0 auto; padding: 72px 0; }
-        h1 { font-size: clamp(2.2rem, 8vw, 4.5rem); line-height: 1; margin: 0 0 32px; }
-        h2 { font-size: 1.2rem; margin-top: 32px; }
-        a { color: var(--bronze); font-weight: 700; }
-        a:focus-visible { outline: 3px solid #c0392b; outline-offset: 3px; }
-        .back { display: inline-block; margin-bottom: 36px; }
-        .updated { color: #514b44; }
-    </style>
-</head>
-<body>
-    <main>
-        <a class="back" href="./">&larr; Back to portfolio</a>
-        <h1>Privacy Notice</h1>
-        <p class="updated">Last updated: 28 July 2026</p>
-        <p>This portfolio does not use advertising cookies or behavioral analytics. Standard technical request
-            information may be processed by GitHub Pages when the site is delivered.</p>
-        <h2>Contact form</h2>
-        <p>If you send the contact form, your name, email address, and message are transmitted to FormSubmit so the
-            message can be delivered to Maurice. Do not include passwords, financial information, health information,
-            or other sensitive personal data.</p>
-        <h2>Why the information is used</h2>
-        <p>Contact details are used only to read your enquiry, reply to you, and retain necessary correspondence.
-            They are not sold or used for advertising.</p>
-        <h2>Your choices</h2>
-        <p>You may contact Maurice directly by email instead of using the form. To request correction or deletion of
-            correspondence, email <a href="mailto:okurutmauriceleonard@gmail.com">okurutmauriceleonard@gmail.com</a>.</p>
-        <h2>Third parties</h2>
-        <p>The site is hosted by GitHub Pages and the optional contact form uses FormSubmit. Their own privacy and
-            retention practices may also apply.</p>
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Privacy notice for the portfolio contact form of Okurut Maurice Leonard." />
+        <meta name="author" content="Okurut Maurice Leonard" />
+        <meta name="robots" content="index, follow" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="theme-color" content="#f0ece4" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action https://formsubmit.co; connect-src 'self' https://formsubmit.co; img-src 'self' data: https://images.unsplash.com; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; upgrade-insecure-requests"
+        />
+        <link rel="canonical" href="https://mo-reece.github.io/moreece-portfolio/privacy.html" />
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;600;700;800&amp;display=swap"
+        />
+        <link rel="stylesheet" href="assets/site.css" />
+        <title>Privacy Notice | Okurut Maurice Leonard</title>
+        <script src="assets/site.js" defer></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <header class="site-header">
+            <nav class="site-nav container" aria-label="Primary navigation">
+                <a class="brand" href="index.html" aria-label="Okurut Maurice Leonard home"
+                    ><img src="assets/oml-logo.jpg" width="432" height="235" alt="" /><span
+                        >Okurut Maurice Leonard<small>Data Engineer</small></span
+                    ></a
+                ><button
+                    class="nav-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="primary-menu"
+                    aria-label="Open navigation menu"
+                >
+                    &#9776;
+                </button>
+                <ul class="nav-menu" id="primary-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="services.html">Capabilities</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a class="nav-cta" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <header class="page-hero">
+                <div class="container narrow">
+                    <ol class="breadcrumb" aria-label="Breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li aria-current="page">Privacy notice</li>
+                    </ol>
+                    <p class="eyebrow">Last updated 17 August 2026</p>
+                    <h1>Privacy notice.</h1>
+                    <p class="lead">What happens to the information you provide through this portfolio.</p>
+                </div>
+            </header>
+            <section class="section">
+                <div class="container narrow prose">
+                    <h2>Site delivery</h2>
+                    <p>
+                        This portfolio does not use advertising cookies or behavioural analytics. Standard technical
+                        request information may be processed by GitHub Pages or another configured hosting provider when
+                        the site is delivered.
+                    </p>
+                    <h2>Visual assets</h2>
+                    <p>
+                        The site requests its display fonts from Google Fonts and selected project photography from
+                        Unsplash. Those providers may receive standard request details such as your IP address, browser
+                        information, and the referring page when these assets load.
+                    </p>
+                    <h2>Contact form</h2>
+                    <p>
+                        If you use the contact form, your name, email address, and message are transmitted to FormSubmit
+                        so the message can be delivered to Maurice. Do not include passwords, financial details, health
+                        information, or other sensitive personal data.
+                    </p>
+                    <h2>Why information is used</h2>
+                    <p>
+                        Contact details are used only to read your enquiry, reply to you, and retain necessary
+                        professional correspondence. They are not sold or used for advertising.
+                    </p>
+                    <h2>Your choices</h2>
+                    <p>
+                        You can contact Maurice directly by email instead of using the form. To request correction or
+                        deletion of correspondence, email
+                        <a href="mailto:okurutmauriceleonard@gmail.com">okurutmauriceleonard@gmail.com</a>.
+                    </p>
+                    <h2>Third parties</h2>
+                    <p>
+                        The site is hosted through GitHub Pages, with Vercel configuration also included in the
+                        repository. The optional contact form uses FormSubmit. Google Fonts and Unsplash deliver the
+                        external visual assets described above. Each provider's own privacy and retention practices may
+                        apply.
+                    </p>
+                    <div class="button-row">
+                        <a class="button" href="contact.html">Return to contact</a
+                        ><a class="button button-secondary" href="index.html">Return home</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h2>Okurut Maurice Leonard</h2>
+                        <p>Data Engineer and Digital Solutions Builder based in Kampala, Uganda.</p>
+                    </div>
+                    <div>
+                        <h2>Explore</h2>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="experience.html">Experience</a></li>
+                            <li><a href="services.html">Capabilities</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Connect</h2>
+                        <ul class="footer-links">
+                            <li><a href="mailto:okurutmauriceleonard@gmail.com">Email</a></li>
+                            <li><a href="contact.html">Contact form</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span>&copy; <span data-current-year>2026</span> Okurut Maurice Leonard.</span
+                    ><a href="privacy.html" aria-current="page">Privacy notice</a>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

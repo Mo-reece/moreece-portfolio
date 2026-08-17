@@ -1,2445 +1,484 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ══ PRIMARY SEO ══ -->
-    <title>Okurut Maurice Leonard | Software Developer &amp; Digital Solutions Builder</title>
-    <meta name="description"
-        content="Software developer in Kampala, Uganda building practical web, data, AI, and automation solutions for businesses and organizations.">
-    <meta name="keywords"
-        content="data scientist Uganda, machine learning engineer Kampala, MQL5 developer, Python developer East Africa, algorithmic trading developer, AI engineer Uganda, fintech developer Africa">
-    <meta name="author" content="Okurut Maurice Leonard">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mo-reece.github.io/moreece-portfolio/">
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#f0ece4">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action https://formsubmit.co; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com data:; img-src 'self' data: https://images.unsplash.com https://upload.wikimedia.org; connect-src 'self' https://formsubmit.co; upgrade-insecure-requests">
-
-    <!-- ══ OPEN GRAPH (Facebook / LinkedIn) ══ -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mo-reece.github.io/moreece-portfolio/">
-    <meta property="og:title" content="Okurut Maurice Leonard | Software Developer &amp; Digital Solutions Builder">
-    <meta property="og:description"
-        content="Software developer in Kampala building practical web, data, AI, and automation solutions. Available for remote opportunities.">
-    <meta property="og:image" content="https://mo-reece.github.io/moreece-portfolio/assets/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt"
-        content="Okurut Maurice Leonard, Software Developer and Digital Solutions Builder in Kampala, Uganda">
-    <meta property="og:locale" content="en_UG">
-    <meta property="og:site_name" content="Okurut Maurice Leonard Portfolio">
-
-    <!-- ══ TWITTER CARD ══ -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://mo-reece.github.io/moreece-portfolio/">
-    <meta name="twitter:title" content="Okurut Maurice Leonard | Software Developer &amp; Digital Solutions Builder">
-    <meta name="twitter:description"
-        content="Software developer in Kampala building practical web, data, AI, and automation solutions. Available for remote opportunities.">
-    <meta name="twitter:image" content="https://mo-reece.github.io/moreece-portfolio/assets/og-image.jpg">
-    <meta name="twitter:image:alt"
-        content="Okurut Maurice Leonard, Software Developer and Digital Solutions Builder in Kampala, Uganda">
-
-    <!-- ══ GEO / LOCAL SEO (Uganda) ══ -->
-    <meta name="geo.region" content="UG-C">
-    <meta name="geo.placename" content="Kampala, Uganda">
-    <meta name="geo.position" content="0.3476;32.5825">
-    <meta name="ICBM" content="0.3476, 32.5825">
-
-    <!-- ══ FONTS & ICONS ══ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" id="devicon-css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        media="print" onload="this.media='all'">
-    <style>
-        :root {
-            --ink: #0a0a0a;
-            --paper: #f0ece4;
-            --gold: #d4a017;
-            /* --gold on --paper is only 2.02:1; this darker bronze is
-               4.60:1 and is used for text sitting on the paper ground */
-            --bronze: #8a6318;
-            --rust: #c0392b;
-            --fog: #b8b0a4;
-            --mono: 'Space Mono', monospace;
-            --display: 'Bebas Neue', sans-serif;
-            --body: 'Syne', sans-serif;
-            /* spacing scale */
-            --gutter: 10%;
-            --section-y: 88px;
-        }
-
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--body);
-            background: var(--paper);
-            color: var(--ink);
-
-            overflow-x: hidden;
-        }
-
-        .skip-link {
-            position: fixed;
-            top: 12px;
-            left: 12px;
-            z-index: 10000;
-            padding: 12px 16px;
-            background: var(--ink);
-            color: var(--paper);
-            font-family: var(--mono);
-            text-decoration: none;
-            transform: translateY(-160%);
-        }
-
-        .skip-link:focus { transform: translateY(0); }
-
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        textarea:focus-visible {
-            outline: 3px solid var(--rust);
-            outline-offset: 3px;
-        }
-
-        /* ── CUSTOM CURSOR ── */
-        body.has-custom-cursor {
-            cursor: none;
-        }
-
-        #cursor {
-            position: fixed;
-            display: none;
-            width: 12px;
-            height: 12px;
-            background: #d4a017;
-            /* gold — change to your accent color */
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width .2s, height .2s, background .2s;
-            mix-blend-mode: multiply;
-            /* blends with background colors */
-        }
-
-        #cursor-ring {
-            position: fixed;
-            display: none;
-            width: 40px;
-            height: 40px;
-            border: 2px solid #0a0a0a;
-            /* dark border — change to your color */
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: width .3s, height .3s;
-        }
-
-        body.has-custom-cursor #cursor,
-        body.has-custom-cursor #cursor-ring {
-            display: block;
-        }
-
-        /* ── HOVER STATE — dot grows and changes color over links/buttons ── */
-        body:has(a:hover) #cursor,
-        body:has(button:hover) #cursor {
-            width: 24px;
-            height: 24px;
-            background: #c0392b;
-            /* rust/red — change to your hover color */
-        }
-
-        /* ── NOISE OVERLAY ── */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 1000;
-            opacity: 0.4;
-        }
-
-        /* ── NAV ── */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            mix-blend-mode: multiply;
-        }
-
-        .nav-logo {
-            display: block;
-            opacity: 0;
-            animation: fadeSlideDown .8s .3s forwards;
-        }
-
-        .nav-logo img {
-            display: block;
-            width: auto;
-            height: 32px;
-            object-fit: contain;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-            opacity: 0;
-            animation: fadeSlideDown .8s .5s forwards;
-        }
-
-        .nav-toggle {
-            display: none;
-            width: 44px;
-            height: 44px;
-            border: 2px solid var(--ink);
-            background: var(--paper);
-            color: var(--ink);
-            font-size: 1.25rem;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        nav a {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--ink);
-            text-decoration: none;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width .3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: var(--ink);
-            color: var(--paper);
-            padding: 10px 22px;
-            text-decoration: none;
-            transition: background .3s, color .3s;
-        }
-
-        .nav-cta:hover {
-            background: var(--gold);
-            color: var(--ink);
-        }
-
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-        }
-
-        .hero-text-panel {
-            padding: 160px 60px 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-cta-group {
-            margin-top: 50px;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            opacity: 0;
-            animation: fadeSlideUp .8s 1.4s forwards;
-        }
-
-        .btn-primary {
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: var(--ink);
-            color: var(--paper);
-            padding: 15px 35px;
-            text-decoration: none;
-            transition: background .3s;
-            border: 2px solid var(--ink);
-        }
-
-        .btn-primary:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--ink);
-        }
-
-        .btn-ghost {
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: transparent;
-            color: var(--ink);
-            padding: 15px 35px;
-            text-decoration: none;
-            border: 2px solid var(--ink);
-            transition: background .3s;
-        }
-
-        .btn-ghost:hover {
-            background: var(--ink);
-            color: var(--paper);
-        }
-
-        /* Hero right panel */
-        .hero-visual-panel {
-            position: relative;
-            background: var(--ink);
-            clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 80px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Hero Photo */
-        .hero-photo-wrapper {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-        }
-
-        .hero-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            filter: grayscale(20%) contrast(1.05);
-            transition: filter .5s;
-        }
-
-        .hero-visual-panel:hover .hero-photo {
-            filter: grayscale(0%) contrast(1.05);
-        }
-
-        /* ── MANIFESTO ── */
-        .manifesto {
-            background: var(--ink);
-            color: var(--paper);
-            padding: var(--section-y) var(--gutter);
-            border-radius: 1.5rem;
-            margin: 0 4%;
-            box-shadow: 0 8px 32px rgba(10, 10, 10, 0.18);
-        }
-
-        .manifesto-body h2 {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 4px;
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .manifesto-body p {
-            font-family: var(--body);
-            font-size: 1.4rem;
-            line-height: 1.7;
-            color: rgba(240, 236, 228, 0.8);
-            font-weight: 400;
-        }
-
-        .manifesto-body p em {
-            color: var(--gold);
-            font-style: normal;
-            font-weight: 700;
-        }
-
-        .manifesto-body p + p {
-            margin-top: 20px;
-        }
-
-        /* ── SECTION FRAMEWORK ── */
-        .section-title {
-            font-family: var(--display);
-            font-size: clamp(3.5rem, 6vw, 6rem);
-            line-height: .95;
-            color: var(--ink);
-            letter-spacing: 2px;
-        }
-
-        .divider {
-            width: 60px;
-            height: 4px;
-            background: var(--gold);
-            margin: 24px 0;
-        }
-
-        /* ── ABOUT ── */
-        .about {
-            padding: var(--section-y) var(--gutter);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-            align-items: center;
-        }
-
-        .about-text {
-            font-family: var(--body);
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: #444;
-        }
-
-        .about-text strong {
-            color: var(--bronze);
-            font-weight: 700;
-        }
-
-        /* About Portrait */
-        .about-portrait {
-            margin-top: 40px;
-            position: relative;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(10, 10, 10, 0.15);
-        }
-
-        .about-portrait img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            display: block;
-            filter: grayscale(100%);
-            transition: filter .5s ease, transform .6s cubic-bezier(.16, 1, .3, 1);
-        }
-
-        .about-portrait:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.03);
-        }
-
-        .portrait-nameplate {
-            position: relative;
-            padding: 16px 0 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
-        }
-
-        .portrait-name {
-            font-family: var(--display);
-            font-size: 1.6rem;
-            color: var(--ink);
-            letter-spacing: 3px;
-        }
-
-        .portrait-role {
-            font-family: var(--mono);
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            color: var(--bronze);
-            text-transform: uppercase;
-        }
-
-        /* ── SOCIAL ICON BUTTONS ── */
-        .social-icons {
-            display: flex;
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .social-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 2px solid var(--ink);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--ink);
-            font-size: 1.1rem;
-            transition: border-color .3s ease, color .3s ease, background .3s ease;
-        }
-
-        .social-icon:hover {
-            border-color: var(--gold);
-            color: var(--bronze);
-            background: rgba(212, 160, 23, 0.08);
-        }
-
-        /* ── SKILLS ── */
-        .skills {
-            padding: 0 var(--gutter) var(--section-y);
-        }
-
-        /* ── PORTFOLIO ── */
-        .portfolio {
-            background: var(--ink);
-            padding: var(--section-y) 0 0;
-        }
-
-        .portfolio-header {
-            padding: 0 var(--gutter) 48px;
-        }
-
-        .portfolio-header .section-title {
-            color: var(--paper);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
-        .project-card {
-            position: relative;
-            height: 480px;
-            overflow: hidden;
-            cursor: default;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(40%) brightness(0.7);
-            transition: transform .8s cubic-bezier(.16, 1, .3, 1), filter .5s;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.07);
-            filter: grayscale(0%) brightness(0.5);
-        }
-
-        .project-overlay {
-            position: absolute;
-            inset: 0;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            /* The tag sits ~68% up the card, so a stop at 60% left it over bare
-               photo with no scrim at all. Extend the fade to 90%. */
-            background: linear-gradient(to top, rgba(10, 10, 10, .9) 0%, transparent 90%);
-        }
-
-        .project-tag {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
-
-        .project-title {
-            font-family: var(--display);
-            font-size: 3rem;
-            color: var(--paper);
-            line-height: .95;
-            margin-bottom: 16px;
-            letter-spacing: 1px;
-        }
-
-        .project-desc {
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            color: rgba(240, 236, 228, 0.6);
-            line-height: 1.8;
-            margin-bottom: 24px;
-            max-width: 420px;
-            /* Reserve a uniform 4 lines. This block is opacity:0 until hover
-               but still occupies flow, and .project-overlay is a bottom-
-               anchored flex column - so a 3- vs 4-line description shifted the
-               visible tag and title by one line between cards in the same row. */
-            min-height: 7.2em;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity .4s .1s, transform .4s .1s;
-        }
-
-        .project-card:hover .project-desc {
-            opacity: 1;
-            transform: none;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 12px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity .4s .2s, transform .4s .2s;
-        }
-
-        .project-card:hover .project-links {
-            opacity: 1;
-            transform: none;
-        }
-
-        .project-card:focus-within .project-desc,
-        .project-card:focus-within .project-links {
-            opacity: 1;
-            transform: none;
-        }
-
-        .project-links a {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--paper);
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 8px 18px;
-            transition: background .3s, border-color .3s;
-        }
-
-        .project-links a:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--ink);
-        }
-
-        .portfolio-cta {
-            padding: 48px var(--gutter);
-            text-align: center;
-        }
-
-        .portfolio-cta p {
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            color: rgba(240, 236, 228, 0.4);
-            text-transform: uppercase;
-        }
-
-        /* ── CONTACT ── */
-        .contact {
-            padding: var(--section-y) var(--gutter);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-            align-items: start;
-        }
-
-        .contact-left .section-title {
-            margin-bottom: 30px;
-        }
-
-        .contact-tagline {
-            font-family: var(--mono);
-            font-size: 0.9rem;
-            line-height: 1.9;
-            color: #666;
-        }
-
-        .contact-info {
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-info-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .contact-info-item span:first-child {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--bronze);
-        }
-
-        .contact-info-item a,
-        .contact-info-item span:last-child {
-            font-family: var(--body);
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--ink);
-            text-decoration: none;
-            transition: color .3s;
-        }
-
-        .contact-info-item a:hover {
-            color: var(--rust);
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            background: var(--ink);
-            color: rgba(240, 236, 228, 0.4);
-            padding: 40px var(--gutter);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-logo {
-            display: inline-block;
-        }
-
-        .footer-logo img {
-            height: 48px;
-            width: auto;
-            display: block;
-            object-fit: contain;
-            mix-blend-mode: lighten;
-        }
-
-        footer p {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .footer-back {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(240, 236, 228, 0.4);
-            text-decoration: none;
-            transition: color .3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-back:hover {
-            color: var(--gold);
-        }
-
-        /* ── REVEAL ANIMATIONS ── */
-        .reveal {
-            opacity: 1;
-            transform: none;
-            transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
-        }
-
-        .reveal.animate-ready {
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .reveal.animate-ready.visible {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* ── KEYFRAMES ── */
-        @keyframes revealUp {
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeSlideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            :root { --gutter: 7%; --section-y: 64px; }
-
-            nav {
-                padding: 20px 24px;
-                background: var(--paper);
-            }
-
-            nav ul {
-                position: absolute;
-                top: 72px;
-                left: 0;
-                right: 0;
-                display: none;
-                flex-direction: column;
-                gap: 0;
-                padding: 10px 24px 22px;
-                background: var(--paper);
-                border-bottom: 1px solid rgba(10, 10, 10, 0.15);
-                opacity: 1;
-                animation: none;
-            }
-
-            nav ul.is-open { display: flex; }
-            nav li { width: 100%; }
-            nav li a { display: block; padding: 14px 0; }
-            nav .nav-cta { display: inline-block; width: auto; padding: 11px 18px; }
-            .nav-toggle { display: inline-flex; }
-
-            .hero {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-visual-panel {
-                position: relative;
-                clip-path: none;
-                min-height: 280px;
-            }
-
-            .hero-text-panel {
-                padding: 120px 24px 60px;
-                min-width: 0;
-            }
-
-            .manifesto {
-                margin: 0 3%;
-                border-radius: 1rem;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                
-            }
-
-            .about-portrait {
-                width: 220px;
-                height: 220px;
-                margin: 20px auto 0;
-            }
-
-            .portrait-nameplate {
-                align-items: center;
-                text-align: center;
-            }
-
-            .social-icons {
-                justify-content: center;
-            }
-
-            .skills {
-                
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-desc,
-            .project-links {
-                opacity: 1;
-                transform: none;
-            }
-
-            .contact {
-                grid-template-columns: 1fr;
-                gap: 60px;
-                
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-                
-            }
-        }
-
-        /* ── TECH STACK ── */
-        .techstack {
-            padding: var(--section-y) var(--gutter);
-            background: var(--paper);
-            border-top: 1px solid rgba(10, 10, 10, 0.08);
-            position: relative;
-        }
-
-        .techstack-header {
-            margin-bottom: 40px;
-        }
-
-        .techstack-header .section-title {
-            font-family: var(--display);
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            line-height: 0.92;
-            color: var(--ink);
-            position: relative;
-            display: inline-block;
-        }
-
-        .techstack-header .section-title::after {
-            content: '';
-            display: block;
-            width: 72px;
-            height: 5px;
-            background: var(--rust);
-            margin-top: 14px;
-        }
-
-        .ts-icon {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            line-height: 1;
-        }
-
-        .ts-icon i {
-            font-size: 48px;
-            line-height: 1;
-        }
-
-        .ts-icon img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-        }
-
-        .ts-icon .ts-emoji {
-            font-size: 38px;
-        }
-
-        .ts-name {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 0.06em;
-            text-align: center;
-            color: var(--ink);
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 1.3;
-        }
-
-        .ts-footer-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 32px;
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--fog);
-            border: 1px solid rgba(10, 10, 10, 0.12);
-            padding: 8px 20px;
-            border-radius: 40px;
-        }
-
-        .ts-footer-pill span.count-dot {
-            width: 7px;
-            height: 7px;
-            background: var(--rust);
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        @media (max-width: 768px) {
-            .techstack {
-                
-            }
-        }
-
-        @media (max-width: 480px) {
-            :root { --gutter: 6%; --section-y: 52px; }
-
-            .hero-cta-group {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-            }
-
-            .hero-cta-group a { text-align: center; }
-
-        }
-
-        /* ── MOBILE / TOUCH: disable custom cursor ── */
-        @media (hover: none), (pointer: coarse) {
-            body {
-                cursor: auto;
-            }
-
-            #cursor,
-            #cursor-ring {
-                display: none;
-            }
-        }
-    
-        /* ── TECH STACK MARQUEE ── */
-        .ts-marquee {
-            position: relative;
-            overflow: hidden;
-            padding: 12px 0;
-            -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
-        }
-
-        .ts-track {
-            display: flex;
-            align-items: flex-start;
-            width: max-content;
-            animation: tsScroll 55s linear infinite;
-            will-change: transform;
-        }
-
-        /* items carry their own spacing (not `gap`) so the duplicated half
-           is an exact 50% and the loop has no seam */
-        .ts-item {
-            flex: 0 0 auto;
-            width: 96px;
-            margin-right: 56px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            transition: transform .25s ease;
-        }
-
-        .ts-item:hover { transform: translateY(-6px); }
-
-        .ts-marquee:hover .ts-track,
-        .ts-marquee:focus-within .ts-track { animation-play-state: paused; }
-
-        @keyframes tsScroll {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
-
-        @media (max-width: 640px) {
-            .ts-item { width: 84px; margin-right: 40px; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .reveal.animate-ready { opacity: 1; transform: none; }
-
-            .ts-track {
-                animation: none;
-                width: 100%;
-                flex-wrap: wrap;
-                justify-content: center;
-                row-gap: 32px;
-            }
-            .ts-track .ts-dup { display: none; }
-            .ts-marquee { -webkit-mask-image: none; mask-image: none; }
-        }
-
-        /* ── CONTACT: DIRECT CHANNELS ── */
-        .channel-list { list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-
-        .channel {
-            display: flex; align-items: center; gap: 16px;
-            padding: 14px 16px; border-radius: 12px;
-            border: 1px solid rgba(10, 10, 10, 0.10);
-            background: rgba(255, 255, 255, 0.55);
-            text-decoration: none; color: var(--ink);
-            transition: border-color .25s, background .25s, transform .25s;
-        }
-
-        .channel:hover { border-color: var(--gold); background: #fff; transform: translateX(4px); }
-        .channel:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
-
-        .channel-icon {
-            flex: 0 0 auto; width: 42px; height: 42px; border-radius: 10px;
-            display: grid; place-items: center; font-size: 1.15rem; color: #fff;
-        }
-
-        .channel-icon.wa { background: #25D366; }
-        .channel-icon.mail { background: var(--gold); }
-        .channel-icon.li { background: #0A66C2; }
-
-        .channel-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-
-        .channel-label {
-            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 3px;
-            text-transform: uppercase; color: var(--fog);
-        }
-
-        .channel-value {
-            font-family: var(--body); font-size: 0.95rem; font-weight: 700;
-            color: var(--ink); overflow-wrap: anywhere;
-        }
-
-        .channel-arrow { margin-left: auto; color: var(--fog); transition: color .25s, transform .25s; }
-        .channel:hover .channel-arrow { color: var(--gold); transform: translateX(3px); }
-
-        .contact-meta { margin: 36px 0 0; display: flex; flex-wrap: wrap; gap: 28px; }
-        .contact-meta div { display: flex; flex-direction: column; gap: 4px; }
-
-        .contact-meta dt {
-            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 3px;
-            text-transform: uppercase; color: var(--bronze);
-        }
-
-        .contact-meta dd {
-            margin: 0; font-family: var(--body); font-size: 0.9rem;
-            font-weight: 700; color: var(--ink);
-        }
-
-        /* ── CONTACT: MESSAGE CARD ── */
-        .contact-card {
-            background: #fff; border-radius: 18px; padding: 36px;
-            border: 1px solid rgba(10, 10, 10, 0.07);
-            box-shadow: 0 18px 50px rgba(10, 10, 10, 0.09);
-            display: flex; flex-direction: column;
-        }
-
-        .cf-title { font-family: var(--display); font-size: 2rem; letter-spacing: 1px; color: var(--ink); margin: 0 0 6px; }
-        .cf-sub { font-family: var(--mono); font-size: 0.72rem; color: #7d7568; margin: 0 0 26px; line-height: 1.7; }
-
-        .cf-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-
-        .cf-field label {
-            font-family: var(--body); font-size: 0.85rem; font-weight: 700;
-            color: var(--ink); letter-spacing: .2px;
-        }
-
-        .cf-field input, .cf-field textarea {
-            width: 100%; font-family: var(--body); font-size: 0.95rem; color: var(--ink);
-            background: #f7f5f1; border: 1px solid rgba(10, 10, 10, 0.12);
-            border-radius: 10px; padding: 14px 16px; outline: none; resize: vertical;
-            transition: border-color .2s, box-shadow .2s, background .2s;
-        }
-
-        .cf-field textarea { min-height: 132px; line-height: 1.6; }
-        .cf-field input::placeholder, .cf-field textarea::placeholder { color: #a89f92; }
-
-        .cf-field input:focus, .cf-field textarea:focus {
-            background: #fff; border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.22);
-        }
-
-        .cf-field input.is-invalid, .cf-field textarea.is-invalid {
-            border-color: var(--rust); box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
-        }
-
-        .cf-error {
-            font-family: var(--mono); font-size: 0.62rem; letter-spacing: .5px;
-            color: var(--rust); min-height: 0; }
-        .cf-error:empty { display: none; }
-
-        /* spam trap - off-screen rather than display:none so bots still see it */
-        .cf-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-
-        .cf-consent {
-            display: grid;
-            grid-template-columns: 18px 1fr;
-            gap: 10px;
-            align-items: start;
-            font-family: var(--body);
-            font-size: 0.78rem;
-            line-height: 1.5;
-            color: #4f4a44;
-        }
-
-        .cf-consent input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--rust); }
-        .cf-consent a { color: var(--bronze); font-weight: 700; }
-
-        .cf-submit {
-            margin-top: 10px; width: 100%; border: none; cursor: pointer;
-            font-family: var(--body); font-size: 0.95rem; font-weight: 700; letter-spacing: .4px;
-            color: var(--ink); padding: 16px 28px; border-radius: 999px;
-            background: linear-gradient(135deg, #e8b93a 0%, var(--gold) 55%, #b8860b 100%);
-            box-shadow: 0 10px 24px rgba(212, 160, 23, 0.32);
-            transition: transform .2s, box-shadow .2s, filter .2s;
-        }
-
-        .cf-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(212, 160, 23, 0.42); }
-        .cf-submit:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-        .cf-submit:disabled { cursor: not-allowed; filter: grayscale(0.45); opacity: .75; box-shadow: none; }
-
-        .cf-status {
-            font-family: var(--mono); font-size: 0.7rem; line-height: 1.7;
-            margin: 16px 0 0; text-align: center; }
-        .cf-status:empty { display: none; }
-        .cf-status.is-ok { color: #1e7a44; }
-        .cf-status.is-err { color: var(--rust); }
-        .cf-status a { color: inherit; }
-
-        @media (max-width: 900px) {
-            .contact-card { padding: 26px; }
-            .contact-meta { gap: 20px; }
-        }
-
-        @media (max-width: 480px) {
-            /* keep the 30-char email on one line instead of breaking mid-word:
-               drop the decorative arrow and tighten the row to buy the width */
-            .channel-value { font-size: 0.78rem; }
-            .channel { padding: 12px 14px; gap: 11px; }
-            .channel-icon { width: 36px; height: 36px; font-size: 0.95rem; }
-            .channel-arrow { display: none; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .channel, .channel-arrow, .cf-submit { transition: none; }
-            .channel:hover, .cf-submit:hover:not(:disabled) { transform: none; }
-        }
-
-        /* ── SOLUTIONS I BUILD ── */
-        .skills { position: relative; }
-
-        .skills-header { position: relative; margin-top: 0; margin-bottom: 44px; }
-
-        .skills-intro {
-            font-family: var(--body); font-size: 1rem; line-height: 1.75;
-            color: #5c564f; margin-top: 22px; max-width: 48ch;
-        }
-
-        /* decorative accents - desktop only so they can never cause overflow */
-        .skills-dot, .skills-ring { display: none; position: absolute; border-radius: 50%; pointer-events: none; }
-
-        @media (min-width: 1100px) {
-            .skills-dot { display: block; width: 13px; height: 13px; background: var(--gold); left: -74px; top: 4px; }
-            .skills-ring { display: block; width: 36px; height: 36px; border: 1.5px solid var(--ink); left: -52px; top: 22px; opacity: .75; }
-        }
-
-        .solutions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch; }
-
-        .solution-card {
-            display: flex; flex-direction: column;
-            background: #fbfaf7;
-            border: 1px solid rgba(10, 10, 10, 0.10);
-            border-radius: 14px;
-            padding: 30px 26px 26px;
-            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-        }
-
-        .solution-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 42px rgba(10, 10, 10, 0.10);
-            border-color: rgba(212, 160, 23, 0.5);
-        }
-
-        .solution-badge {
-            width: 74px; height: 74px; border-radius: 50%;
-            background: rgba(10, 10, 10, 0.055);
-            display: grid; place-items: center;
-            font-size: 1.6rem; color: var(--ink);
-            margin-bottom: 26px;
-            transition: background .25s ease, color .25s ease;
-        }
-
-        .solution-card:hover .solution-badge { background: rgba(212, 160, 23, 0.16); color: #a07800; }
-
-        .solution-num {
-            font-family: var(--mono); font-size: 0.8rem; letter-spacing: 3px;
-            color: var(--bronze); margin-bottom: 8px;
-        }
-
-        .solution-title {
-            font-family: var(--display); font-size: 1.55rem; letter-spacing: .5px;
-            line-height: 1.05; color: var(--ink); margin: 0 0 12px;
-        }
-
-        .solution-desc {
-            font-family: var(--body); font-size: 0.86rem; line-height: 1.65;
-            color: #6b645c; margin: 0 0 20px;
-            /* absorb the card's spare height here so a 4- vs 5-line description
-               cannot shift the rule and feature list out of line across a row.
-               Self-adapting: at one column there is no spare height to absorb,
-               so no dead space appears. */
-            flex: 1 1 auto;
-        }
-
-        .solution-rule { display: block; width: 46px; height: 2px; background: var(--gold); margin-bottom: 20px; }
-
-        .solution-list { list-style: none; padding: 0; margin: 0 0 26px; display: flex; flex-direction: column; gap: 13px; }
-
-        .solution-list li {
-            display: flex; align-items: center; gap: 12px;
-            font-family: var(--body); font-size: 0.85rem; color: var(--ink);
-        }
-
-        .solution-list i { width: 18px; flex: 0 0 18px; text-align: center; font-size: 0.95rem; color: var(--ink); opacity: .7; }
-
-        /* pin the CTA to the bottom so it lines up across cards of unequal height */
-        .solution-more {
-            margin-top: auto; align-self: flex-start;
-            display: inline-flex; align-items: center; gap: 10px;
-            font-family: var(--mono); font-size: 0.68rem; letter-spacing: 3px;
-            text-transform: uppercase; color: #a07800; text-decoration: none;
-        }
-
-        .solution-more i { transition: transform .25s ease; }
-        .solution-more:hover i { transform: translateX(5px); }
-        .solution-more:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-
-        .sr-only {
-            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-            overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
-        }
-
-        @media (max-width: 1200px) { .solutions-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 620px)  { .solutions-grid { grid-template-columns: 1fr; } }
-
-        @media (prefers-reduced-motion: reduce) {
-            .solution-card, .solution-more i { transition: none; }
-            .solution-card:hover { transform: none; }
-            .solution-more:hover i { transform: none; }
-        }
-
-        /* ── HERO (rebuilt) ── */
-        .hero { background: var(--paper); grid-template-columns: 1.28fr 1fr; }
-
-        .hero-text-panel { padding: 150px 60px 90px; max-width: 820px; }
-
-        .hero-rule {
-            display: block; position: relative; width: min(330px, 80%); height: 2px;
-            background: linear-gradient(to right, var(--gold) 0 38%, var(--ink) 38% 100%);
-            margin-bottom: 32px; opacity: 0; animation: fadeSlideUp .8s .5s forwards;
-        }
-        .hero-rule::after {
-            content: ''; position: absolute; right: -4px; top: -3px;
-            width: 8px; height: 8px; border-radius: 50%; background: var(--gold);
-        }
-
-        .hero-kicker {
-            font-family: var(--mono); font-size: 0.92rem; font-weight: 700;
-            letter-spacing: 4px; text-transform: uppercase; color: var(--ink);
-            line-height: 1.55; margin: 0 0 24px; max-width: 260px;
-            opacity: 0; animation: fadeSlideUp .8s .65s forwards;
-        }
-
-        .hero-headline {
-            font-family: var(--body); font-weight: 700;
-            font-size: clamp(1.85rem, 3.3vw, 2.95rem); line-height: 1.16;
-            letter-spacing: -0.5px; color: var(--bronze); margin: 0 0 24px;
-            opacity: 0; animation: fadeSlideUp .8s .8s forwards;
-        }
-
-        .hero-lede {
-            font-family: var(--body); font-size: 1.02rem; line-height: 1.7;
-            color: #4f4a44; margin: 0 0 30px; max-width: 46ch;
-            opacity: 0; animation: fadeSlideUp .8s .95s forwards;
-        }
-
-        .hero-chips {
-            list-style: none; display: flex; flex-wrap: wrap; gap: 9px;
-            padding: 0; margin: 0 0 38px;
-            opacity: 0; animation: fadeSlideUp .8s 1.1s forwards;
-        }
-        .hero-chips li {
-            display: inline-flex; align-items: center; gap: 10px;
-            border: 1px solid rgba(212, 160, 23, 0.55); border-radius: 8px;
-            padding: 10px 12px; background: rgba(255, 255, 255, 0.45);
-            font-family: var(--body); font-size: 0.79rem; font-weight: 600; color: var(--ink);
-            white-space: nowrap;
-        }
-        .hero-chips i { color: var(--bronze); font-size: 0.95rem; }
-
-        .hero-cta-group { margin-top: 0; opacity: 0; animation: fadeSlideUp .8s 1.25s forwards; }
-        .btn-primary, .btn-ghost { border-radius: 6px; }
-
-        /* right panel: curved left edge, photo, frosted stat card */
-        .hero-visual-panel {
-            background: linear-gradient(160deg, #efe9df 0%, #e2d8c8 100%);
-            clip-path: none;
-            border-radius: 18% 0 0 18% / 50% 0 0 50%;
-            overflow: hidden;
-            padding: 0 40px 64px 72px;
-            justify-content: flex-end;
-        }
-
-        .hero-photo { filter: none; }
-
-        .hero-stats {
-            position: relative; z-index: 2;
-            display: grid; grid-template-columns: 1fr 1fr;
-            border-radius: 18px; padding: 4px;
-            background: rgba(255, 255, 255, 0.80);
-            border: 1px solid rgba(255, 255, 255, 0.85);
-            box-shadow: 0 18px 50px rgba(10, 10, 10, 0.20);
-            -webkit-backdrop-filter: blur(16px) saturate(1.15);
-            backdrop-filter: blur(16px) saturate(1.15);
-            opacity: 0; animation: fadeSlideUp .8s 1.4s forwards;
-        }
-
-        /* browsers without backdrop-filter get an opaque panel instead of
-           unreadable text over the photo */
-        @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-            .hero-stats { background: rgba(255, 255, 255, 0.93); }
-        }
-
-        .hero-stat { display: flex; align-items: center; gap: 14px; padding: 17px 18px; }
-        .hero-stat:nth-child(1), .hero-stat:nth-child(2) { border-bottom: 1px solid rgba(10, 10, 10, 0.13); }
-        .hero-stat:nth-child(odd) { border-right: 1px solid rgba(10, 10, 10, 0.13); }
-
-        .hero-stat-icon {
-            flex: 0 0 44px; width: 44px; height: 44px; border-radius: 50%;
-            border: 1px solid rgba(10, 10, 10, 0.28);
-            display: grid; place-items: center; color: var(--ink); font-size: 1rem;
-        }
-
-        .hero-stat-body { min-width: 0; }
-        .hero-stat-value {
-            font-family: var(--body); font-weight: 800; font-size: 1.55rem;
-            line-height: 1.05; color: #7d5a15; margin: 0;
-        }
-        .hero-stat-label { font-family: var(--body); font-size: 0.82rem; font-weight: 600; color: #241f1a; margin: 3px 0 0; }
-        .hero-stat-sub { font-family: var(--body); font-size: 0.76rem; color: #3f3a34; margin: 1px 0 0; }
-
-        /* nav CONTACT pill */
-        .nav-cta {
-            background: var(--ink); color: var(--paper) !important;
-            padding: 11px 22px; border-radius: 6px;
-        }
-        .nav-cta::after { display: none; }
-
-        @media (max-width: 900px) {
-            /* must be re-declared here: this block is appended after the
-               original @media rule, so the base .hero above would otherwise win */
-            .hero { grid-template-columns: minmax(0, 1fr); width: 100%; min-width: 0; overflow: hidden; }
-            .hero-text-panel { width: 100%; min-width: 0; padding: 120px 24px 60px; }
-            .hero-visual-panel { border-radius: 0; min-height: 560px; padding: 0 20px 28px; }
-        }
-
-        @media (max-width: 620px) {
-            .hero-br { display: none; }
-            .hero-headline, .hero-lede { max-width: 100%; overflow-wrap: anywhere; }
-            .hero-chips li { min-width: 0; white-space: normal; }
-            .hero-cta-group {
-                width: 100%;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-            }
-            .hero-cta-group a { max-width: 100%; padding: 15px 20px; text-align: center; }
-            .hero-stats { grid-template-columns: 1fr; }
-            .hero-stat:nth-child(odd) { border-right: none; }
-            .hero-stat:nth-child(3) { border-bottom: 1px solid rgba(10, 10, 10, 0.13); }
-            .hero-visual-panel { min-height: 680px; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .hero-rule, .hero-kicker, .hero-headline, .hero-lede,
-            .hero-chips, .hero-cta-group, .hero-stats { animation: none; opacity: 1; }
-        }
-</style>
-</head>
-
-<body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- CURSOR -->
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
-
-    <!-- NAV -->
-    <nav aria-label="Primary navigation">
-        <a class="nav-logo" href="./" aria-label="Okurut Maurice Leonard portfolio home">
-            <img src="assets/oml-logo.jpg" width="432" height="235" alt="">
-        </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"
-            aria-label="Open navigation menu">&#9776;</button>
-        <ul id="primary-menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#portfolio">Projects</a></li>
-            <li><a href="#contact" class="nav-cta">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main id="main-content">
-    <!-- HERO -->
-    <header class="hero">
-        <div class="hero-text-panel">
-            <span class="hero-rule" aria-hidden="true"></span>
-            <p class="hero-kicker">Okurut Maurice Leonard</p>
-            <h1 class="hero-headline">Software Developer &amp; <br class="hero-br">Digital Solutions Builder</h1>
-            <p class="hero-lede">I help businesses and organisations turn ideas and data
-                into practical digital solutions that create real impact.</p>
-            <ul class="hero-chips">
-                <li><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span>Data Insights</span></li>
-                <li><i class="fa-solid fa-code" aria-hidden="true"></i><span>Web Development</span></li>
-                <li><i class="fa-solid fa-brain" aria-hidden="true"></i><span>Intelligent Solutions</span></li>
-                <li><i class="fa-solid fa-gear" aria-hidden="true"></i><span>Automation</span></li>
-            </ul>
-            <div class="hero-cta-group">
-                <a href="#portfolio" class="btn-primary">View Projects</a>
-                <a href="#contact" class="btn-ghost">Let's Talk</a>
-            </div>
-        </div>
-
-        <div class="hero-visual-panel">
-            <div class="hero-photo-wrapper">
-                <img src="assets/portrait.webp" srcset="assets/portrait-900.webp 896w, assets/portrait.webp 1493w" sizes="(max-width: 900px) 100vw, 45vw" width="1493" height="2000" alt="Okurut Maurice Leonard" class="hero-photo" fetchpriority="high" decoding="async">
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
-                    <div class="hero-stat-body">
-                        <p class="hero-stat-value">7</p>
-                        <p class="hero-stat-label">Featured Projects</p>
-                    </div>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
-                    <div class="hero-stat-body">
-                        <p class="hero-stat-value">East</p>
-                        <p class="hero-stat-label">African Focus</p>
-                    </div>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-icon"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i></span>
-                    <div class="hero-stat-body">
-                        <p class="hero-stat-value">4</p>
-                        <p class="hero-stat-label">Solution Areas</p>
-                    </div>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-                    <div class="hero-stat-body">
-                        <p class="hero-stat-value">Open</p>
-                        <p class="hero-stat-label">To Opportunities</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </header>
-
-    <!-- MANIFESTO -->
-    <section class="manifesto">
-        <div class="manifesto-body">
-            <h2>The Philosophy</h2>
-            <p>
-                I solve <em>real problems</em> with data and I have the receipts.
-                From architectural design to deploying machine learning models, I build systems
-                that <em>extract signal from the noise</em> — for East African markets and beyond.
-            </p>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about">
-        <div class="about-left reveal">
-            <h2 class="section-title">BUILT<br>DIFFER<br>ENTLY</h2>
-            <div class="divider"></div>
-            <div class="about-portrait">
-                <img src="assets/portrait-900.webp" srcset="assets/portrait-900.webp 896w, assets/portrait.webp 1493w" sizes="280px" width="1493" height="2000" alt="Portrait of Okurut Maurice Leonard" loading="lazy" decoding="async">
-            </div>
-            <div class="portrait-nameplate">
-                <span class="portrait-name">OKURUT MAURICE LEONARD</span>
-                <span class="portrait-role">CS · AI · Builder</span>
-            </div>
-            <div class="social-icons">
-                <a href="https://github.com/Mo-reece" target="_blank" class="social-icon" aria-label="GitHub" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Portfolio of Okurut Maurice Leonard, a Kampala-based data engineer building reliable pipelines, SQL reporting systems, dashboards, and data automation."
+        />
+        <meta name="author" content="Okurut Maurice Leonard" />
+        <meta name="robots" content="index, follow" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="theme-color" content="#f0ece4" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action https://formsubmit.co; connect-src 'self' https://formsubmit.co; img-src 'self' data: https://images.unsplash.com; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; upgrade-insecure-requests"
+        />
+        <link rel="canonical" href="https://mo-reece.github.io/moreece-portfolio/" />
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;600;700;800&amp;display=swap"
+        />
+        <link rel="stylesheet" href="assets/site.css" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mo-reece.github.io/moreece-portfolio/" />
+        <meta property="og:title" content="Okurut Maurice Leonard | Data Engineer" />
+        <meta
+            property="og:description"
+            content="Data engineering, analytics, reporting, and automation work for practical business decisions."
+        />
+        <meta property="og:image" content="https://mo-reece.github.io/moreece-portfolio/assets/og-image.jpg" />
+        <meta property="og:image:alt" content="Okurut Maurice Leonard, Data Engineer and Digital Solutions Builder" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Okurut Maurice Leonard Portfolio" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Okurut Maurice Leonard | Data Engineer" />
+        <meta
+            name="twitter:description"
+            content="Reliable data pipelines, reporting systems, dashboards, and automation."
+        />
+        <meta name="twitter:image" content="https://mo-reece.github.io/moreece-portfolio/assets/og-image.jpg" />
+        <title>Okurut Maurice Leonard | Data Engineer &amp; Digital Solutions Builder</title>
+        <script src="assets/site.js" defer></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+
+        <header class="site-header">
+            <nav class="site-nav container" aria-label="Primary navigation">
+                <a class="brand" href="index.html" aria-label="Okurut Maurice Leonard home">
+                    <img src="assets/oml-logo.jpg" width="432" height="235" alt="" />
+                    <span>Okurut Maurice Leonard<small>Data Engineer</small></span>
                 </a>
-                <a href="https://www.linkedin.com/in/maurice-leonard-okurut-26a048356" target="_blank" class="social-icon" aria-label="LinkedIn" rel="noopener noreferrer">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:okurutmauriceleonard@gmail.com" class="social-icon" aria-label="Email">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-            </div>
-        </div>
-        <div class="about-right reveal">
-            <p class="about-text">
-                I'm a <strong>software developer</strong> based in <strong>Kampala, Uganda</strong>. I build practical
-                solutions across web development, data analysis, machine learning, and workflow automation. My
-                portfolio documents the code, methods, and decisions behind selected projects so collaborators can
-                evaluate the work directly.
-            </p>
-            <br>
-            <p class="about-text">
-                I work best with organizations that have a clear operational problem and need a maintainable digital
-                solution. That may be a responsive website, a decision-support dashboard, a data-quality workflow, or
-                a focused machine-learning prototype. <strong>Let's discuss the problem and the result you need.</strong>
-            </p>
-        </div>
-    </section>
-
-    <!-- TECH STACK -->
-    <section id="techstack" class="techstack">
-        <div class="techstack-header reveal">
-            <h2 class="section-title">TECH<br>STACK</h2>
-        </div>
-
-        <!-- One continuous marquee: 21 technologies, duplicated once for a seamless loop -->
-        <div class="ts-marquee reveal">
-            <div class="ts-track">
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-python-plain colored"></i></div>
-                    <div class="ts-name">Python</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-tensorflow-original colored"></i></div>
-                    <div class="ts-name">TensorFlow</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-keras-plain colored"></i></div>
-                    <div class="ts-name">Keras</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-pandas-plain colored"></i></div>
-                    <div class="ts-name">Pandas</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-numpy-plain colored"></i></div>
-                    <div class="ts-name">NumPy</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-scikitlearn-plain colored"></i></div>
-                    <div class="ts-name">Scikit-Learn</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-jupyter-plain colored"></i></div>
-                    <div class="ts-name">Jupyter</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-git-plain colored"></i></div>
-                    <div class="ts-name">Git</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-vscode-plain colored"></i></div>
-                    <div class="ts-name">VS Code</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-postgresql-plain colored"></i></div>
-                    <div class="ts-name">PostgreSQL</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="48"
-                            height="48" alt="Power BI" loading="lazy"
-                            onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0OCcgaGVpZ2h0PSc0OCc+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSdnJyB4MT0nMCUnIHkxPScwJScgeDI9JzEwMCUnIHkyPScxMDAlJz48c3RvcCBvZmZzZXQ9JzAlJyBzdG9wLWNvbG9yPScjMWExYTJlJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjMGYzNDYwJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzQ4JyBoZWlnaHQ9JzQ4JyByeD0nNicgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg=='"></div>
-                    <div class="ts-name">Power BI</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-react-original colored"></i></div>
-                    <div class="ts-name">React</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-nodejs-plain colored"></i></div>
-                    <div class="ts-name">Node.js</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-mongodb-plain colored"></i></div>
-                    <div class="ts-name">MongoDB</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-docker-plain colored"></i></div>
-                    <div class="ts-name">Docker</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-typescript-plain colored"></i></div>
-                    <div class="ts-name">TypeScript</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><i class="devicon-cplusplus-plain colored"></i></div>
-                    <div class="ts-name">C++</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><span class="ts-emoji">📈</span></div>
-                    <div class="ts-name">MQL5 / MT5</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><span class="ts-emoji">📊</span></div>
-                    <div class="ts-name">Pine Script</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><span class="ts-emoji">📖</span></div>
-                    <div class="ts-name">Research &amp; Writing</div>
-                </div>
-                <div class="ts-item">
-                    <div class="ts-icon"><span class="ts-emoji">🌐</span></div>
-                    <div class="ts-name">English C1/C2</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-python-plain colored"></i></div>
-                    <div class="ts-name">Python</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-tensorflow-original colored"></i></div>
-                    <div class="ts-name">TensorFlow</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-keras-plain colored"></i></div>
-                    <div class="ts-name">Keras</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-pandas-plain colored"></i></div>
-                    <div class="ts-name">Pandas</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-numpy-plain colored"></i></div>
-                    <div class="ts-name">NumPy</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-scikitlearn-plain colored"></i></div>
-                    <div class="ts-name">Scikit-Learn</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-jupyter-plain colored"></i></div>
-                    <div class="ts-name">Jupyter</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-git-plain colored"></i></div>
-                    <div class="ts-name">Git</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-vscode-plain colored"></i></div>
-                    <div class="ts-name">VS Code</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-postgresql-plain colored"></i></div>
-                    <div class="ts-name">PostgreSQL</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="48"
-                            height="48" alt="Power BI" loading="lazy"
-                            onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0OCcgaGVpZ2h0PSc0OCc+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSdnJyB4MT0nMCUnIHkxPScwJScgeDI9JzEwMCUnIHkyPScxMDAlJz48c3RvcCBvZmZzZXQ9JzAlJyBzdG9wLWNvbG9yPScjMWExYTJlJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjMGYzNDYwJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzQ4JyBoZWlnaHQ9JzQ4JyByeD0nNicgZmlsbD0ndXJsKCNnKScvPjwvc3ZnPg=='"></div>
-                    <div class="ts-name">Power BI</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-react-original colored"></i></div>
-                    <div class="ts-name">React</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-nodejs-plain colored"></i></div>
-                    <div class="ts-name">Node.js</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-mongodb-plain colored"></i></div>
-                    <div class="ts-name">MongoDB</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-docker-plain colored"></i></div>
-                    <div class="ts-name">Docker</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-typescript-plain colored"></i></div>
-                    <div class="ts-name">TypeScript</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><i class="devicon-cplusplus-plain colored"></i></div>
-                    <div class="ts-name">C++</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><span class="ts-emoji">📈</span></div>
-                    <div class="ts-name">MQL5 / MT5</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><span class="ts-emoji">📊</span></div>
-                    <div class="ts-name">Pine Script</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><span class="ts-emoji">📖</span></div>
-                    <div class="ts-name">Research &amp; Writing</div>
-                </div>
-                <div class="ts-item ts-dup" aria-hidden="true">
-                    <div class="ts-icon"><span class="ts-emoji">🌐</span></div>
-                    <div class="ts-name">English C1/C2</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="reveal">
-            <div class="ts-footer-pill">
-                <span class="count-dot"></span>
-                21 Technologies
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="skills">
-        <div class="skills-header reveal">
-            <span class="skills-dot" aria-hidden="true"></span>
-            <span class="skills-ring" aria-hidden="true"></span>
-            <h2 class="section-title">SOLUTIONS<br>I BUILD</h2>
-            <div class="divider"></div>
-            <p class="skills-intro">I help businesses and organisations turn ideas and data
-                into practical digital solutions that create real impact.</p>
-        </div>
-
-        <div class="solutions-grid reveal">
-            <article class="solution-card">
-                <div class="solution-badge"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
-                <p class="solution-num">01</p>
-                <h3 class="solution-title">Data &amp; Business Insights</h3>
-                <p class="solution-desc">I help organisations organise their information, manage records and turn data into clear reports and useful insights.</p>
-                <span class="solution-rule" aria-hidden="true"></span>
-                <ul class="solution-list">
-                        <li><i class="fa-solid fa-database" aria-hidden="true"></i><span>Data Management</span></li>
-                        <li><i class="fa-solid fa-chart-column" aria-hidden="true"></i><span>Reporting &amp; Analytics</span></li>
-                        <li><i class="fa-solid fa-chart-pie" aria-hidden="true"></i><span>Dashboards &amp; Visualisation</span></li>
-                        <li><i class="fa-solid fa-cloud" aria-hidden="true"></i><span>Cloud &amp; Data Solutions</span></li>
+                <button
+                    class="nav-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="primary-menu"
+                    aria-label="Open navigation menu"
+                >
+                    &#9776;
+                </button>
+                <ul class="nav-menu" id="primary-menu">
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="services.html">Capabilities</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a class="nav-cta" href="contact.html">Contact</a></li>
                 </ul>
-                <a class="solution-more" href="#contact">
-                    Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    <span class="sr-only">about Data and Business Insights</span>
-                </a>
-            </article>
-            <article class="solution-card">
-                <div class="solution-badge"><i class="fa-solid fa-desktop" aria-hidden="true"></i></div>
-                <p class="solution-num">02</p>
-                <h3 class="solution-title">Web Development</h3>
-                <p class="solution-desc">I build modern, responsive and user-friendly websites, systems and web applications that help your business grow online.</p>
-                <span class="solution-rule" aria-hidden="true"></span>
-                <ul class="solution-list">
-                        <li><i class="fa-solid fa-globe" aria-hidden="true"></i><span>Websites &amp; Landing Pages</span></li>
-                        <li><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i><span>Web Applications</span></li>
-                        <li><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><span>Responsive Design</span></li>
-                        <li><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Secure &amp; Scalable Solutions</span></li>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">Kampala, Uganda · Data Engineering &amp; Analytics</p>
+                    <h1>Data you can trust. Decisions you can act on.</h1>
+                    <p class="lead">
+                        I design reliable data pipelines, SQL reporting systems, dashboards, and automation that turn
+                        operational information into usable business insight.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button" href="projects.html">Explore selected work</a>
+                        <a class="button button-secondary" href="experience.html">View professional experience</a>
+                    </div>
+                </div>
+                <aside class="hero-side" aria-label="Professional profile summary">
+                    <div class="portrait-frame">
+                        <img
+                            src="assets/portrait.webp"
+                            srcset="assets/portrait-900.webp 896w, assets/portrait.webp 1493w"
+                            sizes="(max-width: 700px) calc(100vw - 64px), 42vw"
+                            width="1493"
+                            height="2000"
+                            alt="Portrait of Okurut Maurice Leonard"
+                            fetchpriority="high"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="status-panel">
+                        <div class="status-line"><span>Current role</span><strong>Data Engineer</strong></div>
+                        <div class="status-line"><span>Organisation</span><strong>Logos Cloud Services</strong></div>
+                        <div class="status-line"><span>Core tools</span><strong>Python · SQL · Power BI</strong></div>
+                        <div class="status-line"><span>Focus</span><strong>Reliable data systems</strong></div>
+                    </div>
+                </aside>
+            </section>
+
+            <div class="trust-strip" aria-label="Professional focus areas">
+                <ul class="trust-list container">
+                    <li>Data pipelines</li>
+                    <li>SQL systems</li>
+                    <li>Reporting</li>
+                    <li>Automation</li>
                 </ul>
-                <a class="solution-more" href="#contact">
-                    Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    <span class="sr-only">about Web Development</span>
-                </a>
-            </article>
-            <article class="solution-card">
-                <div class="solution-badge"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
-                <p class="solution-num">03</p>
-                <h3 class="solution-title">Intelligent Solutions</h3>
-                <p class="solution-desc">I create practical AI-powered solutions that help organisations automate tasks, understand information and make better decisions.</p>
-                <span class="solution-rule" aria-hidden="true"></span>
-                <ul class="solution-list">
-                        <li><i class="fa-solid fa-comment-dots" aria-hidden="true"></i><span>AI Assistants</span></li>
-                        <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>Document Processing</span></li>
-                        <li><i class="fa-solid fa-image" aria-hidden="true"></i><span>Image &amp; Text Analysis</span></li>
-                        <li><i class="fa-solid fa-user-check" aria-hidden="true"></i><span>Smart Decision Support</span></li>
-                </ul>
-                <a class="solution-more" href="#contact">
-                    Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    <span class="sr-only">about Intelligent Solutions</span>
-                </a>
-            </article>
-            <article class="solution-card">
-                <div class="solution-badge"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
-                <p class="solution-num">04</p>
-                <h3 class="solution-title">Smart Automation</h3>
-                <p class="solution-desc">I develop systems that identify patterns, make useful predictions and simplify repetitive business processes.</p>
-                <span class="solution-rule" aria-hidden="true"></span>
-                <ul class="solution-list">
-                        <li><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Process Automation</span></li>
-                        <li><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i><span>Predictions &amp; Forecasting</span></li>
-                        <li><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><span>Workflow Optimisation</span></li>
-                        <li><i class="fa-solid fa-square-check" aria-hidden="true"></i><span>Efficiency &amp; Cost Savings</span></li>
-                </ul>
-                <a class="solution-more" href="#contact">
-                    Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    <span class="sr-only">about Smart Automation</span>
-                </a>
-            </article>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="portfolio">
-        <div class="portfolio-header reveal">
-            <h2 class="section-title">THE<br>WORK</h2>
-        </div>
-
-        <div class="portfolio-grid">
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800"
-                    srcset="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=480 480w,
-                            https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800 800w,
-                            https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1200 1200w"
-                    sizes="(max-width: 900px) 100vw, 33vw"
-                    width="800" height="533"
-                    loading="lazy" decoding="async"
-                    alt=""
-                    onerror="this.onerror=null;this.srcset='';this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyMxYTFhMmUnLz48c3RvcCBvZmZzZXQ9JzUwJScgc3RvcC1jb2xvcj0nIzE2MjEzZScvPjxzdG9wIG9mZnNldD0nMTAwJScgc3RvcC1jb2xvcj0nIzBmMzQ2MCcvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJyBmaWxsPSd1cmwoI2cpJy8+PC9zdmc+'">
-                <div class="project-overlay">
-                    <p class="project-tag">Deep Learning · Healthcare · CNN</p>
-                    <h3 class="project-title">Pneumonia<br>Detection</h3>
-                    <p class="project-desc">Convolutional neural network trained on chest X-ray datasets to classify
-                        pneumonia with high diagnostic accuracy. Designed for low-resource clinical settings.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Mo-reece/Pneumonia-detection" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </div>
-                </div>
             </div>
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800"
-                    srcset="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=480 480w,
-                            https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800 800w,
-                            https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1200 1200w"
-                    sizes="(max-width: 900px) 100vw, 33vw"
-                    width="800" height="533"
-                    loading="lazy" decoding="async"
-                    alt=""
-                    onerror="this.onerror=null;this.srcset='';this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyMxYTFhMmUnLz48c3RvcCBvZmZzZXQ9JzUwJScgc3RvcC1jb2xvcj0nIzE2MjEzZScvPjxzdG9wIG9mZnNldD0nMTAwJScgc3RvcC1jb2xvcj0nIzBmMzQ2MCcvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJyBmaWxsPSd1cmwoI2cpJy8+PC9zdmc+'">
-                <div class="project-overlay">
-                    <p class="project-tag">Python · yfinance · Financial Analysis</p>
-                    <h3 class="project-title">Tesla & GameStop<br>Financial Analysis</h3>
-                    <p class="project-desc">Deep-dive financial analysis of Tesla and GameStop using Python and
-                        yfinance. Extracts and visualizes stock data to uncover trends and investment signals.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Mo-reece/Tesla-and-Game-stop-financial-analysis"
-                            target="_blank" rel="noopener noreferrer">GitHub</a>
+            <section class="section" aria-labelledby="impact-heading">
+                <div class="container">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">What I work on</p>
+                            <h2 id="impact-heading">From raw records to decision-ready information.</h2>
+                        </div>
+                        <p>
+                            My work covers the practical data lifecycle: collecting source information, improving its
+                            quality, structuring it for analysis, and presenting the result clearly to technical and
+                            non-technical teams.
+                        </p>
+                    </div>
+                    <div class="grid-3">
+                        <article class="card">
+                            <span class="metric">01</span>
+                            <h3>Organise</h3>
+                            <p>Bring structured and unstructured information into consistent, documented formats.</p>
+                        </article>
+                        <article class="card">
+                            <span class="metric">02</span>
+                            <h3>Verify</h3>
+                            <p>Identify missing, duplicate, and inconsistent records before they affect reporting.</p>
+                        </article>
+                        <article class="card">
+                            <span class="metric">03</span>
+                            <h3>Explain</h3>
+                            <p>Translate analysis into dashboards, reports, and plain-language recommendations.</p>
+                        </article>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
-                    srcset="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=480 480w,
-                            https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800 800w,
-                            https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200 1200w"
-                    sizes="(max-width: 900px) 100vw, 33vw"
-                    width="800" height="533"
-                    loading="lazy" decoding="async"
-                    alt=""
-                    onerror="this.onerror=null;this.srcset='';this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyMxYTFhMmUnLz48c3RvcCBvZmZzZXQ9JzUwJScgc3RvcC1jb2xvcj0nIzE2MjEzZScvPjxzdG9wIG9mZnNldD0nMTAwJScgc3RvcC1jb2xvcj0nIzBmMzQ2MCcvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJyBmaWxsPSd1cmwoI2cpJy8+PC9zdmc+'">
-                <div class="project-overlay">
-                    <p class="project-tag">HTML · Time-Series · Data Viz</p>
-                    <h3 class="project-title">Stock Market<br>Visualizer</h3>
-                    <p class="project-desc">Interactive financial data visualization tool for time-series stock market
-                        data. Enables acquisition and real-time charting of market instruments.</p>
-                    <div class="project-links">
-                        <a href="https://mo-reece.github.io/stock-market-visualizer/" target="_blank"
-                            rel="noopener noreferrer">Live Demo</a>
-                        <a href="https://github.com/Mo-reece/stock-market-visualizer" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <section class="section section-muted" aria-labelledby="capabilities-heading">
+                <div class="container">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Capabilities</p>
+                            <h2 id="capabilities-heading">Three focused ways I support data-driven work.</h2>
+                        </div>
+                        <p>
+                            Each capability has its own page so you can review the problems addressed, typical
+                            deliverables, working process, and relevant evidence.
+                        </p>
+                    </div>
+                    <div class="grid-3">
+                        <article class="capability-card">
+                            <figure class="capability-visual">
+                                <img
+                                    src="assets/data-engineering-editorial.webp"
+                                    width="1536"
+                                    height="1024"
+                                    alt="Data professional monitoring database tables and an automated pipeline"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </figure>
+                            <span class="capability-number">Capability 01</span>
+                            <h3>Data Engineering</h3>
+                            <p>
+                                Automated pipelines, SQL databases, data modelling, validation, and dependable reporting
+                                inputs.
+                            </p>
+                            <a class="text-link" href="services/data-engineering.html">Explore data engineering</a>
+                        </article>
+                        <article class="capability-card">
+                            <figure class="capability-visual">
+                                <img
+                                    src="assets/analytics-reporting-editorial.webp"
+                                    width="1536"
+                                    height="1024"
+                                    alt="Professionals reviewing charts and reporting data on a laptop"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </figure>
+                            <span class="capability-number">Capability 02</span>
+                            <h3>Analytics &amp; Reporting</h3>
+                            <p>Power BI and Python reporting workflows that connect evidence to business questions.</p>
+                            <a class="text-link" href="services/analytics-reporting.html">Explore analytics</a>
+                        </article>
+                        <article class="capability-card">
+                            <figure class="capability-visual">
+                                <img
+                                    src="assets/automation-ai-editorial.webp"
+                                    width="1792"
+                                    height="1024"
+                                    alt="Technology professional monitoring an automated workflow beside network equipment"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </figure>
+                            <span class="capability-number">Capability 03</span>
+                            <h3>Automation &amp; AI-ready Data</h3>
+                            <p>
+                                Recurring quality checks, tracking mechanisms, API workflows, and model-ready datasets.
+                            </p>
+                            <a class="text-link" href="services/automation-ai-data.html">Explore automation</a>
+                        </article>
+                    </div>
+                    <div class="button-row">
+                        <a class="button button-secondary" href="services.html">View all capabilities</a>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=800"
-                    srcset="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=480 480w,
-                            https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=800 800w,
-                            https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=1200 1200w"
-                    sizes="(max-width: 900px) 100vw, 33vw"
-                    width="800" height="533"
-                    loading="lazy" decoding="async"
-                    alt=""
-                    onerror="this.onerror=null;this.srcset='';this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyMxYTFhMmUnLz48c3RvcCBvZmZzZXQ9JzUwJScgc3RvcC1jb2xvcj0nIzE2MjEzZScvPjxzdG9wIG9mZnNldD0nMTAwJScgc3RvcC1jb2xvcj0nIzBmMzQ2MCcvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJyBmaWxsPSd1cmwoI2cpJy8+PC9zdmc+'">
-                <div class="project-overlay">
-                    <p class="project-tag">Jupyter · EDA · Healthcare Economics</p>
-                    <h3 class="project-title">Healthcare Cost<br>Analysis</h3>
-                    <p class="project-desc">Exploratory data analysis of medical insurance costs to uncover key cost
-                        drivers and demographic patterns shaping healthcare expenditure.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Mo-reece/healthcare-cost-analysis" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <section class="section section-dark" aria-labelledby="experience-heading">
+                <div class="container experience-preview">
+                    <div>
+                        <p class="eyebrow">Professional experience</p>
+                        <h2 id="experience-heading">
+                            Experience across client data, public-sector records, and remote delivery.
+                        </h2>
+                        <div class="button-row">
+                            <a class="button" href="experience.html">Read the full timeline</a>
+                        </div>
+                    </div>
+                    <div>
+                        <article class="role-summary">
+                            <span class="timeline-date">2026 – Present</span>
+                            <h3>Data Engineer · Logos Cloud Services</h3>
+                            <p>
+                                Data pipelines, SQL workflows, reporting, dashboards, quality automation, and
+                                model-ready datasets for SME client contexts.
+                            </p>
+                        </article>
+                        <article class="role-summary">
+                            <span class="timeline-date">Aug 2025 – Oct 2025</span>
+                            <h3>IT Intern · Ngora District Local Government</h3>
+                            <p>
+                                Financial data verification, infrastructure field data, document digitisation, record
+                                cleansing, and technical reporting.
+                            </p>
+                        </article>
+                        <article class="role-summary">
+                            <span class="timeline-date">2025</span>
+                            <h3>Data Science Intern · Redynox</h3>
+                            <p>
+                                Remote project delivery covering Python data tasks, API handling, data processing, and
+                                workflow automation.
+                            </p>
+                        </article>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800"
-                    srcset="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=480 480w,
-                            https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800 800w,
-                            https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1200 1200w"
-                    sizes="(max-width: 900px) 100vw, 33vw"
-                    width="800" height="533"
-                    loading="lazy" decoding="async"
-                    alt=""
-                    onerror="this.onerror=null;this.srcset='';this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyMxYTFhMmUnLz48c3RvcCBvZmZzZXQ9JzUwJScgc3RvcC1jb2xvcj0nIzE2MjEzZScvPjxzdG9wIG9mZnNldD0nMTAwJScgc3RvcC1jb2xvcj0nIzBmMzQ2MCcvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJyBmaWxsPSd1cmwoI2cpJy8+PC9zdmc+'">
-                <div class="project-overlay">
-                    <p class="project-tag">Jupyter · Machine Learning · Real Estate</p>
-                    <h3 class="project-title">House Price<br>Prediction</h3>
-                    <p class="project-desc">Predictive ML model for residential real estate pricing using the King
-                        County dataset. Applies regression techniques to forecast home values accurately.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Mo-reece/House-Price-Prediction" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <section class="section" aria-labelledby="work-heading">
+                <div class="container">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Selected work</p>
+                            <h2 id="work-heading">Projects that show the methods behind the profile.</h2>
+                        </div>
+                        <p>
+                            These repositories document practical work in data quality, financial data visualisation,
+                            and machine learning.
+                        </p>
+                    </div>
+                    <div class="grid-3">
+                        <article class="project-card">
+                            <div class="project-media">
+                                <img
+                                    src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&amp;fit=crop&amp;q=82&amp;w=1200"
+                                    srcset="
+                                        https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&amp;fit=crop&amp;q=82&amp;w=480   480w,
+                                        https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&amp;fit=crop&amp;q=82&amp;w=800   800w,
+                                        https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&amp;fit=crop&amp;q=82&amp;w=1200 1200w
+                                    "
+                                    sizes="(max-width: 700px) calc(100vw - 30px), (max-width: 980px) calc((100vw - 60px) / 2), 380px"
+                                    width="1200"
+                                    height="800"
+                                    alt="Data charts displayed on a computer screen"
+                                    loading="lazy"
+                                    decoding="async"
+                                    referrerpolicy="no-referrer"
+                                /><span class="project-type">Data Engineering</span>
+                            </div>
+                            <div class="project-body">
+                                <h3>Data Quality Assessment Tool</h3>
+                                <p>
+                                    Python toolkit for profiling missing values, outliers, and inconsistencies in
+                                    datasets.
+                                </p>
+                                <ul class="tag-list">
+                                    <li>Python</li>
+                                    <li>Data quality</li>
+                                    <li>Profiling</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a
+                                        href="https://github.com/Mo-reece/Data-Quality-Assessment-Tool"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >GitHub repository</a
+                                    >
+                                </div>
+                            </div>
+                        </article>
+                        <article class="project-card">
+                            <div class="project-media">
+                                <img
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;q=82&amp;w=1200"
+                                    srcset="
+                                        https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;q=82&amp;w=480   480w,
+                                        https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;q=82&amp;w=800   800w,
+                                        https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;q=82&amp;w=1200 1200w
+                                    "
+                                    sizes="(max-width: 700px) calc(100vw - 30px), (max-width: 980px) calc((100vw - 60px) / 2), 380px"
+                                    width="1200"
+                                    height="800"
+                                    alt="Analytics dashboard on a laptop display"
+                                    loading="lazy"
+                                    decoding="async"
+                                    referrerpolicy="no-referrer"
+                                /><span class="project-type">Data Visualisation</span>
+                            </div>
+                            <div class="project-body">
+                                <h3>Stock Market Visualizer</h3>
+                                <p>Interactive interface for acquiring and charting time-series stock market data.</p>
+                                <ul class="tag-list">
+                                    <li>Time series</li>
+                                    <li>Charts</li>
+                                    <li>Web</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a
+                                        href="https://mo-reece.github.io/stock-market-visualizer/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >Live demo</a
+                                    ><a
+                                        href="https://github.com/Mo-reece/stock-market-visualizer"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >GitHub</a
+                                    >
+                                </div>
+                            </div>
+                        </article>
+                        <article class="project-card">
+                            <div class="project-media">
+                                <img
+                                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;q=82&amp;w=1200"
+                                    srcset="
+                                        https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;q=82&amp;w=480   480w,
+                                        https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;q=82&amp;w=800   800w,
+                                        https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;q=82&amp;w=1200 1200w
+                                    "
+                                    sizes="(max-width: 700px) calc(100vw - 30px), (max-width: 980px) calc((100vw - 60px) / 2), 380px"
+                                    width="1200"
+                                    height="800"
+                                    alt="Business analytics charts on a laptop"
+                                    loading="lazy"
+                                    decoding="async"
+                                    referrerpolicy="no-referrer"
+                                /><span class="project-type">Machine Learning</span>
+                            </div>
+                            <div class="project-body">
+                                <h3>Customer Churn Prediction</h3>
+                                <p>
+                                    Classification project focused on identifying customers who may be at risk of
+                                    leaving.
+                                </p>
+                                <ul class="tag-list">
+                                    <li>Python</li>
+                                    <li>Classification</li>
+                                    <li>CRM</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a
+                                        href="https://github.com/Mo-reece/Churn-Prediction"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >GitHub repository</a
+                                    >
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="button-row">
+                        <a class="button button-secondary" href="projects.html">Browse all selected projects</a>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800"
-                    srcset="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=480 480w,
-                            https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800 800w,
-                            https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1200 1200w"
-                    sizes="(max-width: 900px) 100vw, 33vw"
-                    width="800" height="533"
-                    loading="lazy" decoding="async"
-                    alt=""
-                    onerror="this.onerror=null;this.srcset='';this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyMxYTFhMmUnLz48c3RvcCBvZmZzZXQ9JzUwJScgc3RvcC1jb2xvcj0nIzE2MjEzZScvPjxzdG9wIG9mZnNldD0nMTAwJScgc3RvcC1jb2xvcj0nIzBmMzQ2MCcvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJyBmaWxsPSd1cmwoI2cpJy8+PC9zdmc+'">
-                <div class="project-overlay">
-                    <p class="project-tag">Python · MIT License · Data Engineering</p>
-                    <h3 class="project-title">Data Quality<br>Assessment Tool</h3>
-                    <p class="project-desc">Python toolkit for automated data quality profiling — detects missing
-                        values, outliers, and inconsistencies to ensure clean, reliable datasets.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Mo-reece/Data-Quality-Assessment-Tool" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <section class="section-compact" aria-labelledby="certificate-heading">
+                <div class="container credential-card">
+                    <div>
+                        <p class="eyebrow">Professional certification · November 2025</p>
+                        <h2 id="certificate-heading">IBM Data Science Professional Certificate</h2>
+                        <p>
+                            A 12-course programme covering Python, SQL, data analysis, visualisation, machine learning,
+                            applied data science, and generative AI for data science.
+                        </p>
+                    </div>
+                    <a
+                        class="button"
+                        href="https://coursera.org/verify/professional-cert/H664M3SINGCJ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Verify certificate</a
+                    >
+                </div>
+            </section>
+
+            <section class="section-compact">
+                <div class="container cta-panel">
+                    <div>
+                        <h2>Need clearer, more reliable data?</h2>
+                        <p>Share the reporting problem, data source, or workflow you are trying to improve.</p>
+                    </div>
+                    <a class="button" href="contact.html">Start a conversation</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h2>Okurut Maurice Leonard</h2>
+                        <p>Data Engineer and Digital Solutions Builder based in Kampala, Uganda.</p>
+                    </div>
+                    <div>
+                        <h2>Explore</h2>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="experience.html">Experience</a></li>
+                            <li><a href="services.html">Capabilities</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Connect</h2>
+                        <ul class="footer-links">
+                            <li><a href="mailto:okurutmauriceleonard@gmail.com">Email</a></li>
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/maurice-leonard-okurut-26a048356"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >LinkedIn</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://github.com/Mo-reece" target="_blank" rel="noopener noreferrer"
+                                    >GitHub</a
+                                >
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
-                    srcset="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=480 480w,
-                            https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800 800w,
-                            https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200 1200w"
-                    sizes="(max-width: 900px) 100vw, 33vw"
-                    width="800" height="533"
-                    loading="lazy" decoding="async"
-                    alt=""
-                    onerror="this.onerror=null;this.srcset='';this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCUnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyMxYTFhMmUnLz48c3RvcCBvZmZzZXQ9JzUwJScgc3RvcC1jb2xvcj0nIzE2MjEzZScvPjxzdG9wIG9mZnNldD0nMTAwJScgc3RvcC1jb2xvcj0nIzBmMzQ2MCcvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSc4MDAnIGhlaWdodD0nNTMzJyBmaWxsPSd1cmwoI2cpJy8+PC9zdmc+'">
-                <div class="project-overlay">
-                    <p class="project-tag">Jupyter · Classification · CRM</p>
-                    <h3 class="project-title">Customer Churn<br>Prediction</h3>
-                    <p class="project-desc">ML classification model to predict customer churn, helping businesses
-                        proactively identify at-risk customers and improve retention strategies.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Mo-reece/Churn-Prediction" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </div>
+                <div class="footer-bottom">
+                    <span>&copy; <span data-current-year>2026</span> Okurut Maurice Leonard.</span>
+                    <a href="privacy.html">Privacy notice</a>
                 </div>
             </div>
-        </div>
-
-        <div class="portfolio-cta">
-            <p>View all projects on <a href="https://github.com/Mo-reece" target="_blank"
-                    style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold);" rel="noopener noreferrer">GitHub
-                    →</a></p>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <div class="contact-left reveal">
-            <h2 class="section-title">GET IN<br>TOUCH</h2>
-            <div class="divider"></div>
-            <p class="contact-tagline">Have a problem that needs solving?<br>Let's build something that matters.</p>
-
-            <ul class="channel-list">
-                <li>
-                    <a class="channel" href="https://wa.me/256742392606" target="_blank" rel="noopener noreferrer">
-                        <span class="channel-icon wa"><i class="fa-brands fa-whatsapp"></i></span>
-                        <span class="channel-body">
-                            <span class="channel-label">WhatsApp</span>
-                            <span class="channel-value">+256 742 392 606</span>
-                        </span>
-                        <span class="channel-arrow" aria-hidden="true">&rarr;</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="channel" href="mailto:okurutmauriceleonard@gmail.com">
-                        <span class="channel-icon mail"><i class="fa-solid fa-envelope"></i></span>
-                        <span class="channel-body">
-                            <span class="channel-label">Email</span>
-                            <span class="channel-value">okurutmauriceleonard@gmail.com</span>
-                        </span>
-                        <span class="channel-arrow" aria-hidden="true">&rarr;</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="channel" href="https://www.linkedin.com/in/maurice-leonard-okurut-26a048356" target="_blank" rel="noopener noreferrer">
-                        <span class="channel-icon li"><i class="fa-brands fa-linkedin"></i></span>
-                        <span class="channel-body">
-                            <span class="channel-label">LinkedIn</span>
-                            <span class="channel-value">Maurice Leonard Okurut</span>
-                        </span>
-                        <span class="channel-arrow" aria-hidden="true">&rarr;</span>
-                    </a>
-                </li>
-            </ul>
-
-            <dl class="contact-meta">
-                <div><dt>Location</dt><dd>Kampala, Uganda</dd></div>
-                <div><dt>Availability</dt><dd>Open to Opportunities</dd></div>
-                <div><dt>Response time</dt><dd>Usually within 24 hours</dd></div>
-            </dl>
-        </div>
-
-        <div class="contact-right reveal">
-            <form class="contact-card" id="contactForm" novalidate>
-                <h3 class="cf-title">Send a message</h3>
-                <p class="cf-sub">Fill this in and it lands straight in my inbox.</p>
-
-                <div class="cf-field">
-                    <label for="cf-name">Name</label>
-                    <input id="cf-name" name="name" type="text" placeholder="Your name"
-                           autocomplete="name" minlength="2" maxlength="80" required>
-                    <span class="cf-error" id="cf-name-error"></span>
-                </div>
-
-                <div class="cf-field">
-                    <label for="cf-email">Email</label>
-                    <input id="cf-email" name="email" type="email" placeholder="you@example.com"
-                           autocomplete="email" maxlength="254" required>
-                    <span class="cf-error" id="cf-email-error"></span>
-                </div>
-
-                <div class="cf-field">
-                    <label for="cf-message">Message</label>
-                    <textarea id="cf-message" name="message" rows="5"
-                              placeholder="Tell me about your project or role..." minlength="10"
-                              maxlength="3000" required></textarea>
-                    <span class="cf-error" id="cf-message-error"></span>
-                </div>
-
-                <!-- spam trap: real people never fill this in -->
-                <input type="text" name="_honey" class="cf-honey" tabindex="-1"
-                       autocomplete="off" aria-hidden="true">
-
-                <label class="cf-consent">
-                    <input id="cf-consent" name="privacy-consent" type="checkbox" required>
-                    <span>I agree that my details may be sent through FormSubmit so Maurice can reply.
-                        Read the <a href="privacy.html">privacy notice</a>.</span>
-                </label>
-                <span class="cf-error" id="cf-consent-error"></span>
-
-                <button type="submit" class="cf-submit">Send Message</button>
-                <p class="cf-status" role="status" aria-live="polite"></p>
-            </form>
-        </div>
-    </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-logo">MRC</div>
-        <p>&copy; 2026 Okurut Maurice Leonard. All Rights Reserved.</p>
-        <a href="#" class="footer-back">↑ Back to Top</a>
-    </footer>
-
-    <script>
-        // ── CUSTOM CURSOR ──
-        const cursor = document.getElementById('cursor');
-        const ring = document.getElementById('cursor-ring');
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-        if (cursor && ring && hasFinePointer && !prefersReducedMotion) {
-            document.body.classList.add('has-custom-cursor');
-            let mx = 0, my = 0, rx = 0, ry = 0;
-
-            document.addEventListener('mousemove', e => {
-                mx = e.clientX;
-                my = e.clientY;
-                cursor.style.left = mx + 'px';
-                cursor.style.top = my + 'px';
-            });
-
-            const animateRing = () => {
-                rx += (mx - rx) * 0.12;
-                ry += (my - ry) * 0.12;
-                ring.style.left = rx + 'px';
-                ring.style.top = ry + 'px';
-                requestAnimationFrame(animateRing);
-            };
-            animateRing();
-        }
-
-        // ── MOBILE NAVIGATION ──
-        const navToggle = document.querySelector('.nav-toggle');
-        const primaryMenu = document.getElementById('primary-menu');
-        const closeMenu = () => {
-            if (!navToggle || !primaryMenu) return;
-            primaryMenu.classList.remove('is-open');
-            navToggle.setAttribute('aria-expanded', 'false');
-            navToggle.setAttribute('aria-label', 'Open navigation menu');
-        };
-
-        if (navToggle && primaryMenu) {
-            navToggle.addEventListener('click', () => {
-                const willOpen = navToggle.getAttribute('aria-expanded') !== 'true';
-                primaryMenu.classList.toggle('is-open', willOpen);
-                navToggle.setAttribute('aria-expanded', String(willOpen));
-                navToggle.setAttribute('aria-label', willOpen ? 'Close navigation menu' : 'Open navigation menu');
-            });
-            primaryMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-            document.addEventListener('keydown', event => {
-                if (event.key === 'Escape') {
-                    closeMenu();
-                    navToggle.focus();
-                }
-            });
-        }
-
-        // ── SCROLL REVEAL ──
-        const reveals = document.querySelectorAll('.reveal');
-        reveals.forEach(el => el.classList.add('animate-ready'));
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        reveals.forEach(el => observer.observe(el));
-
-        // ── SMOOTH SCROLL ──
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                const target = document.querySelector(a.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-                }
-            });
-        });
-
-        // ── CONTACT FORM ──
-        // GitHub Pages is static and cannot send mail, so the form POSTs to a
-        // form-relay service. Swap CONTACT_ENDPOINT for any provider that
-        // accepts a FormData POST and returns JSON.
-        const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/okurutmauriceleonard@gmail.com';
-        const CONTACT_MAILTO = 'mailto:okurutmauriceleonard@gmail.com';
-
-        const cForm = document.getElementById('contactForm');
-        if (cForm) {
-            const btn = cForm.querySelector('.cf-submit');
-            const statusEl = cForm.querySelector('.cf-status');
-            const fields = {
-                name: cForm.elements['name'],
-                email: cForm.elements['email'],
-                message: cForm.elements['message'],
-                consent: cForm.elements['privacy-consent'],
-            };
-            const formRenderedAt = Date.now();
-
-            const setError = (key, msg) => {
-                const el = fields[key];
-                const err = document.getElementById(el.id + '-error');
-                if (err) err.textContent = msg || '';
-                el.classList.toggle('is-invalid', Boolean(msg));
-                el.setAttribute('aria-invalid', msg ? 'true' : 'false');
-                if (msg) el.setAttribute('aria-describedby', el.id + '-error');
-                else el.removeAttribute('aria-describedby');
-            };
-
-            const validate = () => {
-                let firstBad = null;
-                const name = fields.name.value.trim();
-                const email = fields.email.value.trim();
-                const message = fields.message.value.trim();
-
-                setError('name', name.length < 2 ? 'Please enter your name.' : '');
-                setError('email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
-                    ? '' : 'Please enter a valid email address.');
-                setError('message', message.length < 10
-                    ? 'A little more detail, please (10 characters minimum).' : '');
-                setError('consent', fields.consent.checked
-                    ? '' : 'Please confirm the privacy notice before sending.');
-
-                for (const k of ['name', 'email', 'message', 'consent']) {
-                    if (fields[k].classList.contains('is-invalid')) { firstBad = fields[k]; break; }
-                }
-                return firstBad;
-            };
-
-            // clear a field's error as soon as the user corrects it
-            for (const k of Object.keys(fields)) {
-                fields[k].addEventListener(k === 'consent' ? 'change' : 'input', () => {
-                    if (fields[k].classList.contains('is-invalid')) setError(k, '');
-                });
-            }
-
-            const say = (msg, kind) => {
-                statusEl.textContent = '';
-                statusEl.className = 'cf-status' + (kind ? ' is-' + kind : '');
-                statusEl.insertAdjacentHTML('beforeend', msg);
-            };
-
-            cForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const bad = validate();
-                if (bad) { say('', ''); bad.focus(); return; }
-                if (Date.now() - formRenderedAt < 3000) {
-                    say('Please wait a moment and try again.', 'err');
-                    return;
-                }
-
-                btn.disabled = true;
-                const original = btn.textContent;
-                btn.textContent = 'Sending...';
-                say('', '');
-
-                const data = new FormData(cForm);
-                data.append('_subject', 'Portfolio enquiry from ' + fields.name.value.trim());
-                data.append('_template', 'table');
-                data.delete('privacy-consent');
-                data.append('_captcha', 'true');
-
-                try {
-                    const res = await fetch(CONTACT_ENDPOINT, {
-                        method: 'POST',
-                        body: data,
-                        headers: { Accept: 'application/json' },
-                    });
-                    const out = await res.json().catch(() => ({}));
-
-                    if (res.ok && String(out.success) === 'true') {
-                        say('Thanks - your message is on its way. I usually reply within 24 hours.', 'ok');
-                        cForm.reset();
-                    } else {
-                        throw new Error(out.message || ('HTTP ' + res.status));
-                    }
-                } catch (err) {
-                    say('Could not send that - please email me directly at ' +
-                        '<a href="' + CONTACT_MAILTO + '">' + CONTACT_MAILTO.replace('mailto:', '') +
-                        '</a>.', 'err');
-                    console.error('[contact form]', err);
-                } finally {
-                    btn.disabled = false;
-                    btn.textContent = original;
-                }
-            });
-        }
-
-        // ── TECH STACK STAGGER ──
-
-        // ── DEVICON CDN FALLBACK ──
-        // Checks if devicon icons rendered; if not, injects cdnjs mirror
-        (function() {
-            function checkDevicon() {
-                var testIcon = document.querySelector('.devicon-python-plain');
-                if (!testIcon) return;
-                var style = window.getComputedStyle(testIcon, ':before');
-                var content = style.getPropertyValue('content');
-                // If content is empty/none, the font didn't load
-                if (!content || content === 'none' || content === 'normal' || content === '""') {
-                    var fallback = document.createElement('link');
-                    fallback.rel = 'stylesheet';
-                    fallback.href = 'https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css';
-                    document.head.appendChild(fallback);
-                }
-            }
-            // Also listen for CSS load error on the primary link
-            var deviconLink = document.getElementById('devicon-css');
-            if (deviconLink) {
-                deviconLink.onerror = function() {
-                    var fallback = document.createElement('link');
-                    fallback.rel = 'stylesheet';
-                    fallback.href = 'https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css';
-                    document.head.appendChild(fallback);
-                };
-            }
-            // Run content check after fonts have had time to load
-            if (document.fonts && document.fonts.ready) {
-                document.fonts.ready.then(checkDevicon);
-            } else {
-                window.addEventListener('load', checkDevicon);
-            }
-        })();
-    </script>
-    <!-- ══ STRUCTURED DATA — PERSON ══ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Okurut Maurice Leonard",
-      "url": "https://mo-reece.github.io/moreece-portfolio/",
-      "image": "https://mo-reece.github.io/moreece-portfolio/assets/portrait.webp",
-      "email": "mailto:okurutmauriceleonard@gmail.com",
-      "jobTitle": "Software Developer & Digital Solutions Builder",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Freelance / Remote"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kampala",
-        "addressCountry": "UG"
-      },
-      "sameAs": [
-        "https://github.com/Mo-reece",
-        "https://www.linkedin.com/in/maurice-leonard-okurut-26a048356"
-      ],
-      "knowsAbout": [
-        "Machine Learning", "Python", "Data Science",
-        "Algorithmic Trading", "MQL5", "Web Development",
-        "Artificial Intelligence", "Data Analysis"
-      ],
-      "description": "Software developer based in Kampala, Uganda, building practical web, data, AI, and automation solutions for businesses and organizations."
-    }
-    </script>
-
-    <!-- ══ STRUCTURED DATA — WEBSITE ══ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Okurut Maurice Leonard Portfolio",
-  "url": "https://mo-reece.github.io/moreece-portfolio/",
-      "description": "Portfolio of Okurut Maurice Leonard, a software developer and digital solutions builder in Kampala, Uganda.",
-      "author": {
-        "@type": "Person",
-        "name": "Okurut Maurice Leonard"
-      }
-    }
-    </script>
-</body>
-
+        </footer>
+    </body>
 </html>

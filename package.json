@@ -1,0 +1,15 @@
+{
+    "name": "moreece-portfolio",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Multi-page professional portfolio for Okurut Maurice Leonard.",
+    "scripts": {
+        "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+        "format:check": "prettier --check \"**/*.{html,css,js,json,md}\"",
+        "validate:site": "python scripts/validate_site.py",
+        "audit:browser": "node scripts/browser_audit.mjs http://127.0.0.1:4173/"
+    },
+    "devDependencies": {
+        "prettier": "3.9.6"
+    }
+}

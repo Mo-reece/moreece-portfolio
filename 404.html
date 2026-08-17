@@ -1,27 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; object-src 'none'; base-uri 'self'">
-    <title>Page Not Found | Okurut Maurice Leonard</title>
-    <style>
-        * { box-sizing: border-box; }
-        body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; background:#f0ece4; color:#0a0a0a; font:1rem/1.6 system-ui,sans-serif; }
-        main { width:min(640px,100%); }
-        p:first-child { color:#8a6318; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
-        h1 { font-size:clamp(3rem,12vw,7rem); line-height:.9; margin:12px 0 24px; }
-        a { display:inline-block; margin-top:18px; padding:13px 20px; background:#0a0a0a; color:#f0ece4; font-weight:700; text-decoration:none; }
-        a:focus-visible { outline:3px solid #c0392b; outline-offset:3px; }
-    </style>
-</head>
-<body>
-    <main>
-        <p>Error 404</p>
-        <h1>Page not found.</h1>
-        <p>The address may have changed, or the page may no longer exist.</p>
-        <a href="/moreece-portfolio/">Return to the portfolio</a>
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="The requested page could not be found in the portfolio of Okurut Maurice Leonard."
+        />
+        <meta name="robots" content="noindex" />
+        <meta name="theme-color" content="#f0ece4" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action https://formsubmit.co; connect-src 'self' https://formsubmit.co; img-src 'self' data: https://images.unsplash.com; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; upgrade-insecure-requests"
+        />
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;600;700;800&amp;display=swap"
+        />
+        <link rel="stylesheet" href="assets/site.css" />
+        <title>Page Not Found | Okurut Maurice Leonard</title>
+        <script src="assets/site.js" defer></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+
+        <header class="site-header">
+            <nav class="site-nav container" aria-label="Primary navigation">
+                <a class="brand" href="index.html" aria-label="Okurut Maurice Leonard home">
+                    <img src="assets/oml-logo.jpg" width="432" height="235" alt="" />
+                    <span>Okurut Maurice Leonard<small>Data Engineer</small></span>
+                </a>
+                <button
+                    class="nav-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="primary-menu"
+                    aria-label="Open navigation menu"
+                >
+                    &#9776;
+                </button>
+                <ul class="nav-menu" id="primary-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="services.html">Capabilities</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a class="nav-cta" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="page-hero">
+                <div class="container narrow">
+                    <p class="eyebrow">Error 404</p>
+                    <h1>That page could not be found.</h1>
+                    <p class="lead">
+                        The address may have changed. Use the links below to return to the portfolio structure.
+                    </p>
+                    <div class="button-row">
+                        <a class="button" href="index.html">Return home</a
+                        ><a class="button button-secondary" href="projects.html">Browse projects</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h2>Okurut Maurice Leonard</h2>
+                        <p>Data Engineer and Digital Solutions Builder based in Kampala, Uganda.</p>
+                    </div>
+                    <div>
+                        <h2>Explore</h2>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="experience.html">Experience</a></li>
+                            <li><a href="services.html">Capabilities</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Connect</h2>
+                        <ul class="footer-links">
+                            <li><a href="mailto:okurutmauriceleonard@gmail.com">Email</a></li>
+                            <li><a href="contact.html">Contact form</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span>&copy; <span data-current-year>2026</span> Okurut Maurice Leonard.</span>
+                    <a href="privacy.html">Privacy notice</a>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

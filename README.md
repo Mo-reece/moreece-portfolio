@@ -1,94 +1,124 @@
 # Maurice Leonard Okurut Portfolio Website
 
-Responsive personal portfolio website for presenting software, data, machine-learning, and automation projects to recruiters, clients, and collaborators.
+Multi-page professional portfolio for Okurut Maurice Leonard, a data engineer and digital solutions builder based in Kampala, Uganda.
 
-## Purpose
+## Information architecture
 
-This repository contains the source for my recruiter-facing portfolio. It is designed to make my work easy to scan, link each project back to GitHub, and provide a professional contact path for internships, junior developer roles, data analyst roles, and ML internship opportunities.
+The site uses a focused homepage supported by dedicated pages for information that deserves its own context:
 
-## Key Features
+- About: professional profile, principles, approach, and relevant toolkit.
+- Experience: complete employment timeline and verified certification.
+- Capabilities: overview of the three strongest data service areas.
+- Capability details: separate pages for data engineering, analytics and reporting, and automation and AI-ready data.
+- Projects: selected public work grouped by data/analytics and applied machine learning.
+- Contact: direct channels, enquiry guidance, and a privacy-aware contact form.
 
-- Project gallery linking to selected repositories and available live demos.
-- Responsive single-page layout with sections for skills, projects, and contact.
-- SEO and Open Graph metadata for clearer sharing on LinkedIn and search engines.
-- Structured data for recruiter and search-engine discoverability.
-- Accessible mobile navigation, keyboard interactions, reduced-motion support, and touch-safe project actions.
-- Privacy notice, crawler files, custom 404 page, security policy, and automated repository validation.
+## Tech stack
 
-## Tech Stack
+- Semantic HTML5
+- Shared responsive CSS
+- Dependency-free vanilla JavaScript
+- Original editorial visual system using Bebas Neue, Space Mono, and Syne
+- Optimised WebP capability imagery with curated Unsplash project photography
+- Static hosting on GitHub Pages, with Vercel security-header configuration
+- Prettier development tooling for consistent HTML, CSS, JavaScript, JSON, and Markdown formatting
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Font Awesome and Devicon assets
-
-## Project Structure
+## Project structure
 
 ```text
 .
-├── index.html
-├── privacy.html
-├── 404.html
-├── robots.txt
-├── sitemap.xml
-├── site.webmanifest
-├── vercel.json
-├── assets/
-│   ├── favicon.svg
-│   ├── og-image.jpg
-│   └── portrait*.webp
-├── scripts/
-│   ├── validate_site.py
-│   └── browser_audit.mjs
-├── .github/workflows/quality.yml
-├── SECURITY.md
-└── README.md
+|-- index.html
+|-- about.html
+|-- experience.html
+|-- services.html
+|-- projects.html
+|-- contact.html
+|-- privacy.html
+|-- 404.html
+|-- services/
+|   |-- data-engineering.html
+|   |-- analytics-reporting.html
+|   `-- automation-ai-data.html
+|-- assets/
+|   |-- site.css
+|   |-- site.js
+|   |-- favicon.svg
+|   |-- og-image.jpg
+|   |-- portrait*.webp
+|   |-- data-engineering-editorial.webp
+|   |-- analytics-reporting-editorial.webp
+|   `-- automation-ai-editorial.webp
+|-- scripts/
+|   |-- validate_site.py
+|   `-- browser_audit.mjs
+|-- .editorconfig
+|-- .gitattributes
+|-- .prettierrc.json
+|-- package.json
+|-- package-lock.json
+|-- sitemap.xml
+|-- robots.txt
+|-- site.webmanifest
+`-- vercel.json
 ```
 
-## Local Preview
-
-Open `index.html` directly in a browser, or serve the folder with a local static server:
+## Local preview
 
 ```bash
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then visit `http://localhost:8000/`.
+
+## Code formatting
+
+Install the pinned development tooling once:
+
+```bash
+npm install
+```
+
+Format the supported source files or check that they are already formatted:
+
+```bash
+npm run format
+npm run format:check
+```
+
+The project uses UTF-8, LF line endings, four-space indentation, final newlines, and trimmed trailing whitespace.
 
 ## Validation
 
-Run the dependency-free source checks before committing:
+Run the source, metadata, accessibility-baseline, image, and internal-link checks:
 
 ```bash
 python scripts/validate_site.py
 ```
 
-With Chrome installed, run responsive browser checks at 320, 390, 768, and 1440 pixels:
+With Chrome installed, run responsive browser checks:
 
 ```bash
-node scripts/browser_audit.mjs http://localhost:8000/index.html
+node scripts/browser_audit.mjs http://localhost:8000/
 ```
 
-Set `CHROME_PATH` when Chrome is installed outside the default Windows location. GitHub Actions runs the static validator on every push and pull request.
+The browser audit scrolls through the main pages at 320, 390, 768, and 1440 pixels, then checks content, landmarks, responsive images, fonts, navigation, touch-target minimums, overflow, and browser errors. Add `--json` for the full machine-readable report.
 
 ## Deployment
 
-Live deployment:
+Live GitHub Pages URL: [https://mo-reece.github.io/moreece-portfolio/](https://mo-reece.github.io/moreece-portfolio/)
 
-- GitHub Pages: [https://mo-reece.github.io/moreece-portfolio/](https://mo-reece.github.io/moreece-portfolio/)
+GitHub Pages deploys from `main`. Merge the feature branch through a reviewed pull request after validation succeeds.
 
-GitHub Pages deploys the root of `main`. Vercel is also configured with HTTP security headers for a hardened production deployment. Merge through a reviewed pull request after the `Site quality` workflow passes.
+## Content maintenance
 
-## Recruiter Notes
-
-This site should stay synchronized with the GitHub pinned repositories. When a project is improved, update the portfolio card with the stronger README, screenshots, live demo, and measurable results.
-
-## Content Maintenance
-
-Keep project claims synchronized with their repositories. Prefer actual screenshots, live demos, measurable results, and concise problem/process/outcome summaries over generic descriptions.
+- Keep employment dates and responsibilities aligned with the current CV.
+- Keep certificate verification links current.
+- Keep project claims aligned with the linked repositories.
+- Add a new detail page only when the topic has enough useful, distinct content to justify it.
 
 ## Author
 
-Maurice Leonard Okurut  
-GitHub: [Mo-reece](https://github.com/Mo-reece)  
-LinkedIn: [maurice-leonard-okurut](https://www.linkedin.com/in/maurice-leonard-okurut)
+Okurut Maurice Leonard
+
+- GitHub: [Mo-reece](https://github.com/Mo-reece)
+- LinkedIn: [maurice-leonard-okurut](https://www.linkedin.com/in/maurice-leonard-okurut-26a048356)
