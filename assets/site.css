@@ -1632,6 +1632,17 @@ body.cursor-active #cursor-ring {
 .section-header {
     margin-bottom: 50px;
     grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.42fr);
+    /* Bottom-aligning the supporting copy to a display heading left a void
+       above it that changed size with every heading, so the two columns never
+       related the same way twice. Hanging both from the first line does. */
+    align-items: start;
+}
+
+.section-header p,
+.section-intro {
+    /* Optically seats the copy against the heading's cap height rather than
+       its line box, which sits noticeably higher at this display size. */
+    padding-top: 0.55em;
 }
 
 .section-header h2,
@@ -2509,6 +2520,20 @@ body.cursor-active #cursor-ring {
     height: 100%;
     object-fit: cover;
     filter: saturate(0.82) contrast(1.04);
+}
+
+/* The portraits were shot against a cool studio grey, which reads as a cold
+   rectangle dropped into a warm paper palette. A light warm grade pulls the
+   backdrop into the page without pushing the skin tones. */
+.portrait-frame img,
+.profile-media img {
+    filter: sepia(0.16) saturate(1.12) contrast(1.02);
+}
+
+/* Keeps the hero's status panel on the first screen at laptop heights instead
+   of letting the portrait absorb the whole column. */
+.portrait-frame {
+    max-height: 620px;
 }
 
 .page-hero-card {
