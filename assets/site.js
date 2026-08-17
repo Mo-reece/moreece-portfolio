@@ -76,7 +76,7 @@ if (finePointer && !reducedMotion) {
 }
 
 const revealElements = document.querySelectorAll(
-    ".section-header, .card, .capability-card, .project-card, .role-summary, .credential-card, .timeline-item, .page-feature-media, .profile-media, .prose, .contact-card, .cta-panel",
+    ".section-header, .card, .capability-card, .project-card, .role-summary, .credential-card, .timeline-item, .profile-media, .prose, .contact-card, .cta-panel",
 );
 
 revealElements.forEach((element) => element.classList.add("reveal"));

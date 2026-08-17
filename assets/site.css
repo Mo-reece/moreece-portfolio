@@ -1950,21 +1950,10 @@ body.cursor-active #cursor-ring {
 
 .page-hero {
     position: relative;
-    padding: clamp(78px, 10vw, 138px) 0 clamp(92px, 10vw, 150px);
+    padding: clamp(64px, 7vw, 104px) 0 clamp(64px, 7vw, 104px);
     overflow: hidden;
     border: 0;
     background: var(--paper);
-}
-
-.page-hero::after {
-    position: absolute;
-    top: 0;
-    right: -6%;
-    width: 32%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent 0 32%, rgba(212, 160, 23, 0.82) 32% 58%, var(--ink) 58% 100%);
-    content: "";
-    opacity: 0.96;
 }
 
 .page-hero .container {
@@ -1991,33 +1980,6 @@ body.cursor-active #cursor-ring {
     font-size: 0.62rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-}
-
-.page-feature-media {
-    position: relative;
-    z-index: 5;
-    height: clamp(310px, 45vw, 590px);
-    margin-top: clamp(-72px, -6vw, -42px);
-    margin-bottom: 0;
-    overflow: hidden;
-    border: 8px solid var(--paper);
-    background: var(--ink);
-    box-shadow: 20px 22px 0 rgba(10, 10, 10, 0.09);
-}
-
-.page-feature-media::after {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, rgba(10, 10, 10, 0.18), transparent 50%, rgba(212, 160, 23, 0.12));
-    content: "";
-    pointer-events: none;
-}
-
-.page-feature-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(0.84) contrast(1.04);
 }
 
 .profile-media img {
@@ -2282,15 +2244,6 @@ body.cursor-active #cursor-ring {
         grid-template-columns: 1fr;
     }
 
-    .page-hero::after {
-        width: 24%;
-        opacity: 0.45;
-    }
-
-    .page-feature-media {
-        border-width: 5px;
-    }
-
     .service-nav {
         box-shadow: 8px 8px 0 rgba(212, 160, 23, 0.42);
     }
@@ -2341,23 +2294,11 @@ body.cursor-active #cursor-ring {
     }
 
     .page-hero {
-        padding: 78px 0 110px;
+        padding: 56px 0 64px;
     }
 
     .page-hero h1 {
         font-size: clamp(3.7rem, 18vw, 5.8rem);
-    }
-
-    .page-hero::after {
-        right: -23%;
-        width: 58%;
-        opacity: 0.24;
-    }
-
-    .page-feature-media {
-        height: 300px;
-        margin-top: -54px;
-        box-shadow: 10px 11px 0 rgba(10, 10, 10, 0.08);
     }
 
     .grid-2,
@@ -2381,6 +2322,286 @@ body.cursor-active #cursor-ring {
 
     .cta-panel {
         padding: 40px 28px;
+    }
+}
+
+/* ==========================================================================
+   Page hero system
+
+   Every inner page opened on a single oversized headline stranded on an empty
+   field, with a decorative diagonal floating off the right margin that touched
+   nothing. Each hero now pairs the headline with a panel carrying that page's
+   own subject matter, so the type has something to sit against on arrival and
+   the geometry reads as one composition instead of a stuck-on ornament.
+   ========================================================================== */
+
+:root {
+    /* G2-continuous corners. border-radius alone jumps from a straight edge
+       straight into a circular arc; corner-shape ramps the curvature through
+       the corner instead, which is what keeps a large radius from reading as
+       a circle glued to a box. border-radius stays as the arc fallback. */
+    --g2: 24px;
+    --g2-sm: 13px;
+}
+
+.page-hero-media,
+.page-hero-card,
+.profile-media img {
+    border-radius: var(--g2);
+}
+
+.capability-visual,
+.project-card {
+    border-radius: var(--g2-sm);
+}
+
+@supports (corner-shape: squircle) {
+    .page-hero-media,
+    .page-hero-card,
+    .profile-media img {
+        /* A squircle reads optically tighter than an arc of equal radius, so
+           the radius grows to hold the same visual corner. */
+        border-radius: calc(var(--g2) * 1.6);
+        corner-shape: squircle;
+    }
+
+    .capability-visual,
+    .project-card {
+        border-radius: calc(var(--g2-sm) * 1.6);
+        corner-shape: squircle;
+    }
+}
+
+.page-hero-grid {
+    display: grid;
+    align-items: center;
+    gap: clamp(34px, 5vw, 66px);
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+}
+
+.page-hero-copy {
+    min-width: 0;
+}
+
+.page-hero-grid .page-hero-copy h1 {
+    max-width: 16ch;
+    font-size: clamp(2.9rem, 4.5vw, 4.85rem);
+}
+
+/* Splitting the headline stops a long all-caps line reading as one
+   undifferentiated block the eye has to climb. gold-dark rather than gold:
+   the brighter token only clears 2:1 on paper, which fails even the
+   large-text threshold. */
+.page-hero h1 .accent,
+.hero h1 .accent {
+    color: var(--gold-dark);
+}
+
+.hero-rule {
+    width: 88px;
+    height: 6px;
+    margin: 24px 0 0;
+    border: 0;
+    background: var(--gold);
+}
+
+.page-hero .lead {
+    margin-top: 22px;
+}
+
+.page-hero .button-row {
+    margin-top: 30px;
+}
+
+.button--gold {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--ink);
+}
+
+.button--gold:hover,
+.button--gold:focus-visible {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+}
+
+/* --- Panel: shared stage for whatever a page puts beside its headline --- */
+
+.page-hero-panel {
+    position: relative;
+    min-width: 0;
+}
+
+/* The blade sits behind the photo and overhangs it on every side, so it reads
+   as the ground the image rests on rather than a slab parked at the page edge.
+   One element carries both colours: the gradient's hard stop puts gold under
+   the top-left overhang and ink under the bottom-right one. */
+.page-hero-panel::before {
+    position: absolute;
+    z-index: 0;
+    top: -11%;
+    right: -8%;
+    bottom: -9%;
+    left: -13%;
+    background: linear-gradient(135deg, var(--gold) 0 57%, var(--ink) 57% 100%);
+    clip-path: polygon(0 22%, 66% 0, 100% 34%, 100% 70%, 36% 100%, 0 76%);
+    content: "";
+}
+
+/* A card panel is shorter than a 4:3 photo, so the same percentage overhang
+   turns into a spike below it. Pull the blade in behind the card instead. */
+.page-hero-panel:has(.page-hero-card)::before {
+    top: -9%;
+    bottom: -1%;
+    clip-path: polygon(0 22%, 66% 0, 100% 34%, 100% 74%, 46% 96%, 0 76%);
+}
+
+.page-hero-media {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--ink);
+    box-shadow: 0 26px 58px rgba(10, 10, 10, 0.24);
+}
+
+.page-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.82) contrast(1.04);
+}
+
+.page-hero-card {
+    position: relative;
+    z-index: 1;
+    padding: clamp(26px, 3vw, 36px);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: 0 26px 58px rgba(10, 10, 10, 0.14);
+}
+
+.page-hero-card h2 {
+    margin: 0 0 16px;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+/* --- Panel contents: one list component, one figures component --- */
+
+.hero-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hero-list li + li {
+    border-top: 1px solid var(--line);
+}
+
+.hero-list a,
+.hero-list > li > span {
+    display: flex;
+    padding: 14px 0;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.hero-list li:first-child :is(a, span) {
+    padding-top: 0;
+}
+
+.hero-list li:last-child :is(a, span) {
+    padding-bottom: 0;
+}
+
+.hero-list-label {
+    font-family: var(--display);
+    font-size: clamp(1.3rem, 1.9vw, 1.68rem);
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+}
+
+.hero-list-meta {
+    flex: none;
+    color: var(--gold-dark);
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.hero-list a:hover .hero-list-label,
+.hero-list a:focus-visible .hero-list-label {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.hero-metrics {
+    display: grid;
+    margin: 0;
+    gap: 20px 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hero-metrics dt {
+    color: var(--gold-dark);
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.hero-metrics dd {
+    margin: 5px 0 0;
+    font-family: var(--display);
+    font-size: clamp(2.2rem, 3.2vw, 3rem);
+    line-height: 1;
+}
+
+/* --- Plain variant: pages with too little content to earn a panel --- */
+
+.page-hero--plain h1 {
+    font-size: clamp(3.4rem, 7vw, 6.4rem);
+}
+
+@media (max-width: 980px) {
+    .page-hero-grid {
+        gap: 42px;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .page-hero-grid .page-hero-copy h1 {
+        max-width: 18ch;
+        font-size: clamp(3rem, 9vw, 4.4rem);
+    }
+
+    .page-hero-panel::before {
+        right: 6%;
+        left: -5%;
+    }
+
+    .page-hero-media {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+@media (max-width: 700px) {
+    .page-hero-media {
+        aspect-ratio: 3 / 2;
+    }
+
+    .hero-metrics {
+        gap: 18px;
     }
 }
 
