@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960" width="1440" height="960" role="img" aria-label="Layered solution architecture: interfaces above an application core above data and model services">
+    <defs>
+        <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <circle cx="1.6" cy="1.6" r="1.6" fill="#f0ece4" opacity="0.09" />
+        </pattern>
+        <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#d4a017" />
+            <stop offset="100%" stop-color="#a87d10" />
+        </linearGradient>
+    </defs>
+
+    <rect width="1440" height="960" fill="#0a0a0a" />
+    <rect width="1440" height="960" fill="url(#grid)" />
+
+    <g stroke="#d4a017" stroke-width="3" opacity="0.55" fill="none">
+        <path d="M280 268 V344 H720 V404" />
+        <path d="M720 268 V404" />
+        <path d="M1160 268 V344 H720 V404" />
+        <path d="M280 692 V616 H720 V556" />
+        <path d="M720 692 V556" />
+        <path d="M1160 692 V616 H720 V556" />
+    </g>
+
+    <g fill="#16161a" stroke="#f0ece4" stroke-opacity="0.26" stroke-width="3">
+        <rect x="155" y="150" width="250" height="118" rx="26" />
+        <rect x="595" y="150" width="250" height="118" rx="26" />
+        <rect x="1035" y="150" width="250" height="118" rx="26" />
+        <rect x="155" y="692" width="250" height="118" rx="26" />
+        <rect x="595" y="692" width="250" height="118" rx="26" />
+        <rect x="1035" y="692" width="250" height="118" rx="26" />
+    </g>
+
+    <rect x="370" y="404" width="700" height="152" rx="34" fill="url(#core)" />
+
+    <g
+        fill="#f0ece4"
+        font-family="ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', Menlo, Consolas, monospace"
+        font-size="40"
+        letter-spacing="3"
+        text-anchor="middle"
+    >
+        <text x="280" y="223">WEB APP</text>
+        <text x="720" y="223">MOBILE</text>
+        <text x="1160" y="223">PARTNER API</text>
+        <text x="280" y="765">SQL STORE</text>
+        <text x="720" y="765">PIPELINES</text>
+        <text x="1160" y="765">ML MODELS</text>
+    </g>
+
+    <text
+        x="720"
+        y="497"
+        fill="#0a0a0a"
+        font-family="ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', Menlo, Consolas, monospace"
+        font-size="52"
+        font-weight="700"
+        letter-spacing="6"
+        text-anchor="middle"
+    >
+        SERVICE CORE
+    </text>
+</svg>

@@ -1,6 +1,6 @@
 # Maurice Leonard Okurut Portfolio Website
 
-Multi-page professional portfolio for Okurut Maurice Leonard, a data engineer and digital solutions builder based in Kampala, Uganda.
+Multi-page professional portfolio for Okurut Maurice Leonard, a solutions architect and full-stack engineer based in Kampala, Uganda.
 
 ## Information architecture
 
@@ -8,9 +8,9 @@ The site uses a focused homepage supported by dedicated pages for information th
 
 - About: professional profile, principles, approach, and relevant toolkit.
 - Experience: complete employment timeline and verified certification.
-- Capabilities: overview of the three strongest data service areas.
-- Capability details: separate pages for data engineering, analytics and reporting, and automation and AI-ready data.
-- Projects: selected public work grouped by data/analytics and applied machine learning.
+- Capabilities: overview of the five capability areas.
+- Capability details: separate pages for solutions architecture, full-stack web development, AI/ML and automation, data engineering, and analytics and reporting.
+- Projects: selected work grouped by web and product engineering, data and analytics, and applied machine learning.
 - Contact: direct channels, enquiry guidance, and a privacy-aware contact form.
 
 ## Tech stack
@@ -36,9 +36,11 @@ The site uses a focused homepage supported by dedicated pages for information th
 |-- privacy.html
 |-- 404.html
 |-- services/
+|   |-- solutions-architecture.html
+|   |-- full-stack-development.html
+|   |-- automation-ai-data.html
 |   |-- data-engineering.html
-|   |-- analytics-reporting.html
-|   `-- automation-ai-data.html
+|   `-- analytics-reporting.html
 |-- assets/
 |   |-- site.css
 |   |-- site.js
@@ -47,7 +49,10 @@ The site uses a focused homepage supported by dedicated pages for information th
 |   |-- portrait*.webp
 |   |-- data-engineering-editorial.webp
 |   |-- analytics-reporting-editorial.webp
-|   `-- automation-ai-editorial.webp
+|   |-- automation-ai-editorial.webp
+|   |-- fullstack-editorial.webp
+|   |-- solutions-architecture-diagram.svg
+|   `-- projects/
 |-- scripts/
 |   |-- validate_site.py
 |   `-- browser_audit.mjs
@@ -101,7 +106,7 @@ With Chrome installed, run responsive browser checks:
 node scripts/browser_audit.mjs http://localhost:8000/
 ```
 
-The browser audit scrolls through the main pages at 320, 390, 768, and 1440 pixels, then checks content, landmarks, responsive images, fonts, navigation, touch-target minimums, overflow, and browser errors. Add `--json` for the full machine-readable report.
+The browser audit scrolls through every page at 320, 390, 768, and 1440 pixels, then checks content, landmarks, responsive images, fonts, navigation, touch-target minimums, overflow, and browser errors. Add `--json` for the full machine-readable report.
 
 ## Deployment
 

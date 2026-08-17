@@ -22,6 +22,8 @@ REQUIRED_FILES = [
     ROOT / "contact.html",
     ROOT / "privacy.html",
     ROOT / "404.html",
+    ROOT / "services" / "solutions-architecture.html",
+    ROOT / "services" / "full-stack-development.html",
     ROOT / "services" / "data-engineering.html",
     ROOT / "services" / "analytics-reporting.html",
     ROOT / "services" / "automation-ai-data.html",
@@ -36,6 +38,8 @@ REQUIRED_FILES = [
     ROOT / "assets" / "data-engineering-editorial.webp",
     ROOT / "assets" / "analytics-reporting-editorial.webp",
     ROOT / "assets" / "automation-ai-editorial.webp",
+    ROOT / "assets" / "fullstack-editorial.webp",
+    ROOT / "assets" / "solutions-architecture-diagram.svg",
     ROOT / "assets" / "site.css",
     ROOT / "assets" / "site.js",
 ]

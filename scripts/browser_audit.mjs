@@ -17,6 +17,8 @@ const routes = [
     "contact.html",
     "privacy.html",
     "404.html",
+  "services/solutions-architecture.html",
+  "services/full-stack-development.html",
   "services/data-engineering.html",
   "services/analytics-reporting.html",
   "services/automation-ai-data.html",

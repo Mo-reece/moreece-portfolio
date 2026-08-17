@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
             name="description"
-            content="AI, machine learning, and automation capability: classification and prediction models, model-ready datasets, recurring quality checks, and API workflows."
+            content="Solutions architecture capability: scoping users and constraints, designing application, data, and integration boundaries, and owning delivery through to a running system."
         />
         <meta name="author" content="Okurut Maurice Leonard" />
         <meta name="robots" content="index, follow" />
@@ -15,7 +15,10 @@
             http-equiv="Content-Security-Policy"
             content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action https://formsubmit.co; connect-src 'self' https://formsubmit.co; img-src 'self' data:; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; upgrade-insecure-requests"
         />
-        <link rel="canonical" href="https://mo-reece.github.io/moreece-portfolio/services/automation-ai-data.html" />
+        <link
+            rel="canonical"
+            href="https://mo-reece.github.io/moreece-portfolio/services/solutions-architecture.html"
+        />
         <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
         <link rel="manifest" href="../site.webmanifest" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +28,7 @@
             href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;600;700;800&amp;display=swap"
         />
         <link rel="stylesheet" href="../assets/site.css" />
-        <title>AI, Machine Learning &amp; Automation | Okurut Maurice Leonard</title>
+        <title>Solutions Architecture | Okurut Maurice Leonard</title>
         <script src="../assets/site.js" defer></script>
     </head>
     <body>
@@ -63,14 +66,14 @@
                         <ol class="breadcrumb" aria-label="Breadcrumb">
                             <li><a href="../index.html">Home</a></li>
                             <li><a href="../services.html">Capabilities</a></li>
-                            <li aria-current="page">AI, ML &amp; Automation</li>
+                            <li aria-current="page">Solutions Architecture</li>
                         </ol>
-                        <p class="eyebrow">Capability 03</p>
-                        <h1>Models and automation <span class="accent">that run without babysitting</span>.</h1>
+                        <p class="eyebrow">Capability 01</p>
+                        <h1>Architecture that decides <span class="accent">how the pieces fit</span>.</h1>
                         <hr class="hero-rule" />
                         <p class="lead">
-                            Build classification and prediction models, prepare the datasets they depend on, and replace
-                            recurring manual handling with workflows that keep running after delivery.
+                            Agree the users, data, services, and integrations before implementation begins, then own
+                            that design through to a system running in production.
                         </p>
                         <div class="button-row">
                             <a class="button button--gold" href="../contact.html">Discuss this capability</a>
@@ -79,10 +82,10 @@
                     <div class="page-hero-panel">
                         <figure class="page-hero-media">
                             <img
-                                src="../assets/automation-ai-editorial.webp"
-                                width="1792"
-                                height="1024"
-                                alt="Technology professional monitoring an automated workflow beside network equipment"
+                                src="../assets/solutions-architecture-diagram.svg"
+                                width="1440"
+                                height="960"
+                                alt="Layered architecture diagram: web, mobile, and partner interfaces above a service core above SQL, pipeline, and model services"
                                 decoding="async"
                             />
                         </figure>
@@ -90,182 +93,174 @@
                 </div>
             </header>
 
-            <section class="section" aria-labelledby="automation-heading">
+            <section class="section" aria-labelledby="architecture-heading">
                 <div class="container service-intro">
                     <aside class="service-nav" aria-label="Capability pages">
                         <h2>Capability pages</h2>
                         <ul>
-                            <li><a href="solutions-architecture.html">Solutions Architecture</a></li>
+                            <li>
+                                <a href="solutions-architecture.html" aria-current="page">Solutions Architecture</a>
+                            </li>
                             <li><a href="full-stack-development.html">Full-Stack Web Development</a></li>
-                            <li><a href="automation-ai-data.html" aria-current="page">AI, ML &amp; Automation</a></li>
+                            <li><a href="automation-ai-data.html">AI, ML &amp; Automation</a></li>
                             <li><a href="data-engineering.html">Data Engineering</a></li>
                             <li><a href="analytics-reporting.html">Analytics &amp; Reporting</a></li>
                         </ul>
                     </aside>
                     <div class="prose">
                         <p class="eyebrow">What this covers</p>
-                        <h2 id="automation-heading">
-                            Use automation where the rule is clear and the result can be checked.
+                        <h2 id="architecture-heading">
+                            The expensive decisions are the ones made before any code is written.
                         </h2>
                         <p>
-                            This capability covers both halves of the same problem. On the modelling side:
-                            classification, regression, and computer-vision work, from framing the question through
-                            preparing training data to evaluating whether the result is good enough to rely on. On the
-                            automation side: API handling, transformation, validation, and tracking that keeps running
-                            once the analyst has moved on.
+                            Architecture work is useful when a system has to serve more than one audience, hold data
+                            that other processes depend on, or integrate with services nobody controls. The goal is a
+                            design that states clearly where each responsibility sits, so the build has a shape to
+                            follow and the result can be extended later without unpicking it.
                         </p>
                         <p>
-                            Both depend on the same discipline. A model is only as trustworthy as the dataset behind it,
-                            and automation is only safe where the rule is clear and the result can be checked, so the
-                            data work comes first in either case.
-                        </p>
-                        <p>
-                            My experience includes supporting AI and machine-learning solutions at Logos Cloud Services,
-                            automating data-quality checks and reporting trackers, completing API and
-                            workflow-automation tasks during a remote data science internship, and building public
-                            classification, regression, and neural-network projects.
+                            In practice this means separating the interface from the services behind it, deciding what
+                            the database is the source of truth for, choosing where authentication and payments belong,
+                            and being explicit about what happens when an external service is slow or unavailable.
                         </p>
                         <h3>Typical problems addressed</h3>
                         <ul class="plain-list">
                             <li>
-                                A prediction or classification would help, but nobody has framed it as a data problem.
+                                Features are being added faster than anyone can explain how the system fits together.
                             </li>
-                            <li>Model development is delayed by undocumented or inconsistent training data.</li>
-                            <li>The same data checks or reporting preparation are repeated manually.</li>
-                            <li>API data must be collected and transformed into a consistent structure.</li>
+                            <li>
+                                Business rules live in several places, so the same question returns different answers.
+                            </li>
+                            <li>An integration, payment provider, or data source needs replacing without a rewrite.</li>
+                            <li>A working prototype has to become something a team can operate and hand over.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <section class="section section-muted" aria-labelledby="automation-deliverables-heading">
+            <section class="section section-muted" aria-labelledby="architecture-deliverables-heading">
                 <div class="container">
                     <div class="section-header">
                         <div>
                             <p class="eyebrow">Typical deliverables</p>
-                            <h2 id="automation-deliverables-heading">Repeatable steps with visible checks.</h2>
+                            <h2 id="architecture-deliverables-heading">A design the build can follow.</h2>
                         </div>
-                        <p>Automation should make the workflow easier to monitor, not harder to understand.</p>
+                        <p>Deliverables are scoped to the size of the system and who has to maintain it.</p>
                     </div>
                     <div class="grid-3">
                         <article class="card">
-                            <h3>Quality automation</h3>
+                            <h3>System diagram</h3>
                             <p>
-                                Recurring checks for missing values, duplicates, expected formats, ranges, and other
-                                agreed rules.
+                                Components, boundaries, and the direction data moves between interface, services, and
+                                storage.
                             </p>
                         </article>
                         <article class="card">
-                            <h3>API workflow</h3>
+                            <h3>Data model</h3>
                             <p>
-                                Collection, parsing, transformation, and storage steps for structured data retrieved
-                                from an API.
+                                Entities, relationships, and the record each part of the system is allowed to consider
+                                authoritative.
                             </p>
                         </article>
                         <article class="card">
-                            <h3>Reporting tracker</h3>
+                            <h3>API contract</h3>
                             <p>
-                                Automated mechanisms that organise status, exceptions, timestamps, or recurring
-                                reporting inputs.
+                                Endpoints, request and response shapes, authentication, and how errors are reported to
+                                callers.
                             </p>
                         </article>
                         <article class="card">
-                            <h3>Model-ready dataset</h3>
+                            <h3>Integration plan</h3>
                             <p>
-                                Cleaned, consistently encoded, documented data prepared for a defined machine-learning
-                                workflow.
+                                Third-party services, what each is trusted for, and the fallback when one is
+                                unavailable.
                             </p>
                         </article>
                         <article class="card">
-                            <h3>Run logging</h3>
+                            <h3>Environment and deployment</h3>
                             <p>
-                                Simple, useful records showing when a process ran, what it handled, and where it
-                                encountered issues.
+                                How the system is configured, released, and separated between development and
+                                production.
                             </p>
                         </article>
                         <article class="card">
-                            <h3>Operating notes</h3>
+                            <h3>Decision record</h3>
                             <p>
-                                Instructions covering inputs, outputs, configuration, limitations, and how to respond to
-                                exceptions.
+                                The options considered, the choice made, and the constraint that drove it, written down
+                                for whoever inherits it.
                             </p>
                         </article>
                     </div>
                 </div>
             </section>
 
-            <section class="section" aria-labelledby="automation-process-heading">
+            <section class="section" aria-labelledby="architecture-workflow-heading">
                 <div class="container">
                     <div class="section-header">
                         <div>
                             <p class="eyebrow">Workflow</p>
-                            <h2 id="automation-process-heading">Automate the stable parts first.</h2>
+                            <h2 id="architecture-workflow-heading">Decide, then build against the decision.</h2>
                         </div>
-                        <p>A controlled rollout keeps exceptions visible and makes the result easier to maintain.</p>
+                        <p>The sequence keeps design ahead of implementation without stalling delivery.</p>
                     </div>
                     <div class="grid-4 process-grid">
                         <article class="process-card">
-                            <h3>Observe</h3>
-                            <p>
-                                Document the existing manual process, inputs, outputs, decisions, and common exceptions.
-                            </p>
+                            <h3>Frame</h3>
+                            <p>Establish the users, the decisions the system supports, and the real constraints.</p>
                         </article>
                         <article class="process-card">
-                            <h3>Define</h3>
-                            <p>Agree on explicit transformation and validation rules that can be tested.</p>
+                            <h3>Model</h3>
+                            <p>Define the data, the boundaries between services, and the contracts between them.</p>
                         </article>
                         <article class="process-card">
-                            <h3>Automate</h3>
-                            <p>Implement the repeatable steps with logging, checkpoints, and clear failure messages.</p>
+                            <h3>Prove</h3>
+                            <p>Build the riskiest slice first so the design is tested before the rest depends on it.</p>
                         </article>
                         <article class="process-card">
-                            <h3>Monitor</h3>
-                            <p>
-                                Review results and exceptions, then expand automation only where the process remains
-                                stable.
-                            </p>
+                            <h3>Hand over</h3>
+                            <p>Document the decisions and the operating runbook so the design survives the handover.</p>
                         </article>
                     </div>
                 </div>
             </section>
 
-            <section class="section section-dark" aria-labelledby="automation-evidence-heading">
+            <section class="section section-dark" aria-labelledby="architecture-evidence-heading">
                 <div class="container">
                     <div class="section-header">
                         <div>
                             <p class="eyebrow">Relevant evidence</p>
-                            <h2 id="automation-evidence-heading">
-                                Professional workflow support and applied modelling projects.
-                            </h2>
+                            <h2 id="architecture-evidence-heading">Where this has been applied.</h2>
                         </div>
-                        <p>
-                            The emphasis is on data preparation and controlled automation rather than unsupported AI
-                            claims.
-                        </p>
+                        <p>Claims on this page are grounded in delivered client work and public repositories.</p>
                     </div>
                     <div class="grid-3">
                         <article class="card">
+                            <h3>Aristoc Booklex</h3>
+                            <p>
+                                Collaboration on an e-commerce platform spanning catalogue, accounts, cart, checkout,
+                                payment integration, and both delivery and pickup fulfilment.
+                            </p>
+                            <a
+                                class="text-link spacer-top"
+                                href="https://aristocbooklex.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Visit the platform</a
+                            >
+                        </article>
+                        <article class="card">
                             <h3>Logos Cloud Services</h3>
                             <p>
-                                Recurring data-quality checks, automated reporting trackers, and model-ready dataset
-                                preparation for AI and business-automation solutions.
+                                Designing pipelines, SQL databases, and reporting workflows that several SME client
+                                contexts depend on across fintech, agribusiness, and logistics.
                             </p>
                         </article>
                         <article class="card">
-                            <h3>Redynox</h3>
+                            <h3>Ngora District Local Government</h3>
                             <p>
-                                Remote project delivery covering API data handling, Python processing, and workflow
-                                automation under mentorship.
+                                Documenting standard operating procedures for system-access protocols, and structuring
+                                official records so reporting could be trusted.
                             </p>
-                        </article>
-                        <article class="card">
-                            <h3>Applied ML projects</h3>
-                            <p>
-                                Public repositories covering computer vision, regression, and classification workflows.
-                            </p>
-                            <a class="text-link spacer-top" href="../projects.html#ml-projects-heading"
-                                >Review ML projects</a
-                            >
                         </article>
                     </div>
                 </div>
@@ -274,10 +269,10 @@
             <section class="section-compact">
                 <div class="container cta-panel">
                     <div>
-                        <h2>Which recurring data task slows the team down?</h2>
-                        <p>Share the manual steps, the input format, and how you currently verify the result.</p>
+                        <h2>Not sure how the pieces should fit?</h2>
+                        <p>Describe the users, the data involved, and the systems it has to work with.</p>
                     </div>
-                    <a class="button" href="../contact.html">Discuss automation</a>
+                    <a class="button" href="../contact.html">Discuss architecture</a>
                 </div>
             </section>
         </main>

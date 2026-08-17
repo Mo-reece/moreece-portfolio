@@ -2326,6 +2326,43 @@ body.cursor-active #cursor-ring {
 }
 
 /* ==========================================================================
+   Focus strip
+
+   The strip used a fixed four-column grid with dividers pinned to specific
+   child positions, so it broke as soon as the practice grew past four areas.
+   A wrapping row with its own separators takes any number of entries and
+   reflows at every width without per-item rules.
+   ========================================================================== */
+
+.trust-list {
+    display: flex;
+    padding: 20px 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px 28px;
+    grid-template-columns: none;
+}
+
+.trust-list li {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    gap: 28px;
+    border: 0;
+    text-align: left;
+}
+
+.trust-list li:not(:last-child)::after {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    content: "";
+    opacity: 0.85;
+}
+
+/* ==========================================================================
    Page hero system
 
    Every inner page opened on a single oversized headline stranded on an empty
