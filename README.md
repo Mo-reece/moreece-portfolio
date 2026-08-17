@@ -19,7 +19,7 @@ The site uses a focused homepage supported by dedicated pages for information th
 - Shared responsive CSS
 - Dependency-free vanilla JavaScript
 - Original editorial visual system using Bebas Neue, Space Mono, and Syne
-- Optimised WebP capability imagery with curated Unsplash project photography
+- Optimised, self-hosted WebP imagery for capability and project cards
 - Static hosting on GitHub Pages, with Vercel security-header configuration
 - Prettier development tooling for consistent HTML, CSS, JavaScript, JSON, and Markdown formatting
 

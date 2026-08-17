@@ -1712,9 +1712,10 @@ body.cursor-active #cursor-ring {
 }
 
 .capability-card {
-    display: block;
+    display: flex;
     min-height: 0;
     padding: 0;
+    flex-direction: column;
     overflow: hidden;
     transition:
         transform 220ms ease,
@@ -1728,6 +1729,7 @@ body.cursor-active #cursor-ring {
 
 .capability-visual {
     height: 235px;
+    flex: none;
     margin: 0;
     overflow: hidden;
     background: var(--ink);
@@ -1774,11 +1776,14 @@ body.cursor-active #cursor-ring {
 }
 
 .capability-card > .detail-list {
-    margin: 0 30px;
+    margin: 0 30px 22px;
 }
 
+/* Auto top margin pulls the link to the card floor so the row of cards
+   lines up regardless of how many lines the heading and copy take. */
 .capability-card > .text-link {
-    margin: 24px 30px 31px;
+    margin: auto 30px 31px;
+    align-self: start;
 }
 
 .text-link {
