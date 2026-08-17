@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
             name="description"
-            content="Solutions architecture capability: scoping users and constraints, designing application, data, and integration boundaries, and owning delivery through to a running system."
+            content="System and data models, API contracts, integration boundaries, and decision records. Architecture owned from the first diagram to a running system."
         />
         <meta name="author" content="Okurut Maurice Leonard" />
         <meta name="robots" content="index, follow" />
@@ -28,6 +28,79 @@
             href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;600;700;800&amp;display=swap"
         />
         <link rel="stylesheet" href="../assets/site.css" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://mo-reece.github.io/moreece-portfolio/services/solutions-architecture.html"
+        />
+        <meta property="og:title" content="Solutions Architecture | Okurut Maurice Leonard" />
+        <meta
+            property="og:description"
+            content="System and data models, API contracts, integration boundaries, and decision records. Architecture owned from the first diagram to a running system."
+        />
+        <meta property="og:image" content="https://mo-reece.github.io/moreece-portfolio/assets/og-image.jpg" />
+        <meta property="og:image:alt" content="Okurut Maurice Leonard, Solutions Architect and Full-Stack Engineer" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Okurut Maurice Leonard Portfolio" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Solutions Architecture | Okurut Maurice Leonard" />
+        <meta
+            name="twitter:description"
+            content="System and data models, API contracts, integration boundaries, and decision records. Architecture owned from the first diagram to a running system."
+        />
+        <meta name="twitter:image" content="https://mo-reece.github.io/moreece-portfolio/assets/og-image.jpg" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://mo-reece.github.io/moreece-portfolio/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Capabilities",
+                                "item": "https://mo-reece.github.io/moreece-portfolio/services.html"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": "Solutions Architecture",
+                                "item": "https://mo-reece.github.io/moreece-portfolio/services/solutions-architecture.html"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "Service",
+                        "name": "Solutions Architecture",
+                        "serviceType": "Solutions Architecture",
+                        "url": "https://mo-reece.github.io/moreece-portfolio/services/solutions-architecture.html",
+                        "description": "System and data models, API contracts, integration boundaries, and decision records. Architecture owned from the first diagram to a running system.",
+                        "provider": {
+                            "@id": "https://mo-reece.github.io/moreece-portfolio/#person"
+                        },
+                        "areaServed": [
+                            {
+                                "@type": "Country",
+                                "name": "Uganda"
+                            },
+                            {
+                                "@type": "Place",
+                                "name": "Remote"
+                            }
+                        ]
+                    }
+                ]
+            }
+        </script>
         <title>Solutions Architecture | Okurut Maurice Leonard</title>
         <script src="../assets/site.js" defer></script>
     </head>
@@ -113,15 +186,9 @@
                             The expensive decisions are the ones made before any code is written.
                         </h2>
                         <p>
-                            Architecture work is useful when a system has to serve more than one audience, hold data
-                            that other processes depend on, or integrate with services nobody controls. The goal is a
-                            design that states clearly where each responsibility sits, so the build has a shape to
-                            follow and the result can be extended later without unpicking it.
-                        </p>
-                        <p>
-                            In practice this means separating the interface from the services behind it, deciding what
-                            the database is the source of truth for, choosing where authentication and payments belong,
-                            and being explicit about what happens when an external service is slow or unavailable.
+                            Useful when a system serves more than one audience, holds data other processes depend on, or
+                            integrates with services nobody controls. You get a design that says where each
+                            responsibility sits, so the build has a shape to follow and can be extended later.
                         </p>
                         <h3>Typical problems addressed</h3>
                         <ul class="plain-list">
@@ -150,44 +217,32 @@
                     <div class="grid-3">
                         <article class="card">
                             <h3>System diagram</h3>
-                            <p>
-                                Components, boundaries, and the direction data moves between interface, services, and
-                                storage.
-                            </p>
+                            <p>Components, boundaries, and how data moves between interface, services, and storage.</p>
                         </article>
                         <article class="card">
                             <h3>Data model</h3>
                             <p>
-                                Entities, relationships, and the record each part of the system is allowed to consider
+                                Entities, relationships, and which record each part of the system treats as
                                 authoritative.
                             </p>
                         </article>
                         <article class="card">
                             <h3>API contract</h3>
-                            <p>
-                                Endpoints, request and response shapes, authentication, and how errors are reported to
-                                callers.
-                            </p>
+                            <p>Endpoints, request and response shapes, authentication, and error handling.</p>
                         </article>
                         <article class="card">
                             <h3>Integration plan</h3>
-                            <p>
-                                Third-party services, what each is trusted for, and the fallback when one is
-                                unavailable.
-                            </p>
+                            <p>Third-party services, what each is trusted for, and the fallback when one fails.</p>
                         </article>
                         <article class="card">
                             <h3>Environment and deployment</h3>
-                            <p>
-                                How the system is configured, released, and separated between development and
-                                production.
-                            </p>
+                            <p>How the system is configured, released, and split between development and production.</p>
                         </article>
                         <article class="card">
                             <h3>Decision record</h3>
                             <p>
-                                The options considered, the choice made, and the constraint that drove it, written down
-                                for whoever inherits it.
+                                The options, the choice, and the constraint behind it, written down for whoever inherits
+                                it.
                             </p>
                         </article>
                     </div>

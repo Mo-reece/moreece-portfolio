@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
             name="description"
-            content="Full-stack web development capability: React and Next.js interfaces on Python and Node services, with authentication, payments, and production deployment."
+            content="React and Next.js interfaces on Python and Node services, with authentication, payments, database design, and production deployment."
         />
         <meta name="author" content="Okurut Maurice Leonard" />
         <meta name="robots" content="index, follow" />
@@ -28,7 +28,80 @@
             href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;600;700;800&amp;display=swap"
         />
         <link rel="stylesheet" href="../assets/site.css" />
-        <title>Full-Stack Web Development | Okurut Maurice Leonard</title>
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://mo-reece.github.io/moreece-portfolio/services/full-stack-development.html"
+        />
+        <meta property="og:title" content="Full-Stack Web Development | React, Next.js, Python" />
+        <meta
+            property="og:description"
+            content="React and Next.js interfaces on Python and Node services, with authentication, payments, database design, and production deployment."
+        />
+        <meta property="og:image" content="https://mo-reece.github.io/moreece-portfolio/assets/og-image.jpg" />
+        <meta property="og:image:alt" content="Okurut Maurice Leonard, Solutions Architect and Full-Stack Engineer" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Okurut Maurice Leonard Portfolio" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Full-Stack Web Development | React, Next.js, Python" />
+        <meta
+            name="twitter:description"
+            content="React and Next.js interfaces on Python and Node services, with authentication, payments, database design, and production deployment."
+        />
+        <meta name="twitter:image" content="https://mo-reece.github.io/moreece-portfolio/assets/og-image.jpg" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://mo-reece.github.io/moreece-portfolio/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Capabilities",
+                                "item": "https://mo-reece.github.io/moreece-portfolio/services.html"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": "Full-Stack Web Development",
+                                "item": "https://mo-reece.github.io/moreece-portfolio/services/full-stack-development.html"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "Service",
+                        "name": "Full-Stack Web Development",
+                        "serviceType": "Full-Stack Web Development",
+                        "url": "https://mo-reece.github.io/moreece-portfolio/services/full-stack-development.html",
+                        "description": "React and Next.js interfaces on Python and Node services, with authentication, payments, database design, and production deployment.",
+                        "provider": {
+                            "@id": "https://mo-reece.github.io/moreece-portfolio/#person"
+                        },
+                        "areaServed": [
+                            {
+                                "@type": "Country",
+                                "name": "Uganda"
+                            },
+                            {
+                                "@type": "Place",
+                                "name": "Remote"
+                            }
+                        ]
+                    }
+                ]
+            }
+        </script>
+        <title>Full-Stack Web Development | React, Next.js, Python</title>
         <script src="../assets/site.js" defer></script>
     </head>
     <body>
@@ -111,15 +184,9 @@
                         <p class="eyebrow">What this covers</p>
                         <h2 id="fullstack-heading">One person accountable for the whole request.</h2>
                         <p>
-                            Full-stack work is useful when a product needs the interface, the API, and the database to
-                            agree with each other. Building across the boundary means a change to a screen and the
-                            change to the data behind it happen together, rather than being negotiated between two teams
-                            over several rounds.
-                        </p>
-                        <p>
-                            The same discipline that applies to data work applies here: the database is designed before
-                            the screens, validation happens on the server as well as in the browser, and the deployment
-                            is documented rather than remembered.
+                            Useful when the interface, the API, and the database have to agree with each other. One
+                            person building across that boundary means a screen and the data behind it change together,
+                            instead of being negotiated between two teams over several rounds.
                         </p>
                         <h3>Typical problems addressed</h3>
                         <ul class="plain-list">
@@ -151,10 +218,7 @@
                         </article>
                         <article class="card">
                             <h3>Backend API</h3>
-                            <p>
-                                Python or Node services with a documented contract, server-side validation, and
-                                predictable error responses.
-                            </p>
+                            <p>Python or Node services with a documented contract and server-side validation.</p>
                         </article>
                         <article class="card">
                             <h3>Database</h3>
@@ -165,24 +229,18 @@
                         </article>
                         <article class="card">
                             <h3>Accounts and access</h3>
-                            <p>
-                                Registration, sign-in, session or token handling with refresh, and role-appropriate
-                                permissions.
-                            </p>
+                            <p>Registration, sign-in, token handling with refresh, and role-appropriate permissions.</p>
                         </article>
                         <article class="card">
                             <h3>Payments and integrations</h3>
                             <p>
-                                Checkout and third-party services wired in so a failed call is handled rather than
-                                silently lost.
+                                Checkout and third-party services wired in so a failed call is handled, not silently
+                                lost.
                             </p>
                         </article>
                         <article class="card">
                             <h3>Deployment</h3>
-                            <p>
-                                Environment configuration, a release path, and notes covering how to run and roll the
-                                application back.
-                            </p>
+                            <p>Environment configuration, a release path, and notes on running and rolling back.</p>
                         </article>
                     </div>
                 </div>
