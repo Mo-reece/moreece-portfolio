@@ -1,3 +1,47 @@
+/* Self-hosted latin subsets. Fetching these from fonts.googleapis.com
+   render-blocked first paint on a cross-origin connection, and forced the
+   page CSP to carry exceptions for two extra hosts. */
+@font-face {
+    font-family: "Bebas Neue";
+    src: url("fonts/bebas-neue-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+        U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Space Mono";
+    src: url("fonts/space-mono-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+        U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Space Mono";
+    src: url("fonts/space-mono-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+        U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Syne";
+    src: url("fonts/syne-400-800.woff2") format("woff2");
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+        U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
     color-scheme: light;
     --ink: #11110f;
@@ -75,9 +119,19 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* The bright gold reaches only 2:1 against paper, short of the 3:1 that a
+   focus indicator needs. The darker gold clears it on light ground, and the
+   bright one is kept for the dark bands where it is the readable choice. */
 :focus-visible {
-    outline: 3px solid var(--gold);
+    outline: 3px solid var(--gold-dark);
     outline-offset: 4px;
+}
+
+.section-dark :focus-visible,
+.trust-strip :focus-visible,
+.site-footer :focus-visible,
+.project-card :focus-visible {
+    outline-color: var(--gold);
 }
 
 :target {
@@ -1260,8 +1314,10 @@ h3 {
     --paper-deep: #ded6ca;
     --surface: #fbfaf7;
     --gold: #d4a017;
-    --gold-dark: #8a6318;
-    --bronze: #8a6318;
+    /* #8a6318 measured 4.56:1 on paper, clearing AA with nothing spare. This
+       holds the same hue at 5.6:1, so the small mono labels have some room. */
+    --gold-dark: #7d5a15;
+    --bronze: #7d5a15;
     --rust: #c0392b;
     --fog: #b8b0a4;
     --line: rgba(10, 10, 10, 0.15);

@@ -40,6 +40,10 @@ REQUIRED_FILES = [
     ROOT / "assets" / "automation-ai-editorial.webp",
     ROOT / "assets" / "fullstack-editorial.webp",
     ROOT / "assets" / "solutions-architecture-diagram.svg",
+    ROOT / "assets" / "fonts" / "bebas-neue-400.woff2",
+    ROOT / "assets" / "fonts" / "space-mono-400.woff2",
+    ROOT / "assets" / "fonts" / "space-mono-700.woff2",
+    ROOT / "assets" / "fonts" / "syne-400-800.woff2",
     ROOT / "assets" / "site.css",
     ROOT / "assets" / "site.js",
 ]

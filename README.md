@@ -18,8 +18,8 @@ The site uses a focused homepage supported by dedicated pages for information th
 - Semantic HTML5
 - Shared responsive CSS
 - Dependency-free vanilla JavaScript
-- Original editorial visual system using Bebas Neue, Space Mono, and Syne
-- Optimised, self-hosted WebP imagery for capability and project cards
+- Original editorial visual system using self-hosted Bebas Neue, Space Mono, and Syne
+- Optimised, self-hosted WebP imagery with responsive srcset on every card
 - Static hosting on GitHub Pages, with Vercel security-header configuration
 - Prettier development tooling for consistent HTML, CSS, JavaScript, JSON, and Markdown formatting
 
@@ -44,6 +44,7 @@ The site uses a focused homepage supported by dedicated pages for information th
 |-- assets/
 |   |-- site.css
 |   |-- site.js
+|   |-- fonts/
 |   |-- favicon.svg
 |   |-- og-image.jpg
 |   |-- portrait*.webp
