@@ -7,3 +7,4 @@ node_modules/
 .sites-runtime/
 .visual-qa/
 .vercel
+.env*
