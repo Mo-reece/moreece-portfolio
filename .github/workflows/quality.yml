@@ -3,7 +3,7 @@ name: Site quality
 on:
   push:
   pull_request:
-    branches: [main]
+    branches: [production]
 
 permissions:
   contents: read
