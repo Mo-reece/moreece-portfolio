@@ -76,7 +76,7 @@ if (finePointer && !reducedMotion) {
 }
 
 const revealElements = document.querySelectorAll(
-    ".section-header, .card, .capability-card, .project-card, .role-summary, .credential-card, .timeline-item, .profile-media, .prose, .contact-card, .cta-panel",
+    ".section-header, .card, .capability-card, .project-card, .role-summary, .credential-card, .timeline-item, .profile-media, .prose, .contact-card, .cta-panel, .proof-card, .case-shot, .arch, .process-steps",
 );
 
 revealElements.forEach((element) => element.classList.add("reveal"));
@@ -97,6 +97,105 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
 
     revealElements.forEach((element) => revealObserver.observe(element));
 }
+
+if (!reducedMotion) {
+    const progressBar = document.createElement("div");
+    progressBar.className = "scroll-progress";
+    progressBar.setAttribute("aria-hidden", "true");
+    document.body.prepend(progressBar);
+
+    let progressQueued = false;
+    const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+        progressBar.style.transform = `scaleX(${ratio})`;
+        progressQueued = false;
+    };
+    window.addEventListener(
+        "scroll",
+        () => {
+            if (progressQueued) return;
+            progressQueued = true;
+            window.requestAnimationFrame(updateProgress);
+        },
+        { passive: true },
+    );
+    updateProgress();
+}
+
+// Count-up numbers: the final value is already in the HTML, so without
+// JavaScript or with reduced motion the correct figure simply shows.
+const counters = document.querySelectorAll("[data-count-to]");
+
+if (counters.length && !reducedMotion && "IntersectionObserver" in window) {
+    const runCounter = (element) => {
+        const target = Number(element.dataset.countTo);
+        const duration = 1100;
+        const start = performance.now();
+        const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            element.textContent = String(Math.round(target * eased));
+            if (progress < 1) window.requestAnimationFrame(step);
+        };
+        window.requestAnimationFrame(step);
+    };
+
+    const counterObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                runCounter(entry.target);
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.6 },
+    );
+
+    counters.forEach((element) => counterObserver.observe(element));
+}
+
+// Interactive architecture map on case-study pages
+document.querySelectorAll("[data-arch]").forEach((map) => {
+    const nodes = [...map.querySelectorAll(".arch-node")];
+    const panel = map.querySelector(".arch-panel");
+    const outputs = {
+        title: panel.querySelector('[data-arch-out="title"]'),
+        body: panel.querySelector('[data-arch-out="body"]'),
+        tags: panel.querySelector('[data-arch-out="tags"]'),
+    };
+
+    const select = (node, moveFocus = false) => {
+        nodes.forEach((item) => {
+            const isActive = item === node;
+            item.setAttribute("aria-selected", String(isActive));
+            item.tabIndex = isActive ? 0 : -1;
+        });
+        outputs.title.textContent = node.dataset.archTitle;
+        outputs.body.textContent = node.dataset.archBody;
+        outputs.tags.textContent = node.dataset.archTags;
+        panel.setAttribute("aria-labelledby", node.id);
+        panel.classList.remove("is-swapping");
+        void panel.offsetWidth;
+        panel.classList.add("is-swapping");
+        if (moveFocus) node.focus();
+    };
+
+    nodes.forEach((node, index) => {
+        node.tabIndex = node.getAttribute("aria-selected") === "true" ? 0 : -1;
+        node.addEventListener("click", () => select(node));
+        node.addEventListener("keydown", (event) => {
+            const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+            if (event.key in keys) {
+                event.preventDefault();
+                select(nodes[(index + keys[event.key] + nodes.length) % nodes.length], true);
+            } else if (event.key === "Home" || event.key === "End") {
+                event.preventDefault();
+                select(nodes[event.key === "Home" ? 0 : nodes.length - 1], true);
+            }
+        });
+    });
+});
 
 const contactForm = document.querySelector("#contact-form");
 

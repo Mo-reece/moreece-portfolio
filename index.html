@@ -18,7 +18,7 @@
         <link rel="canonical" href="https://www.maurice-dev.com/" />
         <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
         <link rel="manifest" href="site.webmanifest" />
-        <link rel="stylesheet" href="assets/site.css?v=4" />
+        <link rel="stylesheet" href="assets/site.css?v=5" />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://www.maurice-dev.com/" />
         <meta property="og:title" content="Okurut Maurice Leonard | Software Engineer" />
@@ -99,7 +99,7 @@
             }
         </script>
         <title>Okurut Maurice Leonard | Software Engineer</title>
-        <script src="assets/site.js?v=4" defer></script>
+        <script src="assets/site.js?v=5" defer></script>
     </head>
     <body>
         <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -125,6 +125,7 @@
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="services.html">Capabilities</a></li>
                     <li><a href="projects.html">Projects</a></li>
+                    <li><a class="nav-cv" href="assets/cv/Maurice-Leonard-Okurut-CV.pdf" download>CV</a></li>
                     <li><a class="nav-cta" href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -132,18 +133,28 @@
 
         <main id="main-content">
             <section class="hero">
-                <div class="hero-copy">
+                <div class="hero-copy hero-enter">
+                    <p class="availability">
+                        <span class="pulse-dot" aria-hidden="true"></span>Open to software engineering roles &amp;
+                        contract work
+                    </p>
                     <p class="eyebrow">Software Engineer · Kampala, Uganda</p>
                     <h1>I build the interface, the API, <span class="accent">and the data underneath.</span></h1>
                     <p class="lead">
-                        I'm a software engineer shipping production web applications and data systems: React and
-                        TypeScript front ends, Python and Node services, and PostgreSQL underneath. Open to full-time
-                        software engineering roles and contract work.
+                        Computer Science graduate shipping production web applications and data systems: React and
+                        TypeScript front ends, Python and Node services, and PostgreSQL underneath.
                     </p>
                     <div class="hero-actions">
                         <a class="button" href="projects.html">See the work</a>
-                        <a class="button button-secondary" href="contact.html">Get in touch</a>
+                        <a class="button button-secondary" href="assets/cv/Maurice-Leonard-Okurut-CV.pdf" download
+                            >Download CV</a
+                        >
                     </div>
+                    <ul class="hero-facts" aria-label="Quick facts">
+                        <li>UTC+3 · remote-ready</li>
+                        <li>Replies within 24 hours</li>
+                        <li>BSc Computer Science, 2026</li>
+                    </ul>
                 </div>
                 <aside class="hero-side" aria-label="Professional profile summary">
                     <div class="portrait-frame">
@@ -178,6 +189,89 @@
                     <li>Automation</li>
                 </ul>
             </div>
+
+            <section class="proof" aria-labelledby="proof-heading">
+                <div class="container">
+                    <div class="proof-head">
+                        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span>Live in production</p>
+                        <h2 id="proof-heading">Three sites running right now. Click through to any of them.</h2>
+                    </div>
+                    <ul class="proof-grid">
+                        <li>
+                            <a class="proof-card" href="vault-tech.html">
+                                <img
+                                    src="assets/projects/vault-tech-800.webp"
+                                    srcset="
+                                        assets/projects/vault-tech-480.webp 480w,
+                                        assets/projects/vault-tech-800.webp 800w
+                                    "
+                                    sizes="(max-width: 700px) calc(100vw - 40px), 380px"
+                                    width="800"
+                                    height="533"
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <span class="proof-meta"
+                                    ><strong>Vault Tech</strong
+                                    ><small>Built end to end · Read the case study</small></span
+                                >
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="proof-card"
+                                href="https://aristocbooklex.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="assets/projects/aristoc-booklex-800.webp"
+                                    srcset="
+                                        assets/projects/aristoc-booklex-480.webp 480w,
+                                        assets/projects/aristoc-booklex-800.webp 800w
+                                    "
+                                    sizes="(max-width: 700px) calc(100vw - 40px), 380px"
+                                    width="800"
+                                    height="1067"
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <span class="proof-meta"
+                                    ><strong>Aristoc Booklex</strong><small>Full-stack collaboration</small></span
+                                >
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                class="proof-card"
+                                href="https://streamsideparkug.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="assets/projects/streamside-park-800.webp"
+                                    srcset="
+                                        assets/projects/streamside-park-480.webp 480w,
+                                        assets/projects/streamside-park-800.webp 800w
+                                    "
+                                    sizes="(max-width: 700px) calc(100vw - 40px), 380px"
+                                    width="800"
+                                    height="533"
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <span class="proof-meta"
+                                    ><strong>The Streamside Park</strong
+                                    ><small>React booking site collaboration</small></span
+                                >
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
             <section class="section section-muted" aria-labelledby="capabilities-heading">
                 <div class="container">
@@ -727,7 +821,7 @@
                             <p class="eyebrow">Selected work</p>
                             <h2 id="work-heading">Work you can go and look at.</h2>
                         </div>
-                        <p>Three live sites and eight public repositories. All of it open to look at.</p>
+                        <p>Three live sites and six public repositories. All of it open to look at.</p>
                     </div>
                     <div class="grid-3">
                         <article class="project-card">
@@ -764,7 +858,7 @@
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         >Visit the site</a
-                                    >
+                                    ><a href="vault-tech.html">Case study</a>
                                 </div>
                             </div>
                         </article>
@@ -843,7 +937,7 @@
                         </article>
                     </div>
                     <div class="button-row">
-                        <a class="button button-secondary" href="projects.html">See all eleven projects</a>
+                        <a class="button button-secondary" href="projects.html">See all nine projects</a>
                     </div>
                 </div>
             </section>

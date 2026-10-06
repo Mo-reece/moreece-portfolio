@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Case study: how I built Vault Tech, a live React, TypeScript and Supabase storefront for a Kampala electronics shop, with row-level security, an owner-run admin panel, and Vercel deploys."
+        />
+        <meta name="author" content="Okurut Maurice Leonard" />
+        <meta name="robots" content="index, follow" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="theme-color" content="#f0ece4" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action https://formsubmit.co; connect-src 'self' https://formsubmit.co; img-src 'self' data:; script-src 'self'; style-src 'self'; font-src 'self'; upgrade-insecure-requests"
+        />
+        <link rel="canonical" href="https://www.maurice-dev.com/vault-tech.html" />
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+        <link rel="manifest" href="site.webmanifest" />
+        <link rel="stylesheet" href="assets/site.css?v=5" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.maurice-dev.com/vault-tech.html" />
+        <meta property="og:title" content="Vault Tech case study | Okurut Maurice Leonard, Software Engineer" />
+        <meta
+            property="og:description"
+            content="A live React, TypeScript and Supabase storefront: architecture, key decisions, and what went wrong."
+        />
+        <meta property="og:image" content="https://www.maurice-dev.com/assets/projects/vault-tech-1200.webp" />
+        <meta property="og:image:alt" content="The Vault Tech storefront homepage" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="800" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:site_name" content="Okurut Maurice Leonard Portfolio" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vault Tech case study | Okurut Maurice Leonard, Software Engineer" />
+        <meta
+            name="twitter:description"
+            content="A live React, TypeScript and Supabase storefront: architecture, key decisions, and what went wrong."
+        />
+        <meta name="twitter:image" content="https://www.maurice-dev.com/assets/projects/vault-tech-1200.webp" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://www.maurice-dev.com/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Projects",
+                                "item": "https://www.maurice-dev.com/projects.html"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": "Vault Tech case study",
+                                "item": "https://www.maurice-dev.com/vault-tech.html"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "SoftwareApplication",
+                        "name": "Vault Tech storefront",
+                        "url": "https://www.vaulttechgadgets.com/",
+                        "applicationCategory": "BusinessApplication",
+                        "operatingSystem": "Web",
+                        "author": { "@id": "https://www.maurice-dev.com/#person" }
+                    }
+                ]
+            }
+        </script>
+        <title>Vault Tech Case Study | Okurut Maurice Leonard, Software Engineer</title>
+        <script src="assets/site.js?v=5" defer></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <header class="site-header">
+            <nav class="site-nav container" aria-label="Primary navigation">
+                <a class="brand" href="index.html" aria-label="Okurut Maurice Leonard home"
+                    ><img src="assets/oml-logo.jpg" width="432" height="235" alt="" /><span
+                        >Okurut Maurice Leonard<small>Software Engineer</small></span
+                    ></a
+                ><button
+                    class="nav-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="primary-menu"
+                    aria-label="Open navigation menu"
+                >
+                    &#9776;
+                </button>
+                <ul class="nav-menu" id="primary-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="services.html">Capabilities</a></li>
+                    <li><a href="projects.html" aria-current="page">Projects</a></li>
+                    <li><a class="nav-cv" href="assets/cv/Maurice-Leonard-Okurut-CV.pdf" download>CV</a></li>
+                    <li><a class="nav-cta" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <header class="page-hero">
+                <div class="container page-hero-grid">
+                    <div class="page-hero-copy">
+                        <ol class="breadcrumb" aria-label="Breadcrumb">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li aria-current="page">Vault Tech</li>
+                        </ol>
+                        <p class="eyebrow">Case study · Live in production</p>
+                        <h1>Vault Tech: <span class="accent">a storefront the owner runs without me</span>.</h1>
+                        <hr class="hero-rule" />
+                        <p class="lead">
+                            A Kampala electronics shop needed its whole catalogue online, phones to laptops with prices
+                            in UGX, and a way to update it without calling a developer. I designed, built and deployed
+                            it end to end.
+                        </p>
+                        <div class="button-row">
+                            <a
+                                class="button button--gold"
+                                href="https://www.vaulttechgadgets.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Visit the live site</a
+                            >
+                            <a class="button button-secondary" href="#architecture">See the architecture</a>
+                        </div>
+                    </div>
+                    <div class="page-hero-panel">
+                        <div class="page-hero-card">
+                            <h2>At a glance</h2>
+                            <dl class="hero-metrics">
+                                <div>
+                                    <dt>Products live</dt>
+                                    <dd><span data-count-to="100">100</span>+</dd>
+                                </div>
+                                <div>
+                                    <dt>Database tables</dt>
+                                    <dd><span data-count-to="5">5</span></dd>
+                                </div>
+                                <div>
+                                    <dt>Role</dt>
+                                    <dd>Solo</dd>
+                                </div>
+                                <div>
+                                    <dt>Checkout</dt>
+                                    <dd>None</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="section-compact" aria-label="Live site screenshot">
+                <div class="container">
+                    <figure class="case-shot">
+                        <div class="case-shot-bar" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                            <em>www.vaulttechgadgets.com</em>
+                        </div>
+                        <img
+                            src="assets/projects/vault-tech-1200.webp"
+                            srcset="
+                                assets/projects/vault-tech-480.webp   480w,
+                                assets/projects/vault-tech-800.webp   800w,
+                                assets/projects/vault-tech-1200.webp 1200w
+                            "
+                            sizes="(max-width: 1240px) calc(100vw - 40px), 1180px"
+                            width="1200"
+                            height="800"
+                            alt="The Vault Tech homepage: flagship phones in stock in Kampala, with search and enquiry buttons"
+                            decoding="async"
+                        />
+                        <figcaption>
+                            The live homepage. Every call to action leads to an enquiry, not a cart: that's how this
+                            shop sells.
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="section" id="architecture" aria-labelledby="architecture-heading">
+                <div class="container">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Architecture</p>
+                            <h2 id="architecture-heading">How a request moves through the system.</h2>
+                        </div>
+                        <p>Select any part of the map to see what it does and why it's built that way.</p>
+                    </div>
+
+                    <div class="arch" data-arch>
+                        <div class="arch-flow" role="tablist" aria-label="Architecture components">
+                            <button
+                                class="arch-node"
+                                type="button"
+                                role="tab"
+                                id="arch-tab-visitor"
+                                aria-controls="arch-panel"
+                                aria-selected="true"
+                                data-arch-title="Visitor's phone"
+                                data-arch-body="Most visitors arrive on a mid-range Android phone over mobile data. That set the performance budget: self-hosted fonts, compressed images, and no heavy UI framework on top of React."
+                                data-arch-tags="Mobile first · UGX prices · WhatsApp enquiries"
+                            >
+                                <span class="arch-step">01</span><strong>Visitor</strong><small>Phone browser</small>
+                            </button>
+                            <span class="arch-link" aria-hidden="true"></span>
+                            <button
+                                class="arch-node"
+                                type="button"
+                                role="tab"
+                                id="arch-tab-vercel"
+                                aria-controls="arch-panel"
+                                aria-selected="false"
+                                data-arch-title="Vercel"
+                                data-arch-body="Static hosting on a global CDN with a single-page-app rewrite so deep links like a product page load directly. Every push to a branch gets its own preview URL, so changes are checked before they reach the live domain."
+                                data-arch-tags="CDN · Preview deploys · Custom domain"
+                            >
+                                <span class="arch-step">02</span><strong>Vercel</strong><small>CDN &amp; deploys</small>
+                            </button>
+                            <span class="arch-link" aria-hidden="true"></span>
+                            <button
+                                class="arch-node"
+                                type="button"
+                                role="tab"
+                                id="arch-tab-react"
+                                aria-controls="arch-panel"
+                                aria-selected="false"
+                                data-arch-title="React app"
+                                data-arch-body="React 19, TypeScript and React Router, built with Vite. Data fetches are cached per page load. If the database is unreachable, the hero and category content falls back to a built-in copy so the page is never blank; products show an honest error instead of stale prices."
+                                data-arch-tags="React 19 · TypeScript · Vite · Fallback content"
+                            >
+                                <span class="arch-step">03</span><strong>React app</strong><small>TypeScript SPA</small>
+                            </button>
+                            <span class="arch-link" aria-hidden="true"></span>
+                            <button
+                                class="arch-node"
+                                type="button"
+                                role="tab"
+                                id="arch-tab-supabase"
+                                aria-controls="arch-panel"
+                                aria-selected="false"
+                                data-arch-title="Supabase Postgres"
+                                data-arch-body="Products, hero slides, category tiles and journeys live in Postgres. Row-level security lets the public read only active rows, and writes need both a signed-in account and a place on an admin allowlist. Product photos live in Supabase Storage."
+                                data-arch-tags="PostgreSQL · Row-level security · Auth · Storage"
+                            >
+                                <span class="arch-step">04</span><strong>Supabase</strong><small>Postgres + RLS</small>
+                            </button>
+                            <span class="arch-link" aria-hidden="true"></span>
+                            <button
+                                class="arch-node"
+                                type="button"
+                                role="tab"
+                                id="arch-tab-admin"
+                                aria-controls="arch-panel"
+                                aria-selected="false"
+                                data-arch-title="Admin panel"
+                                data-arch-body="The shop owner isn't technical, so the admin panel does the hard parts: photos are resized and converted to WebP in the browser before upload, discounts badge themselves automatically, and every write reports clearly if it was rejected."
+                                data-arch-tags="Owner-run · WebP uploads · Validated forms"
+                            >
+                                <span class="arch-step">05</span><strong>Admin</strong><small>Owner's panel</small>
+                            </button>
+                        </div>
+                        <div class="arch-panel" id="arch-panel" role="tabpanel" aria-live="polite">
+                            <h3 data-arch-out="title">Visitor's phone</h3>
+                            <p data-arch-out="body">
+                                Most visitors arrive on a mid-range Android phone over mobile data. That set the
+                                performance budget: self-hosted fonts, compressed images, and no heavy UI framework on
+                                top of React.
+                            </p>
+                            <p class="metric" data-arch-out="tags">Mobile first · UGX prices · WhatsApp enquiries</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-muted" aria-labelledby="decisions-heading">
+                <div class="container">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Key decisions</p>
+                            <h2 id="decisions-heading">Three calls that shaped the build.</h2>
+                        </div>
+                        <p>Each one trades a little convenience for something the shop can't afford to lose.</p>
+                    </div>
+                    <div class="grid-3">
+                        <article class="card">
+                            <p class="metric">01 · Security</p>
+                            <h3>Two independent locks</h3>
+                            <p>
+                                Row-level security alone trusts any signed-in user. I added an admin allowlist in the
+                                database and disabled public sign-ups, so a stray account can sign in but can never
+                                change a price.
+                            </p>
+                        </article>
+                        <article class="card">
+                            <p class="metric">02 · Reliability</p>
+                            <h3>Never a blank page</h3>
+                            <p>
+                                Marketing content falls back to a built-in copy if the database fails. Products
+                                deliberately don't: showing an old price to a real buyer is worse than showing an error.
+                            </p>
+                        </article>
+                        <article class="card">
+                            <p class="metric">03 · Performance</p>
+                            <h3>Images sized for phones</h3>
+                            <p>
+                                Uploads are compressed to WebP at most 1200px in the browser, and every product also has
+                                a 640px card copy. An asset check script flags any image that's missing its card
+                                version.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="lesson-heading">
+                <div class="container case-split">
+                    <div>
+                        <p class="eyebrow">What went wrong</p>
+                        <h2 id="lesson-heading" class="content-heading">51 products, silently missing.</h2>
+                    </div>
+                    <div class="prose">
+                        <p>
+                            I added a batch of computers and audio products through a database migration. The code was
+                            merged, the site deployed, and everything looked fine. But a migration file isn't live until
+                            it runs against the production database, and this one never had. For a while, 51 products
+                            existed in the repository and nowhere on the site.
+                        </p>
+                        <p>
+                            <strong>What I changed:</strong> every migration now records the date it was applied, and
+                            each one is verified against the live API with the public key before I call it done. Merged
+                            and live are now two separate checks.
+                        </p>
+                        <p>
+                            The lesson carried over to everything I ship: deployment isn't the finish line; verified
+                            behaviour in production is.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-muted" aria-labelledby="stack-heading">
+                <div class="container">
+                    <div class="section-header">
+                        <div>
+                            <p class="eyebrow">Stack</p>
+                            <h2 id="stack-heading">Deliberately small.</h2>
+                        </div>
+                        <p>
+                            Four runtime dependencies. No state library and no CSS framework, so there's less to break
+                            and less for the next developer to learn.
+                        </p>
+                    </div>
+                    <ul class="tag-list tag-list--large">
+                        <li>React 19</li>
+                        <li>TypeScript</li>
+                        <li>React Router 7</li>
+                        <li>Vite</li>
+                        <li>Supabase JS</li>
+                        <li>PostgreSQL</li>
+                        <li>Row-level security</li>
+                        <li>Supabase Storage</li>
+                        <li>Vercel</li>
+                        <li>Plain CSS design tokens</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section-compact">
+                <div class="container cta-panel">
+                    <div>
+                        <h2>Need something like this built?</h2>
+                        <p>Hiring for an engineering role, or a business that needs its own site? Let's talk.</p>
+                    </div>
+                    <a class="button" href="contact.html">Get in touch</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h2>Okurut Maurice Leonard</h2>
+                        <p>Software Engineer based in Kampala, Uganda.</p>
+                    </div>
+                    <div>
+                        <h2>Explore</h2>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="experience.html">Experience</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Connect</h2>
+                        <ul class="footer-links">
+                            <li><a href="mailto:okurutmauriceleonard@gmail.com">Email</a></li>
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/maurice-leonard-okurut-26a048356"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >LinkedIn</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://github.com/Mo-reece" target="_blank" rel="noopener noreferrer"
+                                    >GitHub</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span>&copy; <span data-current-year>2026</span> Okurut Maurice Leonard.</span
+                    ><a href="privacy.html">Privacy notice</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
