@@ -1,6 +1,6 @@
 # Maurice Leonard Okurut Portfolio Website
 
-Multi-page professional portfolio for Okurut Maurice Leonard, a solutions architect and full-stack engineer based in Kampala, Uganda.
+Multi-page professional portfolio for Okurut Maurice Leonard, a software engineer based in Kampala, Uganda.
 
 ## Information architecture
 
